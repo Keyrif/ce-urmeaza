@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="ro">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNLFQ7820Y"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Your Path</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* CSS personalizat, dacă este necesar */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      #root {
+        height: 100%;
+      }
 
-  gtag('config', 'G-KNLFQ7820Y');
-  
-</script>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ce Urmeaza?</title>
-    <meta property="og:title" content="Ce Urmează?">
-    <meta property="og:description" content="Descoperă ce ți se potrivește. Informații despre facultăți și joburi!">
-    <meta property="og:image" content="https://i.imgur.com/JA6q04v.png">
-    <meta property="og:url" content="https://ceurmeaza.vercel.app/">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ce Urmează?">
-    <meta name="twitter:description" content="Descoperă ce ți se potrivește. Informații despre facultăți și joburi!">
-    <meta name="twitter:image" content="https://i.imgur.com/JA6q04v.png">
-    
-    <script type="module" src="/src/main.js"></script>
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.5s ease-out;
+      }
+
+      @keyframes zoom-in {
+        from { transform: scale(0.95); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      .animate-zoom-in {
+        animation: zoom-in 0.3s ease-out;
+      }
+      
+      @keyframes pulse-once {
+        from { transform: scale(1); }
+        to { transform: scale(1.05); }
+      }
+      .animate-pulse-once {
+        animation: pulse-once 0.3s ease-out;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="root"></div>
+    <!-- Script care încarcă aplicația React -->
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
