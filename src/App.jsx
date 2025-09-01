@@ -38,14 +38,11 @@ export default function App() {
 
   return (
     <div className={`${darkMode ? "bg-slate-900 text-white" : "bg-white text-slate-900"} min-h-screen w-screen flex flex-col items-center transition-all duration-700`}> 
-
-      {/* Logo */}
       <motion.div layout 
         className={`font-extrabold text-center transition-all duration-700 ${hasSearched ? "text-4xl mt-4" : "text-6xl mt-[30vh]"}`}>
-        CE URMEAZĂ?
+        CE URMEAZĂa?
       </motion.div>
 
-      {/* Searchbar */}
       <motion.input
         ref={inputRef}
         layout
@@ -57,7 +54,6 @@ export default function App() {
         className={`p-5 rounded-full border border-slate-700 focus:outline-none focus:border-cyan-400 shadow-xl transition-all duration-700 ease-in-out text-center ${hasSearched ? "w-64 text-base mt-4" : "w-96 text-lg mt-12"} ${darkMode ? "bg-slate-800/50 placeholder-slate-400" : "bg-slate-200/50 placeholder-slate-600 text-slate-950"}`}
       />
 
-      {/* Rezultate */}
       {hasSearched && (
         <div className="mt-12 p-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl">
           {filteredFaculties.map(fac => (
