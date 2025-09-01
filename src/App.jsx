@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import hangerIcon from './favicon2.png'; 
 
 function App() {
   const [searchText, setSearchText] = useState("");
@@ -485,15 +486,8 @@ function App() {
               </button>
               <div className="flex flex-col items-center mb-6 text-center">
                   <span className={`p-4 rounded-full mb-4 ${darkMode ? 'bg-slate-800' : 'bg-gray-200'}`}>
-                      <svg xmlns="http://www.w3.org/24/24" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-graduation-cap text-cyan-500">
-                          <path d="M21.43 14.24a2.37 2.37 0 0 0-1.28-2.67l-7.7-4.22a2.43 2.43 0 0 0-2.27 0l-7.7 4.22a2.37 2.37 0 0 0-1.28 2.67l1.7 4.41a2 2 0 0 0 1.96 1.35h9.43a2 2 0 0 0 1.96-1.35Z"/>
-                          <path d="M12 2v2"/>
-                          <path d="M12 22v-2"/>
-                          <path d="M16 16v2"/>
-                          <path d="M8 16v2"/>
-                          <path d="M18 10v2"/>
-                          <path d="M6 10v2"/>
-                      </svg>
+                      {/* Aici am înlocuit SVG-ul cu o etichetă <img> care folosește imaginea importată */}
+                      <img src={hangerIcon} alt="Umeraș" className="w-12 h-12 text-cyan-500" />
                   </span>
                   <h2 className="text-3xl font-bold">{selectedFaculty.name}</h2>
               </div>
@@ -668,7 +662,7 @@ function App() {
           darkMode ? "bg-slate-900 text-gray-200" : "bg-gray-100 text-gray-900"
         }`}
       >
-        <p className="font-semibold text-lg">© 2025 CE URMEAZă?</p>
+        <p className="font-semibold text-lg">© 2025 KEYRIF</p>
         <p className="text-sm opacity-80">
           version 0.1b
         </p>
