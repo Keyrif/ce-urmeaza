@@ -377,6 +377,7 @@ function App() {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && Search()}
+            onClick={handleSearchClick}
             placeholder="Caută..."
             className={`rounded-full border text-center mt-6 transition-all duration-700 shadow-lg focus:shadow-xl ${
               darkMode
@@ -667,7 +668,7 @@ function App() {
           darkMode ? "bg-slate-900 text-gray-200" : "bg-gray-100 text-gray-900"
         }`}
       >
-        <p className="font-semibold text-lg">© 2025 KEYRIF</p>
+        <p className="font-semibold text-lg">© 2025 CE URMEAZă?</p>
         <p className="text-sm opacity-80">
           version 0.1b
         </p>
