@@ -3,4 +3,4 @@
 </p>
 
 <h1>Introducere:</h1>
-<p>Dezvoltat cu React.JS</p>
+- Dezvoltat cu React.JS
