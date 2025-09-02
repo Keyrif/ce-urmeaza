@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import hangerIcon from './favicon2.png'; 
+import icon from './favicon2.png'; 
+
 function App() {
   const [searchText, setSearchText] = useState("");
   const [searched, setSearched] = useState(false);
@@ -27,7 +28,7 @@ function App() {
   useEffect(() => {
     if (!searched && !showQuiz) {
       const text1 = "INFORMAȚII DESPRE FACULTĂȚI ȘI JOBURI";
-      const text2 = "iar CE URMEAZĂ?";
+      const text2 = "GĂSEȘTE-ȚI FACULTATEA PERFECTĂ";
       let textToType = text1;
       let isTyping = true;
       let i = 0;
@@ -76,7 +77,7 @@ function App() {
 
   if (!ready) return null;
 
-  const faculties = [
+  const universities = [
     {
       name: "Facultatea de Informatică",
       location: "București",
@@ -182,7 +183,7 @@ function App() {
       ],
     },
     {
-      questionText: "Ce salariu mediu lunar dorești?",
+      questionText: "Ce salariu lunar dorești?",
       type: "slider",
       min: 2500,
       max: 10000,
@@ -206,14 +207,14 @@ function App() {
 
   const Search = () => {
     if (searchText.trim() === "") {
-      setResults(faculties);
+      setResults(universities);
       setSearched(true);
       return;
     }
     setSearched(true);
     inputRef.current?.blur();
     const search = searchText.toLowerCase();
-    const filtered = faculties.filter((f) => {
+    const filtered = universities.filter((f) => {
       if (f.name.toLowerCase().includes(search)) return true;
       if (f.location.toLowerCase().includes(search)) return true;
       for (let k of f.keywords) {
@@ -224,7 +225,7 @@ function App() {
     setResults(filtered);
   };
 
-  const handleSearchClick = () => {
+  const SearchBarReset = () => {
     if (searched) {
       setSearched(false);
       inputRef.current?.focus();
@@ -234,7 +235,7 @@ function App() {
   const showAllFaculties = () => {
     setSearched(true);
     setSearchText("");
-    setResults(faculties);
+    setResults(universities);
   };
 
   const InfoCard = ({ title, icon, children }) => (
@@ -268,7 +269,7 @@ function App() {
     let bestFitByScore = null;
     let maxScore = -1;
 
-    faculties.forEach(f => {
+    universities.forEach(f => {
       const score = quizScores[f.name] || 0;
       if (score > maxScore) {
         maxScore = score;
@@ -377,7 +378,7 @@ function App() {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && Search()}
-            onClick={handleSearchClick}
+            onClick={SearchBarReset}
             placeholder="Caută..."
             className={`rounded-full border text-center mt-6 transition-all duration-700 shadow-lg focus:shadow-xl ${
               darkMode
@@ -492,7 +493,7 @@ function App() {
               </button>
               <div className="flex flex-col items-center mb-6 text-center">
                   <span className={`p-4 rounded-full mb-4 ${darkMode ? 'bg-slate-800' : 'bg-gray-200'}`}>
-                      <img src={hangerIcon} alt="Umeraș" className="w-12 h-12 text-cyan-500" />
+                      <img src={icon} className="w-12 h-12 text-cyan-500" />
                   </span>
                   <h2 className="text-3xl font-bold">{selectedFaculty.name}</h2>
               </div>
