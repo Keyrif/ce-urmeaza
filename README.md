@@ -3,7 +3,10 @@
 </p>
 
 <h1 align="center">Află informații despre facultăți și joburi, găsește-ți facultatea potrivită!</h1>
-<ul align="center">
-  <li>a</li>
-  <li>b</li>
-</ul>
+<div align="center">
+  <ul>
+    <li>Punct 1</li>
+    <li>Punct 2</li>
+    <li>Punct 3</li>
+  </ul>
+</div>
