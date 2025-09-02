@@ -454,6 +454,7 @@ function App() {
                 <div className="flex flex-wrap gap-2 mt-2">
                   <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-400 text-white"}`}>
                     {f.location}
+                    
                   </div>
 
                 </div>
