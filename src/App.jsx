@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import hangerIcon from './favicon2.png'; 
-
 function App() {
   const [searchText, setSearchText] = useState("");
   const [searched, setSearched] = useState(false);
@@ -453,10 +452,10 @@ function App() {
                 <h2 className="font-bold text-xl relative z-10">{f.name}</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
                   <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
-                    {f.location}
+                   {f.location}
                   </div>
                   <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
-                    Salariu: {f.salary.min} - {f.salary.max} RON
+                    Salarii: {f.salary.min} - {f.salary.max} RON
                   </div>
                 </div>
               </motion.div>
