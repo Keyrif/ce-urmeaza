@@ -4,3 +4,4 @@
 
 <h1>Introducere:</h1>
 - Dezvoltat cu React.JS
+- asd
