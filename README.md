@@ -4,4 +4,4 @@
 
 <h1 align="center">Află informații despre facultăți și joburi, găsește-ți facultatea potrivită!</h1>
 <h2 align="center">Află informații despre facultăți și joburi, găsește-ți facultatea potrivită!</h2>
-ASDAD
+# ASDAD
