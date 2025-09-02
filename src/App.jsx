@@ -451,9 +451,14 @@ function App() {
                   }}
                 />
                 <h2 className="font-bold text-xl relative z-10">{f.name}</h2>
-                <p className="opacity-80 relative z-10">{f.location}</p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-400 text-white"}`}>
+                    {f.location}
+                  </div>
+
+                </div>
               </motion.div>
-            ))}
+            ))} 
           </motion.div>
         )}
       </div>
