@@ -3,3 +3,4 @@
 </p>
 
 <h1 align="center">Află informații despre facultăți și joburi, găsește-ți facultatea potrivită!</h1>
+# CAPITOL1
