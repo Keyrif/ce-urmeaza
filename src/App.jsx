@@ -317,7 +317,7 @@ function App() {
       }`}
     >
       <button
-        className={`absolute top-4 right-4 p-2 rounded-full ${darkMode ? 'bg-cyan-600 text-white' : 'bg-cyan-300 text-gray-900'} shadow-lg hover:shadow-xl z-10`}
+        className={`absolute top-4 right-4 p-2 rounded-full ${darkMode ? 'bg-cyan-700 text-white' : 'bg-cyan-500 text-white'} shadow-lg hover:shadow-xl z-10`}
         onClick={toggleDarkMode}
       >
         {darkMode ? (
@@ -409,8 +409,8 @@ function App() {
                 <motion.button
                   className={`px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
                     darkMode
-                      ? "bg-cyan-600 hover:bg-cyan-500 text-white"
-                      : "bg-cyan-400 hover:bg-cyan-300 text-white"
+                      ? "bg-cyan-700 hover:bg-cyan-600 text-white"
+                      : "bg-cyan-500 hover:bg-cyan-400 text-white"
                   }`}
                   onClick={startQuiz}
                 >
@@ -452,11 +452,12 @@ function App() {
                 />
                 <h2 className="font-bold text-xl relative z-10">{f.name}</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-400 text-white"}`}>
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
                     {f.location}
-                    
                   </div>
-
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
+                    Salariu: {f.salary.min} - {f.salary.max} RON
+                  </div>
                 </div>
               </motion.div>
             ))} 
@@ -492,7 +493,6 @@ function App() {
               </button>
               <div className="flex flex-col items-center mb-6 text-center">
                   <span className={`p-4 rounded-full mb-4 ${darkMode ? 'bg-slate-800' : 'bg-gray-200'}`}>
-                      {/* Aici am înlocuit SVG-ul cu o etichetă <img> care folosește imaginea importată */}
                       <img src={hangerIcon} alt="Umeraș" className="w-12 h-12 text-cyan-500" />
                   </span>
                   <h2 className="text-3xl font-bold">{selectedFaculty.name}</h2>
@@ -598,8 +598,8 @@ function App() {
                                 }}
                                 className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
                                   darkMode
-                                    ? "bg-cyan-600 hover:bg-cyan-500 text-white"
-                                    : "bg-cyan-400 hover:bg-cyan-300 text-white"
+                                    ? "bg-cyan-700 hover:bg-cyan-600 text-white"
+                                    : "bg-cyan-500 hover:bg-cyan-400 text-white"
                                 }`}
                             >
                                 Vezi detalii
@@ -638,7 +638,7 @@ function App() {
                                     />
                                     <div className="flex justify-between w-full text-sm mt-2">
                                         <span>2500 RON</span>
-                                        <span className={`font-extrabold text-lg transition-all duration-300 ${darkMode ? 'text-cyan-400' : 'text-cyan-600'}`}>
+                                        <span className={`font-extrabold text-lg transition-all duration-300 ${darkMode ? 'text-cyan-600' : 'text-cyan-600'}`}>
                                             {salaryRange} RON
                                         </span>
                                         <span>10000 RON</span>
@@ -646,7 +646,7 @@ function App() {
                                     <button
                                         onClick={calculateResult}
                                         className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 transition-all duration-300 ${
-                                          darkMode ? "bg-cyan-600 hover:bg-cyan-500 text-white" : "bg-cyan-400 hover:bg-cyan-300 text-white"
+                                          darkMode ? "bg-cyan-700 hover:bg-cyan-600 text-white" : "bg-cyan-500 hover:bg-cyan-400 text-white"
                                         }`}
                                     >
                                         Vezi rezultatul
