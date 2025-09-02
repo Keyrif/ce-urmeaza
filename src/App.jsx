@@ -239,6 +239,14 @@ function App() {
           >
             CE URMEAZĂ?
           </motion.h1>
+          <motion.p
+            layout
+            className={`font-medium transition-all duration-700 ${
+              searched ? "opacity-0" : "text-sm sm:text-lg mt-2 opacity-70"
+            }`}
+          >
+            {displayedSubtitle}
+          </motion.p>
           <SearchBar
             searchText={searchText}
             setSearchText={setSearchText}
@@ -251,14 +259,6 @@ function App() {
             showQuiz={showQuiz}
             darkMode={darkMode}
           />
-          <motion.p
-            layout
-            className={`font-medium transition-all duration-700 ${
-              searched ? "opacity-0" : "text-sm sm:text-lg mt-2 opacity-70"
-            }`}
-          >
-            {displayedSubtitle}
-          </motion.p>
         </motion.div>
 
         {searched && (
