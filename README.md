@@ -3,4 +3,7 @@
 </p>
 
 <h1 align="center">Află informații despre facultăți și joburi, găsește-ți facultatea potrivită!</h1>
-<p>test</p>
+<ul align="center"> 
+- a 
+-b 
+</ul>
