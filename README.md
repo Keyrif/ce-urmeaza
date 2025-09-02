@@ -3,8 +3,8 @@
 </p>
 
 <h1 align="center">Află informații despre facultăți și joburi, găsește-ți facultatea potrivită!</h1>
-<p align="center">
-  • 1<br>
-  • 2<br>
-  • 3
+<h1>Functionalitati:</h1>
+<p>
+- a
+- b
 </p>
