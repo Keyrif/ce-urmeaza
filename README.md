@@ -3,4 +3,4 @@
 </p>
 
 <h1>Introducere:</h1>
-<p>asa este frate</p>
+<p>Dezvoltat cu React.JS</p>
