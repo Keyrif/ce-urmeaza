@@ -26,6 +26,27 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (selectedFaculty || showQuiz) {
+      const closeMenuEsc = (event) => {
+        if (event.key === 'Escape') {
+          if (selectedFaculty) {
+            setSelectedFaculty(null);
+          }
+          if (showQuiz) {
+           closeQuiz();
+          }
+          }
+      };
+
+      document.addEventListener('keydown', closeMenuEsc);
+
+      return () => {
+       document.removeEventListener('keydown', closeMenuEsc);
+      };
+    }
+  }, [selectedFaculty, showQuiz]);
+
+  useEffect(() => {
     if (!searched && !showQuiz) {
       const text1 = "INFORMAȚII DESPRE FACULTĂȚI ȘI JOBURI";
       const text2 = "GĂSEȘTE-ȚI FACULTATEA PERFECTĂ";
