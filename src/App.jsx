@@ -188,7 +188,7 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen w-screen flex flex-col transition-all duration-700 select-none ${
+      className={`min-h-screen w-screen flex flex-col transition-all duration-300 select-none ${
         darkMode ? "bg-[#0F172A] text-white" : "bg-[#F1F5F9] text-gray-900"
       }`}
     >
@@ -235,7 +235,7 @@ function App() {
         )}
       </button>
 
-      <div className={`flex-grow flex flex-col items-center transition-all duration-700 ${
+      <div className={`flex-grow flex flex-col items-center transition-all duration-300 ${
         !searched ? 'justify-center' : 'pt-16'}`}>
 
         <motion.div
@@ -245,7 +245,7 @@ function App() {
           <motion.h1
             layout
             onClick={logoClick}
-            className={`cursor-pointer font-extrabold transition-all duration-700 text-center whitespace-nowrap ${
+            className={`cursor-pointer font-extrabold transition-all duration-300 text-center whitespace-nowrap ${
               searched ? "text-3xl sm:text-4xl" : "text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw]"
             } ${
                 darkMode
@@ -260,7 +260,7 @@ function App() {
 
           <motion.p
             layout
-            className={`font-medium transition-all duration-700 ${
+            className={`font-medium transition-all duration-300 ${
               searched ? "opacity-0" : "text-sm sm:text-lg mt-2 opacity-70"
             }`}
           >
@@ -641,7 +641,7 @@ function App() {
       </AnimatePresence>
 
       <footer
-        className={`w-full py-6 mt-12 flex flex-col items-center justify-center gap-1 text-center transition-all duration-500 ${
+        className={`w-full py-6 mt-12 flex flex-col items-center justify-center gap-1 text-center transition-all duration-300 ${
           darkMode ? "bg-slate-900 text-gray-200" : "bg-gray-100 text-gray-900"
         }`}
       >
