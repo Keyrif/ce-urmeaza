@@ -295,10 +295,41 @@ function App() {
                 />
                 <h2 className="font-bold text-xl relative z-10">{f.name}</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
-                    {f.location}
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="16"
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      className="lucide lucide-map-pin-icon lucide-map-pin mr-1"
+                    >
+                      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                      <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  {f.location}
                   </div>
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="16"
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      className="lucide lucide-banknote-icon lucide-banknote mr-1"
+                    >
+                      <rect width="20" height="12" x="2" y="6" rx="2"/>
+                      <circle cx="12" cy="12" r="2"/>
+                      <path d="M6 12h.01M18 12h.01"/>
+                    </svg>
                     Salarii: {f.salary.min} - {f.salary.max} RON
                   </div>
                 </div>
@@ -350,7 +381,16 @@ function App() {
                   <InfoCard
                       title="1. Durata studiilor"
                       icon={
-                        <svg xmlns="http://www.w3.org/24/24" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock">
+                        <svg xmlns="http://www.w3.org/24/24" 
+                          width="24" 
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          className="lucide lucide-clock">
                           <circle cx="12" cy="12" r="10"/>
                           <path d="M12 6v6l4 2"/>
                         </svg>
@@ -362,7 +402,16 @@ function App() {
                   <InfoCard
                       title="2. Ce studiezi"
                       icon={
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-book-open">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                          width="24" 
+                          height="24" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          className="lucide lucide-book-open">
                           <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                           <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                         </svg>
@@ -375,12 +424,21 @@ function App() {
                       <InfoCard
                           title="3. Salarii medii pe job"
                           icon={
-                            <svg xmlns="http://www.w3.org/24/24" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-badge-dollar-sign">
-                              <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.56 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.56 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.57 0 4 4 0 0 1-4.78-4.78 4 4 0 0 1 0-6.56Z"/>
-                              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4h-6"/>
-                              <path d="M12 17v-1.5"/>
-                              <path d="M12 7.5V7"/>
-                            </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            stroke-width="2" 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            class="lucide lucide-banknote-icon lucide-banknote"
+                          >
+                            <rect width="20" height="12" x="2" y="6" rx="2"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M6 12h.01M18 12h.01"/>
+                          </svg>
                           }
                       >
                           {selectedUniversity.details.jobs.map((job) => (
