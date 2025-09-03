@@ -112,7 +112,7 @@ return (
             }`}
             onClick={showAllFaculties}
           >
-            AFISEAZA TOATE FACULTATILE
+            AFIȘEAZĂ TOATE FACULTĂȚILe
           </motion.button>
           <motion.button
             className={`px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
@@ -122,7 +122,7 @@ return (
             }`}
             onClick={startQuiz}
           >
-            DESCOPERA FACULTATEA PERFECTA
+            DESCOPERĂ FACULTATEA PERFECTĂ
           </motion.button>
         </motion.div>
       )}
