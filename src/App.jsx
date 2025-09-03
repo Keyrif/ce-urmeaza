@@ -426,7 +426,28 @@ function App() {
               
               <div className="flex flex-col gap-4">
                   <InfoCard
-                      title="1. Durata studiilor"
+                      title="In cadrul:"
+                      icon={
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                          width="16"
+                          height="16" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          className="lucide lucide-map-pin-icon lucide-map-pin mr-1"
+                        >
+                      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                      <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                      }
+                  >
+                      <p>{selectedUniversity.university}</p>
+                  </InfoCard>
+                  <InfoCard
+                      title="Durata studiilor:"
                       icon={
                         <svg xmlns="http://www.w3.org/24/24" 
                           width="24" 
@@ -447,7 +468,7 @@ function App() {
                   </InfoCard>
 
                   <InfoCard
-                      title="2. Ce studiezi"
+                      title="Ce studiezi:"
                       icon={
                         <svg xmlns="http://www.w3.org/2000/svg"
                           width="24" 
@@ -469,7 +490,7 @@ function App() {
 
                   {selectedUniversity.details.jobs && (
                       <InfoCard
-                          title="3. Salarii medii pe job"
+                          title="Salarii medii per job:"
                           icon={
                           <svg xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -628,9 +649,11 @@ function App() {
         <a className="text-sm opacity-80" href="https://github.com/keyrif/ce-urmeaza">
           Pagina Proiect Github
         </a>
+        <a className="text-sm opacity-80" href="https://www.paylab.ro/">
+          Sursa salarii
+        </a>
       </footer>
     </div>
   );
 }
-
 export default App;

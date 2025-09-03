@@ -13,16 +13,16 @@ const universities = [
       "spcialist", "baze de date", "algoritmi", 
       "matematica", "economie", "cibernetica"
     ],
-    salary: { min: 3000, max: 20000 },
+    salary: { min: 3000, max: 16000 },
     details: {
       duration: 3,
       study: "Algoritmi, baze de date, programare, inteligență artificială, statistică, economie aplicată.",
       jobs: [
         { name: "Programator junior", salary: "3000 - 5000 RON" },
+        { name: "Programator", salary: "5000 - 14000 RON" },
         { name: "Analist date", salary: "4000 - 7000 RON" },
-        { name: "Inginer software", salary: "7000 - 12000 RON" },
-        { name: "Consultant IT", salary: "8000 - 15000 RON" },
-        { name: "Specialist AI", salary: "10000 - 20000 RON" }
+        { name: "Analist baze date", salary: "5000 - 10000 RON" },
+        { name: "Inginer software", salary: "5000 - 16000 RON" }
       ]
     }
   },
@@ -33,12 +33,13 @@ const universities = [
     keywords: [
       "contabilitate", "informatica de gestiune", "finante", "audit", "impozite", "cig", "ase", "excel"
     ],
-    salary: { min: 3500, max: 9000 },
+    salary: { min: 3000, max: 9000 },
     details: {
       duration: 3,
       study: "Contabilitate financiară, audit, fiscalitate, informatică aplicată în gestiune.",
       jobs: [
-        { name: "Contabil", salary: "3500 - 6000 RON" },
+        { name: "Contabil junior", salary: "3000 - 4000 RON" },
+        { name: "Contabil", salary: "4000 - 7000 RON" },
         { name: "Auditor financiar", salary: "4000 - 9000 RON" },
         { name: "Analist financiar", salary: "4500 - 8000 RON" }
       ]
@@ -440,7 +441,7 @@ const universities = [
     keywords: [
       "inginerie", "aerospațială", "upb", "aeronautica", "avioane", "rachete", 
       "spatiu", "drone", "aerodinamica", "inginer", "proiectant", "pilot", 
-      "cercetator", "inginer", "aerospaial", "aeronautica", "avioane", "spatiu", 
+      "cercetator", "inginer", "aerospaial", "aeronautica", "aeronave", "avioane", "spatiu", 
       "dron", "aerodinamica", "inginer"
     ],
     salary: { min: 4500, max: 25000 },
@@ -3420,13 +3421,13 @@ const universities = [
     keywords: [
       "arte plastice", "decorative", "galati", "pictura", "sculptura", 
       "grafica", "artist", "pictor", "sculptor", "grafician", "galerist", 
-      "curator", "arte", "plastic", "decorativ", "pictura", "sculptura", 
+      "curator", "arte", "estetica","plastic", "decorativ", "pictura", "sculptura", 
       "grafica"
     ],
     salary: { min: 2500, max: 10000 },
     details: {
       duration: 3,
-      study: "Desen, pictură, sculptură, grafică, istoria artei, estetică.",
+      study: "Desen, pictură, sculptură, grafică, istoria artei, estetica.",
       jobs: [
         { name: "Designer grafic", salary: "3000 - 8000 RON" },
         { name: "Artist", salary: "2500 - 7000 RON" },

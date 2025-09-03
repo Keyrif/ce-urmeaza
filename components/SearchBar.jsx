@@ -122,7 +122,7 @@ return (
             }`}
             onClick={startQuiz}
           >
-            UNFINISHED - DESCOPERA FACULTATEA PERFECTA
+            DESCOPERA FACULTATEA PERFECTA
           </motion.button>
         </motion.div>
       )}

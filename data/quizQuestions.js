@@ -106,7 +106,7 @@ const quizQuestions = [
         type: "multiple-choice",
         options: [
             {
-                text: "Într-un birou modern, cu un mediu dinamic și tehnologic.",
+                text: "Într-un birou modern / corporatie.",
                 scores: {
                     "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 2,
                     "Facultatea de Matematică și Informatică": 2,
@@ -216,7 +216,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Faptul că ai găsit o soluție la o problemă financiară complexă.",
+                text: "Faptul că ai găsit o soluție la o problemă financiară.",
                 scores: {
                     "Facultatea de Contabilitate și Informatică de Gestiune": 2,
                     "Facultatea de Economie și Administrarea Afacerilor": 2,
@@ -240,7 +240,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Faptul că ai redactat un text care a educat publicul.",
+                text: "Faptul că ai conceput un proiect care a educat publicul.",
                 scores: {
                     "Facultatea de Litere": 2,
                     "Facultatea de Jurnalism și Științele Comunicării": 2,
@@ -249,7 +249,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Faptul că ai descoperit o informație istorică sau o teorie științifică.",
+                text: "Faptul că ai descoperit o informație istorica.",
                 scores: {
                     "Facultatea de Istorie și Filosofie": 2,
                     "Facultatea de Fizică": 2,
@@ -272,7 +272,7 @@ const quizQuestions = [
         type: "multiple-choice",
         options: [
             {
-                text: "Stabilitatea și siguranța unei cariere de stat.",
+                text: "Stabilitatea și siguranța unei cariere.",
                 scores: {
                     "Facultatea de Drept": 2,
                     "Facultatea de Administrație Publică": 2,
@@ -281,15 +281,14 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Potențialul de a câștiga mult și de a avea un impact economic.",
+                text: "Potențialul de a câștiga mult.",
                 scores: {
                     "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 2,
-                    "Facultatea de Contabilitate și Informatică de Gestiune": 2,
                     "Facultatea de Business și Turism": 1.5
                 }
             },
             {
-                text: "O bază solidă în logică, matematică și raționament.",
+                text: "O bază solidă în logică si matematică",
                 scores: {
                     "Facultatea de Matematică și Informatică": 2,
                     "Facultatea de Fizică": 1.5,
@@ -297,7 +296,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Oportunitatea de a crea lucruri noi, de la zero.",
+                text: "Oportunitatea de a construi lucruri noi, de la zero.",
                 scores: {
                     "Facultatea de Automatică și Calculatoare": 2,
                     "Facultatea de Arhitectură și Urbanism": 2,
@@ -306,7 +305,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Posibilitatea de a ajuta direct oamenii în momente critice.",
+                text: "Posibilitatea de a ajuta direct oamenii în momente critice dpdv al sanatatii fie medical fie psihologic",
                 scores: {
                     "Facultatea de Medicină Generală": 2,
                     "Facultatea de Psihologie și Științe ale Educației": 2,
@@ -339,7 +338,7 @@ const quizQuestions = [
         type: "multiple-choice",
         options: [
             {
-                text: "Într-un grup de programatori.",
+                text: "Într-un grup de programatori / Într-o corporatie",
                 scores: {
                     "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 2,
                     "Facultatea de Matematică și Informatică": 2,
@@ -373,7 +372,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Într-o firmă de avocatură, consultanță sau audit.",
+                text: "Într-o firmă de avocatură, consultanță sau audit / corporatie",
                 scores: {
                     "Facultatea de Drept": 2,
                     "Facultatea de Contabilitate și Informatică de Gestiune": 2
@@ -388,7 +387,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Într-un mediu de creație artistică, unde se valorizează originalitatea.",
+                text: "Într-un mediu de creație artistică, unde se valorizează originalitatea si creativitatea",
                 scores: {
                     "Facultatea de Arhitectură și Urbanism": 2,
                     "Facultatea de Arte Plastice și Design": 2,
@@ -437,7 +436,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Cultural/Artistic - să creezi opere de artă și să îmbogățești cultura.",
+                text: "Cultural/Artistic - să creezi artă și să îmbogățești cultura.",
                 scores: {
                     "Facultatea de Arte Vizuale și Design": 2,
                     "Facultatea de Muzică și Teatru": 2,
@@ -493,7 +492,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Dexteritate manuală și înțelegerea sistemelor mecanice/electrice.",
+                text: "Munca manuală și înțelegerea sistemelor mecanice/electrice.",
                 scores: {
                     "Facultatea de Inginerie Mecanică și Electrică": 2,
                     "Facultatea de Inginerie Civilă și Mecanică": 2,
@@ -510,7 +509,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Spirit de organizare, leadership și management.",
+                text: "Spirit de organizare, leadership și management, poate politic",
                 scores: {
                     "Facultatea de Inginerie și Agronomie": 1.5,
                     "Facultatea de Științe Politice și Administrative": 2,
@@ -573,11 +572,11 @@ const quizQuestions = [
         type: "multiple-choice",
         options: [
             {
-                text: "Curiozitatea de a înțelege cum funcționează universul, de la particule la galaxii.",
+                text: "Curiozitatea de a înțelege cum funcționează un anumit lucru.",
                 scores: { "Facultatea de Fizică": 2, "Facultatea de Inginerie Aerospațială": 1.5 }
             },
             {
-                text: "Dorința de a rezolva probleme practice, de a face lucrurile mai eficiente.",
+                text: "Dorința de a rezolva probleme practice, de a face lucrurile mai eficiente si cu folos.",
                 scores: { "Facultatea de Inginerie Alimentară": 2, "Facultatea de Inginerie Economică și Logistică": 2 }
             },
             {
@@ -595,7 +594,7 @@ const quizQuestions = [
         ]
     },
     {
-        questionText: "Ce fel de 'limbaj' preferi să folosești în activitatea ta?",
+        questionText: "In ce fel de domeniu preferi sa iti desfasori activitatea?",
         type: "multiple-choice",
         options: [
             {
@@ -625,31 +624,9 @@ const quizQuestions = [
         ]
     },
     {
-        questionText: "În ce oraș ai prefera să studiezi?",
-        type: "multiple-choice",
-        options: [
-            { text: "București", locationFilter: "București" },
-            { text: "Cluj-Napoca", locationFilter: "Cluj-Napoca" },
-            { text: "Iași", locationFilter: "Iași" },
-            { text: "Timișoara", locationFilter: "Timișoara" },
-            { text: "Brașov", locationFilter: "Brașov" },
-            { text: "Sibiu", locationFilter: "Sibiu" },
-            { text: "Oradea", locationFilter: "Oradea" },
-            { text: "Constanța", locationFilter: "Constanța" },
-            { text: "Galați", locationFilter: "Galați" },
-            { text: "Pitești", locationFilter: "Pitești" },
-            { text: "Suceava", locationFilter: "Suceava" },
-            { text: "Craiova", locationFilter: "Craiova" },
-            { text: "Târgu Mureș", locationFilter: "Târgu Mureș" },
-            { text: "Târgoviște", locationFilter: "Târgoviște" },
-            { text: "Târgu Jiu", locationFilter: "Târgu Jiu" },
-            { text: "Nu am o preferință", locationFilter: null }
-        ],
-    },
-    {
-        questionText: "Ce salariu lunar net (în RON) consideri că ar fi satisfăcător pentru tine la 5 ani după absolvire?",
+        questionText: "Ce salariu lunar net (în RON) consideri că ar fi satisfăcător pentru tine la 5-6 ani după absolvire?",
         type: "slider",
-        min: 3000,
+        min: 2500,
         max: 25000,
         step: 500
     }
