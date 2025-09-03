@@ -6,7 +6,7 @@ const quizQuestions = [
             {
                 text: "Cod de programare, algoritmi și baze de date.",
                 scores: {
-                    "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 2,
+                    "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 1.5,
                     "Facultatea de Matematică și Informatică": 2,
                     "Facultatea de Automatică și Calculatoare": 2,
                     "Facultatea de Electronică, Telecomunicații și Tehnologia Informației": 1,
@@ -283,8 +283,10 @@ const quizQuestions = [
             {
                 text: "Potențialul de a câștiga mult.",
                 scores: {
-                    "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 2,
-                    "Facultatea de Business și Turism": 1.5
+                    "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 1.5,
+                    "Facultatea de Business și Turism": 1.5,
+                    "Facultatea de Administrație Publică": 1.5,
+
                 }
             },
             {
@@ -359,7 +361,8 @@ const quizQuestions = [
                     "Facultatea de Științe Politice": 2,
                     "Facultatea de Istorie și Filosofie": 1.5,
                     "Facultatea de Sociologie și Asistență Socială": 1.5,
-                    "Facultatea de Geografie": 1
+                    "Facultatea de Geografie": 1,
+                    "Facultatea de Administrație Publică": 1.5
                 }
             },
             {
@@ -424,7 +427,8 @@ const quizQuestions = [
                     "Facultatea de Sociologie și Asistență Socială": 2,
                     "Facultatea de Psihologie și Științe Sociale": 2,
                     "Facultatea de Teologie Ortodoxă": 1.5,
-                    "Facultatea de Teologie": 1.5
+                    "Facultatea de Teologie": 1.5,
+                    "Facultatea de Administrație Publică": 1.5
                 }
             },
             {
@@ -488,7 +492,8 @@ const quizQuestions = [
                 scores: {
                     "Facultatea de Științe ale Educației, Psihologie și Sociologie": 2,
                     "Facultatea de Litere și Științe Sociale": 1.5,
-                    "Facultatea de Psihologie și Științe Sociale": 2
+                    "Facultatea de Psihologie și Științe Sociale": 2,
+                    "Facultatea de Administrație Publică": 1.5
                 }
             },
             {
@@ -581,7 +586,7 @@ const quizQuestions = [
             },
             {
                 text: "Nevoia de a-i ajuta și de a înțelege pe ceilalți.",
-                scores: { "Facultatea de Medicină și Științe Umaniste": 2, "Facultatea de Teologie Romano-Catolică": 1.5 }
+                scores: { "Facultatea de Medicină și Științe Umaniste": 2, "Facultatea de Teologie Romano-Catolică": 1.5, "Facultatea de Administrație Publică": 1.5}
             },
             {
                 text: "Pasiunea pentru frumos, estetică și exprimare artistică.",
