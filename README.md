@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://iili.io/KqmuUmb.png" width="400"/>
+  <img src="https://iili.io/KqmRSxj.png" width="400"/>
 </p>
 
 <h1>Introducere:</h1>
