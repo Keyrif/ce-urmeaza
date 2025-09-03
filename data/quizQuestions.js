@@ -1,9 +1,11 @@
+  // unfinished
+  
   const quizQuestions = [
     {
-      questionText: "[TEST] Ce tip de activitate preferi?",
+      questionText: "Ce te-ar motiva cel mai mult să te duci la muncă în fiecare dimineață?",
       type: "multiple-choice",
       options: [
-        { text: "Rezolvarea de probleme logice și abstracte", scores: { "Facultatea de Informatică": 2, "Facultatea de Medicină": 0.5, "Facultatea de Drept": 0.5 } },
+        { text: "Impactul social și ajutarea oamenilor", scores: { "Facultatea de Informatică": 2, "Facultatea de Medicină": 0.5, "Facultatea de Drept": 0.5 } },
         { text: "Interacțiunea cu oamenii și munca în echipă", scores: { "Facultatea de Medicină": 1.5, "Facultatea de Drept": 1.5 } },
         { text: "Creația artistică și vizuală", scores: { "Facultatea de Arte Plastice": 2, "Facultatea de Arhitectură": 1.5 } },
         { text: "Studiul legilor și a regulilor", scores: { "Facultatea de Drept": 2, "Facultatea de Medicină": 0.5 } },

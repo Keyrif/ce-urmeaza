@@ -10,8 +10,8 @@ const universities = [
       "programere", "informaticaa", "calculetoare", "pogramare", "informatică", "informatic", 
       "softwar", "cybernatic", "statistica", "statistic", "economik", "e-conomic", 
       "calcutor", "computere", "analist", "inginer", "softare", "consultan", 
-      "spcialist", "ii", "ay", "baze de date", "baze de date", "algoritmi", 
-      "matematica", "economie"
+      "spcialist", "ii", "ay", "baze de date", "algoritmi", 
+      "matematica", "economie", "cibernetica"
     ],
     salary: { min: 3000, max: 20000 },
     details: {
@@ -31,7 +31,7 @@ const universities = [
     location: "București",
     university: "Academia de Studii Economice (ASE)",
     keywords: [
-      "contabilitate", "informatica de gestiune", "finante", "audit", "impozite", "cig", "ase"
+      "contabilitate", "informatica de gestiune", "finante", "audit", "impozite", "cig", "ase", "excel"
     ],
     salary: { min: 3500, max: 9000 },
     details: {
@@ -50,7 +50,7 @@ const universities = [
     university: "Academia de Studii Economice (ASE)",
     keywords: [
       "marketing", "publicitate", "cercetare de marketing", "ase", "promovare", "brand", 
-      "comunicare", "comportamentul consumatorului"
+      "comunicare", "comportamentul consumatorului", "publicitate"
     ],
     salary: { min: 3500, max: 8000 },
     details: {
