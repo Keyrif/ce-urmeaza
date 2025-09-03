@@ -9,8 +9,8 @@ const universities = [
       "programator", "analist", "inginer software", "consultant IT", "specialist AI",
       "programere", "informaticaa", "calculetoare", "pogramare", "informatică", "informatic", 
       "softwar", "cybernatic", "statistica", "statistic", "economik", "e-conomic", 
-      "calcutor", "computere", "analist", "inginer", "softare", "consultan", 
-      "spcialist", "ii", "ay", "baze de date", "algoritmi", 
+      "calcutor", "computere", "analist", "softare", "consultan", 
+      "spcialist", "baze de date", "algoritmi", 
       "matematica", "economie", "cibernetica"
     ],
     salary: { min: 3000, max: 20000 },
@@ -68,7 +68,7 @@ const universities = [
     location: "București",
     university: "Academia de Studii Economice (ASE)",
     keywords: [
-      "business", "turism", "hotel", "management", "ase", "bt", "servicii"
+      "business", "turism", "hotel", "management", "ase", "bt", "servicii", "biznis", "bisnis"
     ],
     salary: { min: 3000, max: 7000 },
     details: {
@@ -87,7 +87,7 @@ const universities = [
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
       "electronica", "telecomunicatii", "tehnologia informatiei", "etti", "comunicatii", 
-      "circuite", "retele", "upb", "politehnica"
+      "circuite", "retele", "upb", "politehnica", "electrician"
     ],
     salary: { min: 4500, max: 11000 },
     details: {
