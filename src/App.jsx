@@ -193,9 +193,9 @@ function App() {
       }`}
     >
       <button
-        className={`absolute top-4 right-4 p-2 rounded-full ${
+        className={`fixed top-4 right-4 p-2 rounded-full ${
           darkMode ? 'bg-cyan-700 text-white'
-          : 'bg-cyan-500 text-white'} shadow-lg hover:shadow-xl z-10`}
+          : 'bg-cyan-500 text-white'} shadow-lg hover:shadow-xl z-50`}
         onClick={toggleDarkMode}
       >
         {darkMode ? (
