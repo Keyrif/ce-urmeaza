@@ -517,9 +517,9 @@ function App() {
         }`}
       >
         <p className="font-semibold text-lg">© 2025 KEYRIF</p>
-        <p className="text-sm opacity-80">
-          version 0.1b
-        </p>
+        <a className="text-sm opacity-80" href="https://github.com/keyrif/ce-urmeaza">
+          Pagina Proiect Github
+        </a>
       </footer>
     </div>
   );
