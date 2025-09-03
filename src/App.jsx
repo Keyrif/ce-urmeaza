@@ -5,12 +5,11 @@ import universities from '/data/universities';
 import quizQuestions from '/data/quizQuestions';
 import SearchBar from '/components/SearchBar';
 
-
 function App() {
   const [searchText, setSearchText] = useState("");
   const [searched, setSearched] = useState(false);
   const [results, setResults] = useState([]);
-  const [selectedFaculty, setSelectedFaculty] = useState(null);
+  const [selectedUniversity, setSelectedUniversity] = useState(null);
   const [glow, setGlow] = useState(false);
   const [darkMode, setDarkMode] = useState(null);
   const [ready, setReady] = useState(false);
@@ -20,7 +19,6 @@ function App() {
   const [quizScores, setQuizScores] = useState({});
   const [quizResult, setQuizResult] = useState(null);
   const [salaryRange, setSalaryRange] = useState(5000);
-
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -30,14 +28,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (selectedFaculty || showQuiz) {
+    if (selectedUniversity || showQuiz) {
       const closeMenuEsc = (event) => {
         if (event.key === 'Escape') {
-          if (selectedFaculty) {
-            setSelectedFaculty(null);
+          if (selectedUniversity) {
+            setSelectedUniversity(null);
           }
           if (showQuiz) {
-           closeQuiz();
+            closeQuiz();
           }
           }
       };
@@ -48,7 +46,7 @@ function App() {
        document.removeEventListener('keydown', closeMenuEsc);
       };
     }
-  }, [selectedFaculty, showQuiz]);
+  }, [selectedUniversity, showQuiz]);
 
   useEffect(() => {
     if (!searched && !showQuiz) {
@@ -128,7 +126,7 @@ function App() {
     </div>
   );
 
-  const handleQuizAnswer = (scores) => {
+  const quizAnswer = (scores) => {
     const newScores = { ...quizScores };
     for (const faculty in scores) {
       newScores[faculty] = (newScores[faculty] || 0) + scores[faculty];
@@ -157,18 +155,18 @@ function App() {
 
     if (bestFitByScore && salaryRange > bestFitByScore.salary.max) {
       setQuizResult({
-        name: "Atenție: Salariul dorit nu se aliniază cu interesele tale",
+        name: "Atenție: Salariul dorit este prea mare pentru interesele tale",
         details: {
-          study: `Conform răspunsurilor tale, cea mai bună potrivire ar fi ${bestFitByScore.name}. Totuși, salariul maxim oferit în acest domeniu este de ${bestFitByScore.salary.max} RON, sub salariul de ${salaryRange} RON pe care îl dorești. Poți reconsidera fie salariul, fie facultatea.`,
+          study: `Conform răspunsurilor tale, cea mai bună alegere ar fi ${bestFitByScore.name}. Totuși, salariul maxim oferit în acest domeniu este de ${bestFitByScore.salary.max} RON, sub salariul de ${salaryRange} RON pe care îl vrei. Poți reconsidera fie salariul, fie domeniul.`,
         },
       });
     } else if (bestFitByScore) {
       setQuizResult(bestFitByScore);
     } else {
       setQuizResult({
-        name: "Nu s-a găsit nicio recomandare",
+        name: "EROARE: Nu s-a găsit nicio recomandare!",
         details: {
-          study: "Nu s-a putut găsi o recomandare bazată pe răspunsurile tale. Te rog să încerci din nou."
+          study: "EROARE: Nu s-a putut găsi o recomandare bazată pe răspunsurile tale."
         }
       });
     }
@@ -195,50 +193,54 @@ function App() {
       }`}
     >
       <button
-        className={`absolute top-4 right-4 p-2 rounded-full ${darkMode ? 'bg-cyan-700 text-white' : 'bg-cyan-500 text-white'} shadow-lg hover:shadow-xl z-10`}
+        className={`absolute top-4 right-4 p-2 rounded-full ${
+          darkMode ? 'bg-cyan-700 text-white'
+          : 'bg-cyan-500 text-white'} shadow-lg hover:shadow-xl z-10`}
         onClick={toggleDarkMode}
       >
         {darkMode ? (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-sun">
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v2"/>
-                <path d="M12 20v2"/>
-                <path d="m4.93 4.93 1.41 1.41"/>
-                <path d="m17.66 17.66 1.41 1.41"/>
-                <path d="M2 12h2"/>
-                <path d="M20 12h2"/>
-                <path d="m6.34 17.66-1.41 1.41"/>
-                <path d="m19.07 4.93-1.41 1.41"/>
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2"/>
+              <path d="M12 20v2"/>
+              <path d="m4.93 4.93 1.41 1.41"/>
+              <path d="m17.66 17.66 1.41 1.41"/>
+              <path d="M2 12h2"/>
+              <path d="M20 12h2"/>
+              <path d="m6.34 17.66-1.41 1.41"/>
+              <path d="m19.07 4.93-1.41 1.41"/>
             </svg>
         ) : (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-moon">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
             </svg>
         )}
       </button>
 
       <div className={`flex-grow flex flex-col items-center transition-all duration-700 ${!searched ? 'justify-center' : 'pt-16'}`}>
+
         <motion.div
-            layout
-            className="flex flex-col items-center"
+          layout
+          className="flex flex-col items-center"
         >
           <motion.h1
             layout
             onClick={logoClick}
             className={`cursor-pointer font-extrabold transition-all duration-700 text-center whitespace-nowrap ${
-              searched
+                searched
                 ? "text-3xl sm:text-4xl"
                 : "text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw]"
             } ${
-              darkMode
+                darkMode
                 ? glow
-                  ? "drop-shadow-[0_0_20px_white]"
-                  : ""
+                ? "drop-shadow-[0_0_20px_white]"
+                : ""
                 : "text-black " + (glow ? "drop-shadow-[0_0_20px_black]" : "")
             }`}
           >
             CE URMEAZĂ?
           </motion.h1>
+
           <motion.p
             layout
             className={`font-medium transition-all duration-700 ${
@@ -247,6 +249,7 @@ function App() {
           >
             {displayedSubtitle}
           </motion.p>
+
           <SearchBar
             searchText={searchText}
             setSearchText={setSearchText}
@@ -272,11 +275,11 @@ function App() {
             {results.map((f) => (
               <motion.div
                 key={f.name}
-                onClick={() => setSelectedFaculty(f)}
+                onClick={() => setSelectedUniversity(f)}
                 className={`relative p-6 rounded-2xl border cursor-pointer overflow-hidden transition-all shadow-lg hover:shadow-2xl ${
                   darkMode
-                    ? "bg-slate-800 border-slate-600 text-white"
-                    : "bg-white border-gray-300 text-gray-900"
+                  ? "bg-slate-800 border-slate-600 text-white"
+                  : "bg-white border-gray-300 text-gray-900"
                 }`}
                 whileHover={{ scale: 1.02 }}
               >
@@ -293,7 +296,7 @@ function App() {
                 <h2 className="font-bold text-xl relative z-10">{f.name}</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
                   <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
-                   {f.location}
+                    {f.location}
                   </div>
                   <div className={`px-3 py-1 rounded-full text-sm font-medium ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
                     Salarii: {f.salary.min} - {f.salary.max} RON
@@ -306,14 +309,14 @@ function App() {
       </div>
 
       <AnimatePresence>
-        {selectedFaculty && (
+        {selectedUniversity && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 flex items-center justify-center z-50 bg-black/40"
             onClick={(e) =>
-              e.target === e.currentTarget && setSelectedFaculty(null)
+              e.target === e.currentTarget && setSelectedUniversity(null)
             }
           >
             <motion.div
@@ -326,16 +329,21 @@ function App() {
               }`}
             >
               <button
-                onClick={() => setSelectedFaculty(null)}
-                className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${darkMode ? 'bg-slate-700 text-white hover:bg-slate-600' : 'bg-gray-200 text-gray-900 hover:bg-gray-300'}`}
+                onClick={() => setSelectedUniversity(null)}
+                className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${
+                  darkMode
+                  ? 'bg-slate-700 text-white hover:bg-slate-600'
+                  : 'bg-gray-200 text-gray-900 hover:bg-gray-300'}`}
               >
                 ✕
               </button>
               <div className="flex flex-col items-center mb-6 text-center">
-                  <span className={`p-4 rounded-full mb-4 ${darkMode ? 'bg-slate-800' : 'bg-gray-200'}`}>
-                      <img src={icon} className="w-12 h-12 text-cyan-500" />
+                  <span className={`p-4 rounded-full mb-4 ${
+                    darkMode
+                    ? 'bg-slate-800' : 'bg-gray-200'}`}>
+                    <img src={icon} className="w-12 h-12 text-cyan-500" />
                   </span>
-                  <h2 className="text-3xl font-bold">{selectedFaculty.name}</h2>
+                  <h2 className="text-3xl font-bold">{selectedUniversity.name}</h2>
               </div>
               
               <div className="flex flex-col gap-4">
@@ -343,50 +351,50 @@ function App() {
                       title="1. Durata studiilor"
                       icon={
                         <svg xmlns="http://www.w3.org/24/24" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
+                          <circle cx="12" cy="12" r="10"/>
+                          <path d="M12 6v6l4 2"/>
                         </svg>
                       }
                   >
-                      <p>{selectedFaculty.details.duration} ani</p>
+                      <p>{selectedUniversity.details.duration} ani</p>
                   </InfoCard>
 
                   <InfoCard
                       title="2. Ce studiezi"
                       icon={
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-book-open">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                         </svg>
                       }
                   >
-                      <p>{selectedFaculty.details.study}</p>
+                      <p>{selectedUniversity.details.study}</p>
                   </InfoCard>
 
-                  {selectedFaculty.details.jobs && (
+                  {selectedUniversity.details.jobs && (
                       <InfoCard
                           title="3. Salarii medii pe job"
                           icon={
                             <svg xmlns="http://www.w3.org/24/24" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-badge-dollar-sign">
-                                <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.56 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.56 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.57 0 4 4 0 0 1-4.78-4.78 4 4 0 0 1 0-6.56Z"/>
-                                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4h-6"/>
-                                <path d="M12 17v-1.5"/>
-                                <path d="M12 7.5V7"/>
+                              <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.56 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.56 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.57 0 4 4 0 0 1-4.78-4.78 4 4 0 0 1 0-6.56Z"/>
+                              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4h-6"/>
+                              <path d="M12 17v-1.5"/>
+                              <path d="M12 7.5V7"/>
                             </svg>
                           }
                       >
-                          {selectedFaculty.details.jobs.map((job) => (
+                          {selectedUniversity.details.jobs.map((job) => (
                               <div
                                   key={job.name}
                                   className={`mt-2 p-3 rounded-lg shadow-inner ${
-                                      darkMode ? "bg-slate-700" : "bg-gray-200"
+                                    darkMode ? "bg-slate-700" : "bg-gray-200"
                                   }`}
                               >
                                   <p>
-                                      <b>{job.name}</b>
+                                    <b>{job.name}</b>
                                   </p>
                                   <p className="text-sm opacity-80">
-                                      Salariu: {job.salary}
+                                    Salariu: {job.salary}
                                   </p>
                               </div>
                           ))}
@@ -406,7 +414,7 @@ function App() {
                 exit={{ opacity: 0 }}
                 className="fixed inset-0 flex items-center justify-center z-50 bg-black/40"
                 onClick={(e) =>
-                    e.target === e.currentTarget && closeQuiz()
+                  e.target === e.currentTarget && closeQuiz()
                 }
             >
                 <motion.div
@@ -419,78 +427,78 @@ function App() {
                     }`}
                 >
                     <button
-                        onClick={closeQuiz}
-                        className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${darkMode ? 'bg-slate-700 text-white hover:bg-slate-600' : 'bg-gray-200 text-gray-900 hover:bg-gray-300'}`}
+                      onClick={closeQuiz}
+                      className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${darkMode ? 'bg-slate-700 text-white hover:bg-slate-600' : 'bg-gray-200 text-gray-900 hover:bg-gray-300'}`}
                     >
                         ✕
                     </button>
                     {quizResult ? (
                         <>
-                            <h2 className="text-3xl font-bold mb-4">Recomandare pentru tine</h2>
-                            <p className="text-xl font-semibold mb-4">
-                                {quizResult.name}
-                            </p>
-                            <p>{quizResult.details.study}</p>
-                            <button
-                                onClick={() => {
-                                    setSelectedFaculty(quizResult);
-                                    closeQuiz();
-                                }}
-                                className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
-                                  darkMode
-                                    ? "bg-cyan-700 hover:bg-cyan-600 text-white"
-                                    : "bg-cyan-500 hover:bg-cyan-400 text-white"
-                                }`}
+                          <h2 className="text-3xl font-bold mb-4">Recomandare pentru tine</h2>
+                          <p className="text-xl font-semibold mb-4">
+                            {quizResult.name}
+                          </p>
+                          <p>{quizResult.details.study}</p>
+                          <button
+                            onClick={() => {
+                              setSelectedUniversity(quizResult);
+                              closeQuiz();
+                            }}
+                          className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
+                            darkMode
+                            ? "bg-cyan-700 hover:bg-cyan-600 text-white"
+                            : "bg-cyan-500 hover:bg-cyan-400 text-white"
+                          }`}
                             >
-                                Vezi detalii
+                              Vezi detalii
                             </button>
                         </>
                     ) : (
                         <>
                             <h3 className="text-xl font-semibold mb-6 text-center">
-                                {currentQuestion.questionText}
+                              {currentQuestion.questionText}
                             </h3>
                             {currentQuestion.type === "multiple-choice" ? (
-                                <div className="flex flex-col gap-4">
-                                    {currentQuestion.options.map((option, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => handleQuizAnswer(option.scores)}
-                                            className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg transition-all duration-300 text-center ${
-                                                darkMode ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-900"
-                                            }`}
-                                        >
-                                            {option.text}
-                                        </button>
-                                    ))}
+                              <div className="flex flex-col gap-4">
+                                {currentQuestion.options.map((option, index) => (
+                                  <button
+                                    key={index}
+                                    onClick={() => quizAnswer(option.scores)}
+                                    className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg transition-all duration-300 text-center ${
+                                      darkMode ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-900"
+                                    }`}
+                                  >
+                                  {option.text}
+                                    </button>
+                                  ))}
                                 </div>
                             ) : (
                                 <div className="flex flex-col items-center gap-4">
-                                    <input
-                                        type="range"
-                                        min={currentQuestion.min}
-                                        max={currentQuestion.max}
-                                        step={currentQuestion.step}
-                                        value={salaryRange}
-                                        onChange={(e) => setSalaryRange(Number(e.target.value))}
-                                        className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-cyan-400 dark:bg-cyan-600"
-                                        style={{'--tw-shadow':'0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'}}
-                                    />
-                                    <div className="flex justify-between w-full text-sm mt-2">
-                                        <span>2500 RON</span>
-                                        <span className={`font-extrabold text-lg transition-all duration-300 ${darkMode ? 'text-cyan-600' : 'text-cyan-600'}`}>
-                                            {salaryRange} RON
-                                        </span>
-                                        <span>10000 RON</span>
-                                    </div>
-                                    <button
-                                        onClick={calculateResult}
-                                        className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 transition-all duration-300 ${
-                                          darkMode ? "bg-cyan-700 hover:bg-cyan-600 text-white" : "bg-cyan-500 hover:bg-cyan-400 text-white"
-                                        }`}
-                                    >
-                                        Vezi rezultatul
-                                    </button>
+                                  <input
+                                    type="range"
+                                    min={currentQuestion.min}
+                                    max={currentQuestion.max}
+                                    step={currentQuestion.step}
+                                    value={salaryRange}
+                                    onChange={(e) => setSalaryRange(Number(e.target.value))}
+                                    className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-cyan-400 dark:bg-cyan-600"
+                                    style={{'--tw-shadow':'0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'}}
+                                  />
+                                  <div className="flex justify-between w-full text-sm mt-2">
+                                    <span>2500 RON</span>
+                                    <span className={`font-extrabold text-lg transition-all duration-300 ${darkMode ? 'text-cyan-600' : 'text-cyan-600'}`}>
+                                      {salaryRange} RON
+                                    </span>
+                                    <span>10000 RON</span>
+                                  </div>
+                                  <button
+                                    onClick={calculateResult}
+                                    className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 transition-all duration-300 ${
+                                      darkMode ? "bg-cyan-700 hover:bg-cyan-600 text-white" : "bg-cyan-500 hover:bg-cyan-400 text-white"
+                                    }`}
+                                  >
+                                    Vezi rezultatul
+                                  </button>
                                 </div>
                             )}
                             <p className="text-sm text-center mt-4 opacity-50">
