@@ -1,6 +1,6 @@
   const quizQuestions = [
     {
-      questionText: "Ce tip de activitate preferi?",
+      questionText: "[TEST] Ce tip de activitate preferi?",
       type: "multiple-choice",
       options: [
         { text: "Rezolvarea de probleme logice și abstracte", scores: { "Facultatea de Informatică": 2, "Facultatea de Medicină": 0.5, "Facultatea de Drept": 0.5 } },

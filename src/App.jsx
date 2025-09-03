@@ -142,26 +142,26 @@ function App() {
   };
 
   const calculateResult = () => {
-    let bestFitByScore = null;
+    let bestFit = null;
     let maxScore = -1;
 
     universities.forEach(f => {
       const score = quizScores[f.name] || 0;
       if (score > maxScore) {
         maxScore = score;
-        bestFitByScore = f;
+        bestFit = f;
       }
     });
 
-    if (bestFitByScore && salaryRange > bestFitByScore.salary.max) {
+    if (bestFit && salaryRange > bestFit.salary.max) {
       setQuizResult({
         name: "Atenție: Salariul dorit este prea mare pentru interesele tale",
         details: {
-          study: `Conform răspunsurilor tale, cea mai bună alegere ar fi ${bestFitByScore.name}. Totuși, salariul maxim oferit în acest domeniu este de ${bestFitByScore.salary.max} RON, sub salariul de ${salaryRange} RON pe care îl vrei. Poți reconsidera fie salariul, fie domeniul.`,
+          study: `Conform răspunsurilor tale, cea mai bună alegere ar fi ${bestFit.name}. Totuși, salariul maxim oferit în acest domeniu este de ${bestFit.salary.max} RON, sub salariul de ${salaryRange} RON pe care îl vrei. Poți reconsidera fie salariul, fie domeniul.`,
         },
       });
-    } else if (bestFitByScore) {
-      setQuizResult(bestFitByScore);
+    } else if (bestFit) {
+      setQuizResult(bestFit);
     } else {
       setQuizResult({
         name: "EROARE: Nu s-a găsit nicio recomandare!",
@@ -199,7 +199,16 @@ function App() {
         onClick={toggleDarkMode}
       >
         {darkMode ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-sun">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="lucide lucide-sun">
               <circle cx="12" cy="12" r="4"/>
               <path d="M12 2v2"/>
               <path d="M12 20v2"/>
@@ -211,13 +220,23 @@ function App() {
               <path d="m19.07 4.93-1.41 1.41"/>
             </svg>
         ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-moon">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" 
+              eight="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-moon">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
             </svg>
         )}
       </button>
 
-      <div className={`flex-grow flex flex-col items-center transition-all duration-700 ${!searched ? 'justify-center' : 'pt-16'}`}>
+      <div className={`flex-grow flex flex-col items-center transition-all duration-700 ${
+        !searched ? 'justify-center' : 'pt-16'}`}>
 
         <motion.div
           layout
@@ -227,9 +246,7 @@ function App() {
             layout
             onClick={logoClick}
             className={`cursor-pointer font-extrabold transition-all duration-700 text-center whitespace-nowrap ${
-                searched
-                ? "text-3xl sm:text-4xl"
-                : "text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw]"
+              searched ? "text-3xl sm:text-4xl" : "text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw]"
             } ${
                 darkMode
                 ? glow
@@ -295,7 +312,10 @@ function App() {
                 />
                 <h2 className="font-bold text-xl relative z-10">{f.name}</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
+                    darkMode 
+                    ? "bg-cyan-600 text-white" 
+                    : "bg-cyan-500 text-white"}`}>
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       width="16"
@@ -312,8 +332,35 @@ function App() {
                       <circle cx="12" cy="10" r="3"/>
                   </svg>
                   {f.location}
-                  </div>
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"}`}>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
+                     Click pentru a vedea pe hartă
+                    </div>
+                  </div> 
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
+                    darkMode 
+                    ? "bg-cyan-600 text-white" 
+                    : "bg-cyan-500 text-white"}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-graduation-cap-icon lucide-graduation-cap"
+                    >
+                      <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+                      <path d="M22 10v6"/>
+                      <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                    </svg>
+                  {f.university} 
+                  </div> 
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
+                    darkMode 
+                    ? "bg-cyan-600 text-white" 
+                    : "bg-cyan-500 text-white"}`}>
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       width="16"
@@ -486,7 +533,10 @@ function App() {
                 >
                     <button
                       onClick={closeQuiz}
-                      className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${darkMode ? 'bg-slate-700 text-white hover:bg-slate-600' : 'bg-gray-200 text-gray-900 hover:bg-gray-300'}`}
+                      className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${
+                        darkMode 
+                        ? 'bg-slate-700 text-white hover:bg-slate-600' 
+                        : 'bg-gray-200 text-gray-900 hover:bg-gray-300'}`}
                     >
                         ✕
                     </button>
@@ -523,7 +573,7 @@ function App() {
                                     key={index}
                                     onClick={() => quizAnswer(option.scores)}
                                     className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg transition-all duration-300 text-center ${
-                                      darkMode ? "bg-slate-800 hover:bg-slate-700 text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-900"
+                                      darkMode ? "bg-slate-800 hover:bg-cyan-700 text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-900"
                                     }`}
                                   >
                                   {option.text}
