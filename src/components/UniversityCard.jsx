@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import icon from "/src/favicon2.png";
+import icon from "/src/assets/universitycardlogo.png";
 
 function InfoCard({ title, icon, children, darkMode }) {
   return (
