@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import universities from '/src/data/universities';
-import quizQuestions from '/src/data/quizQuestions';
-import ThemeToggleButton from '/src/components/ThemeToggleButton';
+import ThemeToggle from '/src/components/ThemeToggle';
 import UniversityCard from "/src/components/UniversityCard";
-import QuizButton from "/src/components/QuizButton";
+import Quiz from "/src/components/Quiz";
 import Footer from "/src/components/Footer";
 import TitleLogo from "/src/components/TitleLogo";
 import ResultsGrid from "/src/components/ResultsGrid";
@@ -18,10 +17,6 @@ function App() {
   const [ready, setReady] = useState(false);
   const [displayedSubtitle] = useState("");
   const [showQuiz, setShowQuiz] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [quizScores, setQuizScores] = useState({});
-  const [quizResult, setQuizResult] = useState(null);
-  const [salaryRange, setSalaryRange] = useState(5000);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -60,67 +55,13 @@ function App() {
     });
   };
 
-
-
-  const quizAnswer = (scores) => {
-    const newScores = { ...quizScores };
-    for (const faculty in scores) {
-      newScores[faculty] = (newScores[faculty] || 0) + scores[faculty];
-    }
-    setQuizScores(newScores);
-
-    const nextQuestionIndex = currentQuestionIndex + 1;
-    if (nextQuestionIndex < quizQuestions.length) {
-      setCurrentQuestionIndex(nextQuestionIndex);
-    } else {
-      calculateResult();
-    }
-  };
-
-  const calculateResult = () => {
-    let bestFit = null;
-    let maxScore = -1;
-
-    universities.forEach(f => {
-      const score = quizScores[f.name] || 0;
-      if (score > maxScore) {
-        maxScore = score;
-        bestFit = f;
-      }
-    });
-
-    if (bestFit && salaryRange > bestFit.salary.max) {
-      setQuizResult({
-        name: "Atenție: Salariul dorit este prea mare pentru interesele tale",
-        details: {
-          study: `Conform răspunsurilor tale, cea mai bună alegere ar fi ${bestFit.name}. Totuși, salariul maxim oferit în acest domeniu este de ${bestFit.salary.max} RON, sub salariul de ${salaryRange} RON pe care îl vrei. Poți reconsidera fie salariul, fie domeniul.`,
-        },
-      });
-    } else if (bestFit) {
-      setQuizResult(bestFit);
-    } else {
-      setQuizResult({
-        name: "EROARE: Nu s-a găsit nicio recomandare!",
-        details: {
-          study: "EROARE: Nu s-a putut găsi o recomandare bazată pe răspunsurile tale."
-        }
-      });
-    }
-  };
-
   const startQuiz = () => {
     setShowQuiz(true);
-    setQuizScores({});
-    setCurrentQuestionIndex(0);
-    setQuizResult(null);
   };
 
   const closeQuiz = () => {
     setShowQuiz(false);
-    setQuizResult(null);
   };
-
-  const currentQuestion = quizQuestions[currentQuestionIndex];
 
   return (
     <div
@@ -129,7 +70,7 @@ function App() {
       }`}
     >
 
-      <ThemeToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <ThemeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       <div className={`flex-grow flex flex-col items-center transition-all duration-300 ${
         !searched ? 'justify-center' : 'pt-16'}`}>
@@ -164,18 +105,10 @@ function App() {
         darkMode={darkMode}
       />
       
-      <QuizButton
+      <Quiz
         showQuiz={showQuiz}
-        closeQuiz={closeQuiz}
-        quizResult={quizResult}
+        onClose={closeQuiz}
         setSelectedUniversity={setSelectedUniversity}
-        currentQuestion={currentQuestion}
-        currentQuestionIndex={currentQuestionIndex}
-        quizQuestions={quizQuestions}
-        quizAnswer={quizAnswer}
-        salaryRange={salaryRange}
-        setSalaryRange={setSalaryRange}
-        calculateResult={calculateResult}
         darkMode={darkMode}
       />
 

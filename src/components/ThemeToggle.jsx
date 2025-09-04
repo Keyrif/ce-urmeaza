@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const ThemeToggleButton = ({ darkMode, toggleDarkMode }) => {
+const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
 
   return (
     <motion.button
@@ -60,4 +60,4 @@ const ThemeToggleButton = ({ darkMode, toggleDarkMode }) => {
   );
 };
 
-export default ThemeToggleButton;
+export default ThemeToggle;

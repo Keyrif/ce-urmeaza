@@ -1,19 +1,81 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import universities from '/src/data/universities'; 
+import quizQuestions from '/src/data/quizQuestions'; 
 
-function QuizButton ({
+function Quiz ({
   showQuiz,
-  closeQuiz,
-  quizResult,
+  onClose,
   setSelectedUniversity,
-  currentQuestion,
-  currentQuestionIndex,
-  quizQuestions,
-  quizAnswer,
-  salaryRange,
-  setSalaryRange,
-  calculateResult,
   darkMode
 }) {
+
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [quizScores, setQuizScores] = useState({});
+  const [quizResult, setQuizResult] = useState(null);
+  const [salaryRange, setSalaryRange] = useState(5000);
+
+  useEffect(() => {
+    if (showQuiz) {
+      quizReset();
+    }
+  }, [showQuiz]);
+  
+  const quizReset = () => {
+    setQuizScores({});
+    setCurrentQuestionIndex(0);
+    setQuizResult(null);
+    setSalaryRange(5000);
+  };
+
+  const quizAnswer = (scores) => {
+    const newScores = { ...quizScores };
+    for (const faculty in scores) {
+      newScores[faculty] = (newScores[faculty] || 0) + scores[faculty];
+    }
+    setQuizScores(newScores);
+    
+  const nextQuestionIndex = currentQuestionIndex + 1;
+  if (nextQuestionIndex < quizQuestions.length) {
+    setCurrentQuestionIndex(nextQuestionIndex);
+  } else {
+    calculateResult();
+  }
+};
+
+  const calculateResult = () => {
+    let bestFit = null;
+    let maxScore = -1;
+
+    universities.forEach(f => {
+      const score = quizScores[f.name] || 0;
+      if (score > maxScore) {
+        maxScore = score;
+        bestFit = f;
+      }
+    });
+
+    if (bestFit && salaryRange > bestFit.salary.max) {
+      setQuizResult({
+        name: "Atenție: Salariul dorit este prea mare pentru interesele tale",
+        details: {
+          study: `Conform răspunsurilor tale, cea mai bună alegere ar fi ${bestFit.name}. Totuși, salariul maxim oferit în acest domeniu este de ${bestFit.salary.max} RON, sub salariul de ${salaryRange} RON pe care îl vrei. Poți reconsidera fie salariul, fie domeniul.`,
+        },
+      });
+    } else if (bestFit) {
+      setQuizResult(bestFit);
+    } else {
+      setQuizResult({
+        name: "EROARE: Nu s-a găsit nicio recomandare!",
+        details: {
+          study: "EROARE: Nu s-a putut găsi o recomandare bazată pe răspunsurile tale."
+        }
+      });
+    }
+  };
+
+  const currentQuestion = quizQuestions[currentQuestionIndex];
+
   return (
 
     <AnimatePresence>
@@ -37,7 +99,7 @@ function QuizButton ({
             }`}
           >
             <button
-              onClick={closeQuiz}
+              onClick={onClose}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${
                 darkMode
                 ? "bg-slate-700 text-white hover:bg-slate-600"
@@ -55,7 +117,7 @@ function QuizButton ({
                 <button
                   onClick={() => {
                     setSelectedUniversity(quizResult);
-                    closeQuiz();
+                    onClose();
                   }}
                   className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
                     darkMode
@@ -139,4 +201,4 @@ function QuizButton ({
   );
 }
 
-export default QuizButton;
+export default Quiz;
