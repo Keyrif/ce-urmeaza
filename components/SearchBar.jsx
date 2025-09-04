@@ -86,7 +86,7 @@ return (
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className={`mt-4 text-lg font-semibold text-center ${
             darkMode ? "text-white" : "text-gray-900"
           }`}
@@ -101,7 +101,7 @@ return (
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           className="flex flex-col sm:flex-row gap-4 mt-12"
         >
           <motion.button
@@ -110,6 +110,8 @@ return (
                 ? "bg-slate-800 hover:bg-slate-700 text-white"
                 : "bg-white hover:bg-gray-200 text-gray-900"
             }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={showAllFaculties}
           >
             AFIȘEAZĂ TOATE FACULTĂȚILE
@@ -120,9 +122,12 @@ return (
                 ? "bg-cyan-700 hover:bg-cyan-600 text-white"
                 : "bg-cyan-500 hover:bg-cyan-400 text-white"
             }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={startQuiz}
           >
             DESCOPERĂ FACULTATEA PERFECTĂ
+        
           </motion.button>
         </motion.div>
       )}
