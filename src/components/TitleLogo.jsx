@@ -6,7 +6,7 @@ function TitleLogo({
   searched,
   glow,
   darkMode,
-  logoClick,
+  setGlow,
   searchText,
   setSearchText,
   setSearched,
@@ -17,7 +17,13 @@ function TitleLogo({
   showQuiz,
 }) {
   const [displayedSubtitle, setDisplayedSubtitle] = useState("");
-
+  const logoClick = () => {
+    setGlow(true);
+    setTimeout(() => {
+      window.location.reload();
+    }, 350);
+  };
+  
   useEffect(() => {
     if (!searched && !showQuiz) {
       const text1 = "INFORMAȚII DESPRE FACULTĂȚI ȘI JOBURI";
@@ -40,7 +46,7 @@ function TitleLogo({
           }
         }, 50);
       };
-
+      
       const erase = () => {
         isTyping = false;
         let j = textToType.length;

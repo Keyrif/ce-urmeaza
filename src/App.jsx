@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
 import universities from '/src/data/universities';
 import quizQuestions from '/src/data/quizQuestions';
 import ThemeToggleButton from '/src/components/ThemeToggleButton';
@@ -17,7 +16,7 @@ function App() {
   const [glow, setGlow] = useState(false);
   const [darkMode, setDarkMode] = useState(null);
   const [ready, setReady] = useState(false);
-  const [displayedSubtitle, setDisplayedSubtitle] = useState("");
+  const [displayedSubtitle] = useState("");
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [quizScores, setQuizScores] = useState({});
@@ -61,12 +60,7 @@ function App() {
     });
   };
 
-  const logoClick = () => {
-    setGlow(true);
-    setTimeout(() => {
-      window.location.reload();
-    }, 350);
-  };
+
 
   const quizAnswer = (scores) => {
     const newScores = { ...quizScores };
@@ -145,7 +139,7 @@ function App() {
           glow={glow}
           darkMode={darkMode}
           displayedSubtitle={displayedSubtitle}
-          logoClick={logoClick}
+          setGlow={setGlow}
           searchText={searchText}
           setSearchText={setSearchText}
           setSearched={setSearched}
@@ -156,14 +150,12 @@ function App() {
           showQuiz={showQuiz}
         />
 
-
         <ResultsGrid 
-  results={results} 
-  setSelectedUniversity={setSelectedUniversity} 
-  darkMode={darkMode} 
-  searched={searched}
-/>
-
+          results={results} 
+          setSelectedUniversity={setSelectedUniversity} 
+          darkMode={darkMode} 
+          searched={searched}
+        />
       </div>
 
       <UniversityCard
@@ -188,7 +180,6 @@ function App() {
       />
 
       <Footer darkMode={darkMode} />
-
     </div>
   );
 }
