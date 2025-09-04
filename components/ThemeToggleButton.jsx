@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const ThemeToggleButton = ({ darkMode, toggleDarkMode }) => {
@@ -10,7 +9,7 @@ const ThemeToggleButton = ({ darkMode, toggleDarkMode }) => {
         ? 'bg-cyan-700 text-white'
         : 'bg-cyan-500 text-white'} shadow-lg z-50`}
       onClick={toggleDarkMode}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.90 }}
       transition={{ type: "spring", stiffness: 300, damping: 15 }}
     >
