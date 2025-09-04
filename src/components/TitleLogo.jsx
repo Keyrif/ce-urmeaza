@@ -25,7 +25,9 @@ function Header({
         layout
         onClick={logoClick}
         className={`cursor-pointer font-extrabold transition-all duration-300 text-center whitespace-nowrap ${
-          searched ? "text-3xl sm:text-4xl" : "text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw]"
+          searched 
+          ? "text-3xl sm:text-4xl" 
+          : "text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw]"
         } ${
             darkMode
             ? glow
