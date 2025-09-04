@@ -184,7 +184,7 @@ function App() {
       }`}
     >
 
-      <ThemeToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <ThemeToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
 
       <div className={`flex-grow flex flex-col items-center transition-all duration-300 ${
         !searched ? 'justify-center' : 'pt-16'}`}>
@@ -230,6 +230,7 @@ function App() {
             showQuiz={showQuiz}
             darkMode={darkMode}
           />
+
         </motion.div>
 
         {searched && (
@@ -360,4 +361,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
