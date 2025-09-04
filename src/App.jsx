@@ -51,56 +51,6 @@ function App() {
     }
   }, [selectedUniversity, showQuiz]);
 
-  useEffect(() => {
-    if (!searched && !showQuiz) {
-      const text1 = "INFORMAȚII DESPRE FACULTĂȚI ȘI JOBURI";
-      const text2 = "GĂSEȘTE-ȚI FACULTATEA PERFECTĂ";
-      let textToType = text1;
-      let isTyping = true;
-      let i = 0;
-      let interval;
-      let timeout;
-
-      const type = () => {
-        interval = setInterval(() => {
-          if (isTyping) {
-            setDisplayedSubtitle(textToType.slice(0, i));
-            i++;
-            if (i > textToType.length) {
-              clearInterval(interval);
-              timeout = setTimeout(erase, 3000);
-            }
-          }
-        }, 50);
-      };
-
-      const erase = () => {
-        isTyping = false;
-        let j = textToType.length;
-        interval = setInterval(() => {
-          setDisplayedSubtitle(textToType.slice(0, j));
-          j--;
-          if (j < 0) {
-            clearInterval(interval);
-            textToType = textToType === text1 ? text2 : text1;
-            i = 0;
-            isTyping = true;
-            timeout = setTimeout(type, 50);
-          }
-        }, 25);
-      };
-
-      type();
-
-      return () => {
-        clearInterval(interval);
-        clearTimeout(timeout);
-      };
-    } else {
-      setDisplayedSubtitle("INFORMAȚII DESPRE FACULTĂȚI ȘI JOBURI");
-    }
-  }, [searched, showQuiz]);
-
   if (!ready) return null;
 
   const toggleDarkMode = () => {
