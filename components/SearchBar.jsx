@@ -112,7 +112,7 @@ return (
             }`}
             onClick={showAllFaculties}
           >
-            AFIȘEAZĂ TOATE FACULTĂȚILe
+            AFIȘEAZĂ TOATE FACULTĂȚILE
           </motion.button>
           <motion.button
             className={`px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${

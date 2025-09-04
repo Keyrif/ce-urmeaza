@@ -1,31 +1,5 @@
 const universities = [
-  {
-    name: "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)",
-    location: "București",
-    university: "Academia de Studii Economice (ASE)",
-    keywords: [
-      "bucuresti", "ase", "csie", "it", "programare", "informatica", "software",
-      "cybernetics", "statistics", "economic informatics", "calculatoare",
-      "programator", "analist", "inginer software", "consultant IT", "specialist AI",
-      "programere", "informaticaa", "calculetoare", "pogramare", "informatică", "informatic", 
-      "softwar", "cybernatic", "statistica", "statistic", "economik", "e-conomic", 
-      "calcutor", "computere", "analist", "softare", "consultan", 
-      "spcialist", "baze de date", "algoritmi", 
-      "matematica", "economie", "cibernetica"
-    ],
-    salary: { min: 3000, max: 16000 },
-    details: {
-      duration: 3,
-      study: "Algoritmi, baze de date, programare, inteligență artificială, statistică, economie aplicată.",
-      jobs: [
-        { name: "Programator junior", salary: "3000 - 5000 RON" },
-        { name: "Programator", salary: "5000 - 14000 RON" },
-        { name: "Analist date", salary: "4000 - 7000 RON" },
-        { name: "Analist baze date", salary: "5000 - 10000 RON" },
-        { name: "Inginer software", salary: "5000 - 16000 RON" }
-      ]
-    }
-  },
+
   {
     name: "Facultatea de Contabilitate și Informatică de Gestiune",
     location: "București",
@@ -167,6 +141,33 @@ const universities = [
         { name: "Inginer de rețea", salary: "6000 - 10000 RON" },
         { name: "Proiectant circuite", salary: "9000 - 17000 RON" },
         { name: "Cercetător în robotică", salary: "10000 - 25000 RON" }
+      ]
+    }
+  },
+  {
+    name: "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)",
+    location: "București",
+    university: "Academia de Studii Economice (ASE)",
+    keywords: [
+      "bucuresti", "ase", "csie", "it", "programare", "informatica", "software",
+      "cybernetics", "statistics", "economic informatics", "calculatoare",
+      "programator", "analist", "inginer software", "consultant IT", "specialist AI",
+      "programere", "informaticaa", "calculetoare", "pogramare", "informatică", "informatic", 
+      "softwar", "cybernatic", "statistica", "statistic", "economik", "e-conomic", 
+      "calcutor", "computere", "analist", "softare", "consultan", 
+      "spcialist", "baze de date", "algoritmi", 
+      "matematica", "economie", "cibernetica"
+    ],
+    salary: { min: 3000, max: 16000 },
+    details: {
+      duration: 3,
+      study: "Algoritmi, baze de date, programare, inteligență artificială, statistică, economie aplicată.",
+      jobs: [
+        { name: "Programator junior", salary: "3000 - 5000 RON" },
+        { name: "Programator", salary: "5000 - 14000 RON" },
+        { name: "Analist date", salary: "4000 - 7000 RON" },
+        { name: "Analist baze date", salary: "5000 - 10000 RON" },
+        { name: "Inginer software", salary: "5000 - 16000 RON" }
       ]
     }
   },
