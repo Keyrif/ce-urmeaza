@@ -98,8 +98,10 @@ function Quiz ({
               : "bg-white text-gray-900"
             }`}
           >
-            <button
+            <motion.button
               onClick={onClose}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale:0.9 }}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${
                 darkMode
                 ? "bg-slate-700 text-white hover:bg-slate-600"
@@ -107,7 +109,7 @@ function Quiz ({
               }`}
             >
               ✕
-            </button>
+            </motion.button>
 
             {quizResult ? (
               <>

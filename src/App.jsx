@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import universities from '/src/data/universities';
+import TitleLogo from "/src/components/TitleLogo";
 import ThemeToggle from '/src/components/ThemeToggle';
 import UniversityCard from "/src/components/UniversityCard";
+import ResultsGrid from "/src/components/ResultsGrid";
 import Quiz from "/src/components/Quiz";
 import Footer from "/src/components/Footer";
-import TitleLogo from "/src/components/TitleLogo";
-import ResultsGrid from "/src/components/ResultsGrid";
 
 function App() {
   const [searchText, setSearchText] = useState("");
@@ -38,10 +38,17 @@ function App() {
           }
       };
 
+      if (selectedUniversity) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+      
       document.addEventListener('keydown', closeMenuEsc);
 
       return () => {
        document.removeEventListener('keydown', closeMenuEsc);
+           document.body.style.overflow = ''; 
       };
     }
   }, [selectedUniversity, showQuiz]);
