@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import universities from '/data/universities';
-import quizQuestions from '/data/quizQuestions';
+import universities from '/src/data/universities';
+import quizQuestions from '/src/data/quizQuestions';
 import SearchBar from '/src/components/SearchBar';
 import ThemeToggleButton from '/src/components/ThemeToggleButton';
 import UniversityCard from "/src/components/UniversityCard";
