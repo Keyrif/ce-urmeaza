@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SearchBar from "./SearchBar";
 
-function Header({
+function TitleLogo({
   searched,
   glow,
   darkMode,
@@ -64,4 +64,4 @@ function Header({
   );
 }
 
-export default Header;
+export default TitleLogo;
