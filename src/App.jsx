@@ -2,11 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import universities from '/src/data/universities';
 import quizQuestions from '/src/data/quizQuestions';
-import SearchBar from '/src/components/SearchBar';
 import ThemeToggleButton from '/src/components/ThemeToggleButton';
 import UniversityCard from "/src/components/UniversityCard";
 import QuizButton from "/src/components/QuizButton";
 import Footer from "/src/components/Footer";
+import TitleLogo from "/src/components/TitleLogo";
 
 function App() {
   const [searchText, setSearchText] = useState("");
@@ -184,54 +184,27 @@ function App() {
       }`}
     >
 
-      <ThemeToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+      <ThemeToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       <div className={`flex-grow flex flex-col items-center transition-all duration-300 ${
         !searched ? 'justify-center' : 'pt-16'}`}>
 
-        <motion.div
-          layout
-          className="flex flex-col items-center"
-        >
-          <motion.h1
-            layout
-            onClick={logoClick}
-            className={`cursor-pointer font-extrabold transition-all duration-300 text-center whitespace-nowrap ${
-              searched ? "text-3xl sm:text-4xl" : "text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw]"
-            } ${
-                darkMode
-                ? glow
-                ? "drop-shadow-[0_0_20px_white]"
-                : ""
-                : "text-black " + (glow ? "drop-shadow-[0_0_20px_black]" : "")
-            }`}
-          >
-            CE URMEAZĂ?
-          </motion.h1>
+        <TitleLogo
+          searched={searched}
+          glow={glow}
+          darkMode={darkMode}
+          displayedSubtitle={displayedSubtitle}
+          logoClick={logoClick}
+          searchText={searchText}
+          setSearchText={setSearchText}
+          setSearched={setSearched}
+          inputRef={inputRef}
+          universities={universities}
+          setResults={setResults}
+          startQuiz={startQuiz}
+          showQuiz={showQuiz}
+        />
 
-          <motion.p
-            layout
-            className={`font-medium transition-all duration-300 ${
-              searched ? "opacity-0" : "text-sm sm:text-lg mt-2 opacity-70"
-            }`}
-          >
-            {displayedSubtitle}
-          </motion.p>
-
-          <SearchBar
-            searchText={searchText}
-            setSearchText={setSearchText}
-            searched={searched}
-            setSearched={setSearched}
-            inputRef={inputRef}
-            universities={universities}
-            setResults={setResults}
-            startQuiz={startQuiz}
-            showQuiz={showQuiz}
-            darkMode={darkMode}
-          />
-
-        </motion.div>
 
         {searched && (
           <motion.div
@@ -356,10 +329,9 @@ function App() {
         darkMode={darkMode}
       />
 
-      <Footer darkMode={darkMode}/>
+      <Footer darkMode={darkMode} />
 
     </div>
   );
 }
-
 export default App;
