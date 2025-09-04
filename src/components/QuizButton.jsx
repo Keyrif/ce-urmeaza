@@ -15,6 +15,7 @@ function QuizButton ({
   darkMode
 }) {
   return (
+
     <AnimatePresence>
       {showQuiz && (
         <motion.div

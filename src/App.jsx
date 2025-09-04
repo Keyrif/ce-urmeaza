@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import universities from '/src/data/universities';
 import quizQuestions from '/src/data/quizQuestions';
 import SearchBar from '/src/components/SearchBar';
 import ThemeToggleButton from '/src/components/ThemeToggleButton';
 import UniversityCard from "/src/components/UniversityCard";
 import QuizButton from "/src/components/QuizButton";
+import Footer from "/src/components/Footer";
 
 function App() {
   const [searchText, setSearchText] = useState("");
@@ -282,9 +283,6 @@ function App() {
                       <circle cx="12" cy="10" r="3"/>
                   </svg>
                   {f.location}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
-                     Click pentru a vedea pe hartă
-                    </div>
                   </div> 
                   <div className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode 
@@ -357,19 +355,8 @@ function App() {
         darkMode={darkMode}
       />
 
-      <footer
-        className={`w-full py-6 mt-12 flex flex-col items-center justify-center gap-1 text-center transition-all duration-300 ${
-          darkMode ? "bg-slate-900 text-gray-200" : "bg-gray-100 text-gray-900"
-        }`}
-      >
-        <p className="font-semibold text-lg">© 2025 KEYRIF</p>
-        <a className="text-sm opacity-80" href="https://github.com/keyrif/ce-urmeaza">
-          Pagina Proiect Github
-        </a>
-        <a className="text-sm opacity-80" href="https://www.paylab.ro/">
-          Sursa salarii
-        </a>
-      </footer>
+      <Footer darkMode={darkMode}/>
+
     </div>
   );
 }
