@@ -14,6 +14,7 @@ function Footer({ darkMode }) {
       <a className="text-sm opacity-80" href="https://www.paylab.ro/">
         Sursa salarii
       </a>
+      <p>v0.4</p>
     </footer>
   );
 }
