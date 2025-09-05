@@ -165,7 +165,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               onClick={() => setCurrentPage(i + 1)}
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
-              className={`px-4 py-2 rounded-lg border transition-colors duration-700 ${
+              className={`px-4 py-2 rounded-lg border transition-colors duration-600 ${
                 currentPage === i + 1
                   ? darkMode
                     ? "bg-cyan-500 text-white border-cyan-400"

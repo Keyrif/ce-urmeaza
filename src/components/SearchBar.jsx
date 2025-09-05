@@ -74,7 +74,7 @@ return (
       onKeyDown={(e) => e.key === "Enter" && Search()}
       onClick={SearchBarReset}
       placeholder="Caută..."
-      className={`rounded-full border text-center mt-6 transition-all duration-700 shadow-lg focus:shadow-xl ${
+      className={`rounded-full border text-center mt-6 transition-all duration-600 shadow-lg focus:shadow-xl ${
         darkMode
           ? "bg-slate-800 text-white placeholder-slate-400 border-slate-600 outline outline-1 outline-black focus:outline-cyan-400"
           : "bg-gray-200 text-black placeholder-gray-500 border-gray-300 outline outline-1 outline-black focus:outline-cyan-400"
