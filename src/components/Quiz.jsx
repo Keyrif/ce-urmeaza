@@ -101,7 +101,7 @@ function Quiz ({
             <motion.button
               onClick={(e) => {
                 e.stopPropagation(); 
-                setTimeout(() => setSelectedUniversity(null), 150); 
+                setTimeout(() => onClose(), 100); 
               }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale:0.9 }}
