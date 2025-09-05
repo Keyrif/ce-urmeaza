@@ -14,6 +14,11 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
   if (!searched) return null;
   
+  const pageToTop = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top:0, behavior: "smooth" });
+  };
+
   return (
     <div className="flex flex-col items-center w-full">
       <AnimatePresence mode="wait">
@@ -137,7 +142,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
       {totalPages > 1 && (
         <div className="flex gap-2 mt-6 flex-wrap justify-center">
           <button
-            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+            onClick={() => pageToTop(Math.max(currentPage - 1, 1))}
             disabled={currentPage === 1}
             className={`px-4 py-2 rounded-lg border transition-colors ${
               darkMode
@@ -162,7 +167,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           {Array.from({ length: totalPages }, (_, i) => (
             <motion.button
               key={i + 1}
-              onClick={() => setCurrentPage(i + 1)}
+              onClick={() => pageToTop(i + 1)}
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
               className={`px-4 py-2 rounded-lg border transition-colors duration-600 ${
@@ -180,7 +185,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           ))}
 
           <button
-            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+            onClick={() => pageToTop(Math.min(currentPage + 1, totalPages))}
             disabled={currentPage === totalPages}
             className={`px-4 py-2 rounded-lg border transition-colors ${
               darkMode
