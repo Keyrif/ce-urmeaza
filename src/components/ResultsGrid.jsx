@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
@@ -7,6 +7,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const totalPages = Math.ceil(results.length / resultsPerPage);
   const startIndex = (currentPage - 1) * resultsPerPage;
   const currentResults = results.slice(startIndex, startIndex + resultsPerPage);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [results, searched]);
 
   if (!searched) return null;
   
@@ -161,14 +165,14 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               onClick={() => setCurrentPage(i + 1)}
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
-              className={`px-4 py-2 rounded-lg border transition-colors ${
+              className={`px-4 py-2 rounded-lg border transition-colors duration-700 ${
                 currentPage === i + 1
                   ? darkMode
                     ? "bg-cyan-500 text-white border-cyan-400"
                     : "bg-cyan-500 text-white border-cyan-600"
                   : darkMode
                   ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600"
-                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                  : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
               }`}
             >
               {i + 1}
