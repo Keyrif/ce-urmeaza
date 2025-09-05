@@ -10,8 +10,7 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
         : 'bg-cyan-500 text-white'} shadow-lg z-50`}
       onClick={toggleDarkMode}
       whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.90 }}
-      transition={{ type: "spring", stiffness: 300, damping: 15 }}
+      whileTap={{ scale: 0.85 }}
     >
       {darkMode ? (
         <svg xmlns="http://www.w3.org/2000/svg"
