@@ -61,7 +61,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                   : "bg-gray-200 text-gray-900 hover:bg-gray-300"
               }`}
             >
-              ✕
+              A
             </motion.button>
 
             <div className="flex flex-col items-center mb-6 text-center">
