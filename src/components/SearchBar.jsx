@@ -15,7 +15,6 @@ function SearchBar({
   darkMode,
 }) {
   const [numResults, setNumResults] = useState(0);
-  //const textToShow = `AM GĂSIT ${numResults} DE FACULTĂȚI`;
   let textToShow;
   if (numResults === 1) {
     textToShow = "AM GĂSIT O FACULTATE";
