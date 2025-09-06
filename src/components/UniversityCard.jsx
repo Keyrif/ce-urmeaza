@@ -50,7 +50,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
             <motion.button
               onClick={(e) => {
                 e.stopPropagation(); 
-                setTimeout(() => setSelectedUniversity(null), 100); 
+                setTimeout(() => setSelectedUniversity(null), 150); 
               }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.8 }}

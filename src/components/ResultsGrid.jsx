@@ -175,7 +175,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               key={i + 1}setTi
               onClick={(e) => {
                 e.stopPropagation();
-                setTimeout(() => pageToTop(i+1), 100)
+                setTimeout(() => pageToTop(i+1), 150)
               }}
               //onClick={() => pageToTop(i + 1)}
               whileHover={{ scale: 1.05 }}
