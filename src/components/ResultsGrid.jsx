@@ -173,8 +173,12 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           {Array.from({ length: totalPages }, (_, i) => (
             <motion.button
               key={i + 1}
-              onClick={() => pageToTop(i + 1)}
-             whileHover={{ scale: 1.05 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setTimeout(() => pageToTop(i+1), 150)
+              }}
+              //onClick={() => pageToTop(i + 1)}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
               className={`px-4 py-2 rounded-lg border transition-colors duration-600 ${
                 currentPage === i + 1
