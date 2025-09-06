@@ -16,7 +16,7 @@ function SearchBar({
 }) {
   const [numResults, setNumResults] = useState(0);
   let textToShow;
-  if (searchText.trim().length < 3) {
+  if (numResults < 200 && searchText.trim().length < 3) {
     textToShow = "O CĂUTARE TREBUIE SĂ AIBĂ MINIM 3 CARACTERE";
   } else if (numResults === 0) {
     textToShow = "NU AM GĂSIT FACULTĂȚI";
