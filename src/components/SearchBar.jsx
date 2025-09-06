@@ -1,4 +1,3 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
