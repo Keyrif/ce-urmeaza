@@ -1,3 +1,4 @@
+import { text } from "@fortawesome/fontawesome-svg-core";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -14,7 +15,15 @@ function SearchBar({
   darkMode,
 }) {
   const [numResults, setNumResults] = useState(0);
-  const textToShow = `AM GĂSIT ${numResults} FACULTĂȚI`;
+  //const textToShow = `AM GĂSIT ${numResults} DE FACULTĂȚI`;
+  let textToShow;
+  if (numResults === 1) {
+    textToShow = "AM GĂSIT O FACULTATE";
+  } else if (numResults > 1 && numResults < 20) {
+    textToShow = `AM GĂSIT ${numResults} FACULTĂȚI`;
+  } else {
+    textToShow = `AM GĂSIT ${numResults} DE FACULTĂȚI`;
+  }
   const characters = Array.from(textToShow);
   const containerVariants = {
     hidden: { opacity: 0 },
