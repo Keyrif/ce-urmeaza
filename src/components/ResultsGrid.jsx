@@ -172,10 +172,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
           {Array.from({ length: totalPages }, (_, i) => (
             <motion.button
-              key={i + 1}
+              key={i + 1}setTi
               onClick={(e) => {
                 e.stopPropagation();
-                setTimeout(() => pageToTop(i+1), 150)
+                setTimeout(() => pageToTop(i+1), 100)
               }}
               //onClick={() => pageToTop(i + 1)}
               whileHover={{ scale: 1.05 }}
