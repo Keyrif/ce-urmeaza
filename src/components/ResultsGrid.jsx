@@ -12,12 +12,13 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
     setCurrentPage(1);
   }, [results, searched]);
 
-  if (!searched) return null;
-  
-  const pageToTop = (page) => {
-    setCurrentPage(page);
-    window.scrollTo({ top:0, behavior: "smooth" });
-  };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  if (!searched || !results || results.length === 0) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -146,7 +147,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
       {totalPages > 1 && (
         <div className="flex gap-2 mt-6 flex-wrap justify-center">
           <motion.button
-            onClick={() => pageToTop(Math.max(currentPage - 1, 1))}
+            onClick={(e) => {
+              e.stopPropagation();
+              setTimeout(() => setCurrentPage(Math.max(currentPage - 1, 1)), 150)
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             disabled={currentPage === 1}
@@ -172,12 +176,11 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
           {Array.from({ length: totalPages }, (_, i) => (
             <motion.button
-              key={i + 1}setTi
+              key={i + 1}
               onClick={(e) => {
                 e.stopPropagation();
-                setTimeout(() => pageToTop(i+1), 150)
+                setTimeout(() => setCurrentPage(i+1), 150)
               }}
-              //onClick={() => pageToTop(i + 1)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
               className={`px-4 py-2 rounded-lg border transition-colors duration-600 ${
@@ -195,7 +198,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           ))}
 
           <motion.button
-            onClick={() => pageToTop(Math.min(currentPage + 1, totalPages))}
+            onClick={(e) => {
+              e.stopPropagation();
+              setTimeout(() => setCurrentPage(Math.min(currentPage + 1, totalPages)), 150)
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             disabled={currentPage === totalPages}
