@@ -33,13 +33,17 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           {currentResults.map((f) => (
             <motion.div
               key={f.name}
-              onClick={() => setSelectedUniversity(f)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setTimeout(() => setSelectedUniversity(f), 150);
+              }}
               className={`relative p-6 rounded-2xl border cursor-pointer overflow-hidden transition-all shadow-lg hover:shadow-2xl ${
                 darkMode
                   ? "bg-slate-800 border-slate-600 text-white"
                   : "bg-white border-gray-300 text-gray-900"
               }`}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.85 }}
             >
               <motion.div
                 className="absolute inset-0 -m-[2px] rounded-2xl pointer-events-none"
@@ -141,8 +145,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
       {totalPages > 1 && (
         <div className="flex gap-2 mt-6 flex-wrap justify-center">
-          <button
+          <motion.button
             onClick={() => pageToTop(Math.max(currentPage - 1, 1))}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
             disabled={currentPage === 1}
             className={`px-4 py-2 rounded-lg border transition-colors ${
               darkMode
@@ -162,14 +168,14 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               class="lucide lucide-arrow-big-left-icon lucide-arrow-big-left">
                 <path d="M13 9a1 1 0 0 1-1-1V5.061a1 1 0 0 0-1.811-.75l-6.835 6.836a1.207 1.207 0 0 0 0 1.707l6.835 6.835a1 1 0 0 0 1.811-.75V16a1 1 0 0 1 1-1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1z"/>
             </svg>
-          </button>
+          </motion.button>
 
           {Array.from({ length: totalPages }, (_, i) => (
             <motion.button
               key={i + 1}
               onClick={() => pageToTop(i + 1)}
+             whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.05 }}
               className={`px-4 py-2 rounded-lg border transition-colors duration-600 ${
                 currentPage === i + 1
                   ? darkMode
@@ -184,8 +190,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             </motion.button>
           ))}
 
-          <button
+          <motion.button
             onClick={() => pageToTop(Math.min(currentPage + 1, totalPages))}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
             disabled={currentPage === totalPages}
             className={`px-4 py-2 rounded-lg border transition-colors ${
               darkMode
@@ -205,7 +213,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               class="lucide lucide-arrow-big-right-icon lucide-arrow-big-right">
                 <path d="M11 9a1 1 0 0 0 1-1V5.061a1 1 0 0 1 1.811-.75l6.836 6.836a1.207 1.207 0 0 1 0 1.707l-6.836 6.835a1 1 0 0 1-1.811-.75V16a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z"/>
             </svg>
-          </button>
+          </motion.button>
         </div>
       )}
     </div>

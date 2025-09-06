@@ -181,13 +181,8 @@ function Quiz ({
                       </span>
                       <span>10000 RON</span>
                     </div>
-                    <motion.button
-                      onClick={(e) => {
-                        e.stopPropagation(); 
-                        setTimeout(() => calculateResult(), 100); 
-                      }}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale:0.9 }}
+                    <button
+                      onClick={calculateResult}
                       className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 transition-all duration-300 ${
                         darkMode
                           ? "bg-cyan-700 hover:bg-cyan-600 text-white"
@@ -195,7 +190,7 @@ function Quiz ({
                       }`}
                     >
                       Vezi rezultatul
-                    </motion.button>
+                    </button>
                   </div>
                 )}
 

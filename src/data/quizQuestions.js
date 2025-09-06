@@ -629,7 +629,7 @@ const quizQuestions = [
         ]
     },
     {
-        questionText: "Ce salariu lunar net (în RON) consideri că ar fi satisfăcător pentru tine la 5-6 ani după absolvire?",
+        questionText: "Ce salariu lunar net consideri că este satisfăcător pentru tine la 5-6 ani după absolvire?",
         type: "slider",
         min: 2500,
         max: 25000,

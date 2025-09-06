@@ -11,10 +11,7 @@ function Footer({ darkMode }) {
       <a className="text-sm opacity-80" href="https://github.com/keyrif/ce-urmeaza">
         Pagina Proiect Github
       </a>
-      <a className="text-sm opacity-80" href="https://www.paylab.ro/">
-        Sursa salarii
-      </a>
-      <p>v0.41</p>
+      <p>v0.42</p>
     </footer>
   );
 }
