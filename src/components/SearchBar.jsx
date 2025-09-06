@@ -15,8 +15,11 @@ function SearchBar({
   darkMode,
 }) {
   const [numResults, setNumResults] = useState(0);
+
   let textToShow;
-  if (numResults === 1) {
+  if (numResults === 0) {
+    textToShow = "NU AM GĂSIT FACULTĂȚI";
+  } else if (numResults === 1) {
     textToShow = "AM GĂSIT O FACULTATE";
   } else if (numResults > 1 && numResults < 20) {
     textToShow = `AM GĂSIT ${numResults} FACULTĂȚI`;
@@ -113,7 +116,7 @@ function SearchBar({
         }`}
       />
       <AnimatePresence>
-        {searched && numResults > 0 && (
+        {searched && (
           <motion.div
             key={numResults} 
             variants={containerVariants}
