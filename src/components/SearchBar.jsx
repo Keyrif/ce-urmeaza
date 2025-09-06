@@ -15,9 +15,10 @@ function SearchBar({
   darkMode,
 }) {
   const [numResults, setNumResults] = useState(0);
-
   let textToShow;
-  if (numResults === 0) {
+  if (searchText.trim().length < 3) {
+    textToShow = "O CĂUTARE TREBUIE SĂ AIBĂ MINIM 3 CARACTERE";
+  } else if (numResults === 0) {
     textToShow = "NU AM GĂSIT FACULTĂȚI";
   } else if (numResults === 1) {
     textToShow = "AM GĂSIT O FACULTATE";
@@ -48,6 +49,7 @@ function SearchBar({
   };
 
   const Search = () => {
+    inputRef.current?.blur();
     if (searchText.trim() === "") {
       setResults(universities);
       setSearched(true);
@@ -55,13 +57,19 @@ function SearchBar({
       return;
     }
 
+    if (searchText.trim().length < 3) {
+      setResults([]);
+      setSearched(true);
+      setNumResults(0);
+      return;
+    }
+
     setSearched(true);
-    inputRef.current?.blur();
 
     const searchWords = searchText.toLowerCase().split(" ");
 
     const filtered = universities.filter((f) => {
-      const haystack = [
+      const searchArray = [
         f.name.toLowerCase(),
         f.location.toLowerCase(),
         f.university?.toLowerCase() || "",
@@ -69,7 +77,7 @@ function SearchBar({
       ];
 
       return searchWords.every((word) =>
-        haystack.some((field) => field.includes(word))
+        searchArray.some((field) => field.includes(word))
       );
     });
 
