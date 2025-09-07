@@ -14,6 +14,16 @@ function SearchBar({
   darkMode,
 }) {
   const [numResults, setNumResults] = useState(0);
+
+  // neumorphism test commit
+  const neumorphicShadow = darkMode
+    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f"
+    : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
+
+  const neumorphicPressedShadow = darkMode
+    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #202b3f"
+    : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
+
   let textToShow;
   if (numResults < 200 && searchText.trim().length < 3) {
     textToShow = "O CĂUTARE TREBUIE SĂ AIBĂ MINIM 3 CARACTERE";
@@ -27,6 +37,7 @@ function SearchBar({
     textToShow = `AM GĂSIT ${numResults} DE FACULTĂȚI`;
   }
   const characters = Array.from(textToShow);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,10 +47,10 @@ function SearchBar({
       },
     },
     exit: {
-        opacity: 0,
-        y: -20,
-        transition: { duration: 0.2 }
-    }
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.2 },
+    },
   };
 
   const characterVariants = {
@@ -112,33 +123,22 @@ function SearchBar({
         onKeyDown={(e) => e.key === "Enter" && Search()}
         onClick={SearchBarReset}
         placeholder="Caută..."
-        whileTap={{ scale: 1 }}
-        whileHover={{ 
-          scale: 1.05,
-          boxShadow: "0 0 0 3px rgba(34, 211, 238, 0.4), 0 10px 15px -3px rgba(34, 211, 238, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
-        }}
-        whileFocus={{
-          scale: 1,
-          boxShadow: "0 0 0 5px rgba(34, 211, 238, 0.5), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-          transition: {
-            duration: 0.2,
-            ease: "linear"
-          }
-        }}
-        className={`rounded-full border-transparent text-center mt-6 duration-600 shadow-lg focus:outline-none ${
+        className={`rounded-full border-none focus:outline-none focus:ring-4 focus:ring-cyan-500/50 text-center mt-6 transition-all duration-300 ${
           darkMode
-            ? "bg-slate-800 text-white placeholder-slate-400"
-            : "bg-gray-200 text-black placeholder-gray-500"
+            ? "bg-slate-900 text-white placeholder-slate-400"
+            : "bg-gray-100 text-black placeholder-gray-500"
         } ${
           searched
             ? "w-60 py-2 text-base"
             : "w-[40vw] sm:w-[30vw] md:w-[25vw] py-3 sm:py-4 text-lg"
         }`}
+        style={{ boxShadow: neumorphicShadow }}
+        whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
       />
       <AnimatePresence>
         {searched && (
           <motion.div
-            key={numResults} 
+            key={numResults}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -153,7 +153,6 @@ function SearchBar({
               </motion.span>
             ))}
           </motion.div>
-
         )}
       </AnimatePresence>
       <AnimatePresence>
@@ -166,25 +165,23 @@ function SearchBar({
             className="flex flex-col sm:flex-row gap-4 mt-12"
           >
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold shadow-lg duration-300 focus:outline-none ${
-                darkMode
-                  ? "bg-slate-800 hover:bg-slate-700 text-white border-2 border-cyan-700 hover:border-cyan-600 active:border-4 hover:shadow-xl hover:shadow-xl hover:shadow-cyan-800/30"
-                  : "bg-white hover:bg-gray-200 text-gray-900 border-2 border-cyan-500 hover:border-cyan-400 active:border-4 hover:shadow-xl hover:shadow-xl hover:shadow-cyan-400/30"
+              className={`px-6 py-3 rounded-full font-semibold focus:outline-none transition-colors duration-300 ${
+                darkMode ? "bg-slate-900 text-white" : "bg-gray-100 text-gray-900"
               }`}
+              style={{ boxShadow: neumorphicShadow }}
               whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
               onClick={showAllFaculties}
             >
               AFIȘEAZĂ TOATE FACULTĂȚILE
             </motion.button>
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold shadow-lg duration-300 focus:outline-none ${
-                darkMode
-                  ? "bg-cyan-700 hover:bg-cyan-600 text-white border-2 border-white hover:border-white active:border-4 hover:shadow-xl hover:shadow-xl hover:shadow-cyan-800/30"
-                  : "bg-cyan-500 hover:bg-cyan-400 text-white border-black hover:border-black active:border-4 hover:shadow-xl hover:shadow-xl hover:shadow-cyan-400/50"
+              className={`px-6 py-3 rounded-full font-semibold focus:outline-none transition-colors duration-300 ${
+                darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"
               }`}
+              style={{ boxShadow: neumorphicShadow }}
               whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
               onClick={startQuiz}
             >
               DESCOPERĂ FACULTATEA PERFECTĂ

@@ -8,6 +8,15 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const startIndex = (currentPage - 1) * resultsPerPage;
   const currentResults = results.slice(startIndex, startIndex + resultsPerPage);
 
+  // neumorphism test commit
+  const neumorphicShadow = darkMode
+    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f"
+    : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
+
+  const neumorphicPressedShadow = darkMode
+    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #202b3f"
+    : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
+
   useEffect(() => {
     setCurrentPage(1);
   }, [results, searched]);
@@ -21,7 +30,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   }
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className={`flex flex-col items-center w-full min-h-screen ${darkMode ? 'bg-slate-900' : 'bg-gray-100'} transition-colors duration-500`}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentPage}
@@ -29,7 +38,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4 }}
-          className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl p-4 z-10"
+          className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl p-4 z-10"
         >
           {currentResults.map((f) => (
             <motion.div
@@ -38,45 +47,24 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 e.stopPropagation();
                 setTimeout(() => setSelectedUniversity(f), 150);
               }}
-              className={`relative p-6 rounded-2xl border cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl focus:outline-none ${
-                darkMode
-                  ? "bg-slate-800 border-slate-600 text-white hover:border-2 hover:border-cyan-600"
-                  : "bg-white border-gray-300 text-gray-900 hover:border-2 hover:border-cyan-400"
+              className={`p-6 rounded-3xl cursor-pointer transition-colors duration-500 ${
+                darkMode ? "bg-slate-900" : "bg-gray-100"
               }`}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)",
-               }}
-              whileTap={{ 
-                scale: 0.95,
-                boxShadow: "0 0 10px 1px rgba(34, 211, 238, 0.55)",
-               }}
-              transition={{
-                duration: 0.2,
-                type: "linear"
-              }}
+              style={{ boxShadow: neumorphicShadow }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+              transition={{ duration: 0.2 }}
             >
-              <motion.div
-                className="absolute inset-0 -m-[2px] rounded-2xl pointer-events-none"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileHover={{ opacity: 1, scale: 1.05 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                style={{
-                  border: "2px solid #22d3ee",
-                  boxShadow: "0 0 10px rgba(34, 211, 238, 0.7)",
-                }}
-              />
-
-              <h2 className="font-bold text-xl relative z-10">
+              <h2 className={`font-bold text-xl relative z-10 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 {f.name}
-                </h2>
+              </h2>
 
-              <div className="flex flex-wrap gap-2 mt-2">
+              <div className="flex flex-wrap gap-2 mt-4">
                 <div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-cyan-600 text-white"
-                      : "bg-cyan-500 text-white"
+                      ? "bg-slate-800 text-cyan-400"
+                      : "bg-gray-200 text-cyan-600"
                   }`}
                 >
                   <svg
@@ -100,8 +88,8 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 <div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-cyan-600 text-white"
-                      : "bg-cyan-500 text-white"
+                      ? "bg-slate-800 text-cyan-400"
+                      : "bg-gray-200 text-cyan-600"
                   }`}
                 >
                   <svg
@@ -126,8 +114,8 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 <div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-cyan-600 text-white"
-                      : "bg-cyan-500 text-white"
+                      ? "bg-slate-800 text-cyan-400"
+                      : "bg-gray-200 text-cyan-600"
                   }`}
                 >
                   <svg
@@ -155,38 +143,33 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
       </AnimatePresence>
 
       {totalPages > 1 && (
-        <div className="flex gap-2 mt-6 flex-wrap justify-center">
+        <div className="flex gap-4 mt-8 mb-12 flex-wrap justify-center p-4">
           <motion.button
             onClick={(e) => {
               e.stopPropagation();
               setTimeout(() => setCurrentPage(Math.max(currentPage - 1, 1)), 150)
             }}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)",
-             }}
-            whileTap={{ 
-              scale: 0.9,
-              boxShadow: "0 0 10px 2px rgba(34, 211, 238, 0.7)",
-            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
             disabled={currentPage === 1}
-            className={`px-4 py-2 rounded-lg border transition-colors focus:outline-none ${
-              darkMode
-                ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600 hover:border-2 hover:border-cyan-600"
-                : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 hover:border-2 hover:border-cyan-300"
-            } disabled:opacity-50`}
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-500 ${
+              darkMode ? "bg-slate-900 text-cyan-400" : "bg-gray-100 text-gray-800"
+            } disabled:opacity-50 disabled:cursor-not-allowed`}
+            style={{ boxShadow: neumorphicShadow }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              stroke-width="2" 
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              class="lucide lucide-arrow-big-left-icon lucide-arrow-big-left">
-                <path d="M13 9a1 1 0 0 1-1-1V5.061a1 1 0 0 0-1.811-.75l-6.835 6.836a1.207 1.207 0 0 0 0 1.707l6.835 6.835a1 1 0 0 0 1.811-.75V16a1 1 0 0 1 1-1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-arrow-big-left-icon lucide-arrow-big-left"
+            >
+              <path d="M13 9a1 1 0 0 1-1-1V5.061a1 1 0 0 0-1.811-.75l-6.835 6.836a1.207 1.207 0 0 0 0 1.707l6.835 6.835a1 1 0 0 0 1.811-.75V16a1 1 0 0 1 1-1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1z" />
             </svg>
           </motion.button>
 
@@ -195,25 +178,20 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               key={i + 1}
               onClick={(e) => {
                 e.stopPropagation();
-                setTimeout(() => setCurrentPage(i+1), 150)
+                setTimeout(() => setCurrentPage(i + 1), 150)
               }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)",
-              }}
-              whileTap={{ 
-                scale: 0.9,
-                boxShadow: "0 0 10px 2px rgba(34, 211, 238, 0.7)",
-              }}
-              className={`px-4 py-2 rounded-lg transition-colors duration-600 focus:outline-none ${
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+              className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-500 ${
                 currentPage === i + 1
                   ? darkMode
-                    ? "bg-cyan-500 text-white border-cyan-400 hover:border-2 hover:border-cyan-600"
-                    : "bg-cyan-500 text-white border-cyan-600 hover:border-2 hover:border-cyan-300"
+                    ? "bg-cyan-500 text-white"
+                    : "bg-cyan-500 text-white"
                   : darkMode
-                  ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600 hover:border-2 hover:border-cyan-600"
-                  : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 hover:border-2 hover:border-cyan-300"
+                  ? "bg-slate-900 text-white"
+                  : "bg-gray-100 text-gray-800"
               }`}
+              style={{ boxShadow: currentPage === i + 1 ? 'none' : neumorphicShadow }}
             >
               {i + 1}
             </motion.button>
@@ -224,32 +202,27 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               e.stopPropagation();
               setTimeout(() => setCurrentPage(Math.min(currentPage + 1, totalPages)), 150)
             }}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)",
-             }}
-            whileTap={{ 
-              scale: 0.9,
-              boxShadow: "0 0 10px 2px rgba(34, 211, 238, 0.7)",
-            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
             disabled={currentPage === totalPages}
-            className={`px-4 py-2 rounded-lg border transition-colors focus:outline-none ${
-              darkMode
-                ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600 hover:border-2 hover:border-cyan-600"
-                : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 hover:border-2 hover:border-cyan-300"
-            } disabled:opacity-50`}
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-500 ${
+              darkMode ? "bg-slate-900 text-cyan-400" : "bg-gray-100 text-gray-800"
+            } disabled:opacity-50 disabled:cursor-not-allowed`}
+            style={{ boxShadow: neumorphicShadow }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              stroke-width="2" 
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              class="lucide lucide-arrow-big-right-icon lucide-arrow-big-right">
-                <path d="M11 9a1 1 0 0 0 1-1V5.061a1 1 0 0 1 1.811-.75l6.836 6.836a1.207 1.207 0 0 1 0 1.707l-6.836 6.835a1 1 0 0 1-1.811-.75V16a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-arrow-big-right-icon lucide-arrow-big-right"
+            >
+              <path d="M11 9a1 1 0 0 0 1-1V5.061a1 1 0 0 1 1.811-.75l6.836 6.836a1.207 1.207 0 0 1 0 1.707l-6.836 6.835a1 1 0 0 1-1.811-.75V16a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z" />
             </svg>
           </motion.button>
         </div>
