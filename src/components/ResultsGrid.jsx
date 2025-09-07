@@ -49,7 +49,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                }}
               whileTap={{ 
                 scale: 0.95,
-                boxShadow: "0 0 40px 1px rgba(34, 211, 238, 0.55)",
+                boxShadow: "0 0 10px 1px rgba(34, 211, 238, 0.55)",
                }}
               transition={{
                 duration: 0.2,

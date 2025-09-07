@@ -15,7 +15,12 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
           : "0 0 20px 2px rgba(34, 211, 238, 0.7)",
         scale: 1.1
        }}
-      whileTap={{ scale: 0.8 }}
+      whileTap={{ 
+        scale: 0.8,
+        boxShadow: darkMode
+          ? "0 0 20px 1px rgba(34, 211, 238, 0.7)"
+          : "0 0 20px 2px rgba(34, 211, 238, 0.7)",
+      }}
     >
       {darkMode ? (
         <svg xmlns="http://www.w3.org/2000/svg"
