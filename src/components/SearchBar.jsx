@@ -112,10 +112,23 @@ function SearchBar({
         onKeyDown={(e) => e.key === "Enter" && Search()}
         onClick={SearchBarReset}
         placeholder="Caută..."
-        className={`rounded-full border text-center mt-6 duration-600 shadow-lg focus:shadow-xl ${
+        whileTap={{ scale: 1 }}
+        whileHover={{ 
+          scale: 1.05,
+          boxShadow: "0 0 0 3px rgba(34, 211, 238, 0.4), 0 10px 15px -3px rgba(34, 211, 238, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+        }}
+        whileFocus={{
+          scale: 1,
+          boxShadow: "0 0 0 5px rgba(34, 211, 238, 0.5), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+          transition: {
+            duration: 0.2,
+            ease: "linear"
+          }
+        }}
+        className={`rounded-full border-transparent text-center mt-6 duration-600 shadow-lg focus:outline-none ${
           darkMode
-            ? "bg-slate-800 text-white placeholder-slate-400 border-slate-600 outline outline-1 outline-black focus:outline-cyan-400"
-            : "bg-gray-200 text-black placeholder-gray-500 border-gray-300 outline outline-1 outline-black focus:outline-cyan-400"
+            ? "bg-slate-800 text-white placeholder-slate-400"
+            : "bg-gray-200 text-black placeholder-gray-500"
         } ${
           searched
             ? "w-60 py-2 text-base"
