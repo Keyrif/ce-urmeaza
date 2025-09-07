@@ -148,6 +148,7 @@ function Quiz ({
                         key={index}
                         onClick={() => quizAnswer(option.scores)}
                         whileTap={{ scale: 0.95 }}
+                        key={`${currentQuestionIndex}-${index}`} 
                         className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg duration-300 text-center focus:outline-none ${
                           darkMode
                             ? "bg-slate-800 border-4 border-transparent hover:border-cyan-700 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-700/50 text-white"
@@ -188,7 +189,6 @@ function Quiz ({
                       onClick={calculateResult}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.9 }}
-                      key={`${currentQuestionIndex}-${index}`} 
                       className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 duration-300 ${
                         darkMode
                           ? "bg-cyan-700 hover:bg-cyan-600 text-white"
