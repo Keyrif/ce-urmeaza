@@ -119,19 +119,21 @@ function Quiz ({
                 <h2 className="text-3xl font-bold mb-4">Recomandare</h2>
                 <p className="text-xl font-semibold mb-4">{quizResult.name}</p>
                 <p>{quizResult.details.study}</p>
-                <button
+                <motion.button
                   onClick={() => {
                     setSelectedUniversity(quizResult);
                     onClose();
                   }}
-                  className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg duration-300 ${
                     darkMode
                     ? "bg-cyan-700 hover:bg-cyan-600 text-white"
                     : "bg-cyan-500 hover:bg-cyan-400 text-white"
                   }`}
                 >
                   Vezi detalii
-                </button>
+                </motion.button>
               </>
             ) : (
               <>
@@ -142,17 +144,18 @@ function Quiz ({
                 {currentQuestion.type === "multiple-choice" ? (
                   <div className="flex flex-col gap-4">
                     {currentQuestion.options.map((option, index) => (
-                      <button
+                      <motion.button
                         key={index}
                         onClick={() => quizAnswer(option.scores)}
-                        className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg transition-all duration-300 text-center ${
+                        whileTap={{ scale: 0.97 }}
+                        className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg duration-300 text-center focus:outline-none ${
                           darkMode
-                            ? "bg-slate-800 hover:bg-cyan-700 text-white"
-                            : "bg-gray-100 hover:bg-gray-200 text-gray-900"
+                            ? "bg-slate-800 border-4 border-transparent hover:border-cyan-700 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-700/50 text-white"
+                            : "bg-gray-100 border-4 border-transparent hover:border-cyan-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-300/50 text-gray-900"
                         }`}
                       >
                         {option.text}
-                      </button>
+                      </motion.button>
                     ))}
                   </div>
                 ) : (
@@ -181,16 +184,18 @@ function Quiz ({
                       </span>
                       <span>10000 RON</span>
                     </div>
-                    <button
+                    <motion.button
                       onClick={calculateResult}
-                      className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 transition-all duration-300 ${
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 duration-300 ${
                         darkMode
                           ? "bg-cyan-700 hover:bg-cyan-600 text-white"
                           : "bg-cyan-500 hover:bg-cyan-400 text-white"
                       }`}
                     >
                       Vezi rezultatul
-                    </button>
+                    </motion.button>
                   </div>
                 )}
 
