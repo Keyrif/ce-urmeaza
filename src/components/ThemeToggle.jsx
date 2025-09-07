@@ -14,8 +14,8 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
     <motion.button
       className={`fixed top-4 right-4 p-2 rounded-full focus:outline-none ${
         darkMode 
-        ? 'bg-slate-700 text-white'
-        : 'bg-gray-200 text-gray-900'} z-50`}
+        ? 'bg-slate-700 text-white border-transparent hover:border-transparent'
+        : 'bg-gray-200 text-gray-900 border-transparent hover:border-transparent'} z-50`}
       onClick={toggleDarkMode}
       style={{ boxShadow: neumorphicShadow }}
       whileHover={{ 

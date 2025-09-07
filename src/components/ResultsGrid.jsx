@@ -62,7 +62,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 <div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-slate-800 text-cyan-400"
+                      ? "bg-slate-800 text-cyan-500"
                       : "bg-gray-200 text-cyan-600"
                   }`}
                 >
@@ -87,7 +87,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 <div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-slate-800 text-cyan-400"
+                      ? "bg-slate-800 text-cyan-500"
                       : "bg-gray-200 text-cyan-600"
                   }`}
                 >
@@ -113,7 +113,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 <div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-slate-800 text-cyan-400"
+                      ? "bg-slate-800 text-cyan-500"
                       : "bg-gray-200 text-cyan-600"
                   }`}
                 >
