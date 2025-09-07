@@ -6,8 +6,8 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
     <motion.button
       className={`fixed top-4 right-4 p-2 rounded-full focus:outline-none ${
         darkMode 
-        ? 'bg-cyan-700 text-white border-2 hover:border-white active:border-white focus:outline-none'
-        : 'bg-cyan-500 text-white border-2 hover:border-black active:border-black focus:outline-none'} shadow-lg z-50`}
+        ? 'bg-cyan-700 text-white border-2 hover:border-white active:border-white'
+        : 'bg-cyan-500 text-white border-2 hover:border-black active:border-black'} shadow-lg z-50`}
       onClick={toggleDarkMode}
       whileHover={{ 
         scale: 1.1,

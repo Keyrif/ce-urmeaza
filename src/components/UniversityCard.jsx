@@ -52,12 +52,18 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                 e.stopPropagation(); 
                 setTimeout(() => setSelectedUniversity(null), 150); 
               }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.8 }}
-              className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl ${
+              whileHover={{ 
+                scale: 1.1,
+                boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)"
+              }}
+              whileTap={{ 
+                scale:0.8,
+                boxShadow: "0 0 10px 1px rgba(34, 211, 238, 0.7)"
+              }}
+              className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none ${
                 darkMode
-                  ? "bg-slate-700 text-white hover:bg-slate-600"
-                  : "bg-gray-200 text-gray-900 hover:bg-gray-300"
+                  ? "bg-slate-700 text-white hover:bg-slate-600 border-2 border-transpareant hover:border-cyan-700 active:border-cyan-700"
+                  : "bg-gray-200 text-gray-900 hover:bg-gray-300 border-2 border-transpareant hover:border-cyan-400 active:border-cyan-400"
               }`}
             >
               ✕
