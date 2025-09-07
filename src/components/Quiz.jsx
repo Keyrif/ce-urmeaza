@@ -145,10 +145,12 @@ function Quiz ({
                   <div className="flex flex-col gap-4">
                     {currentQuestion.options.map((option, index) => (
                       <motion.button
-                        key={index}
-                        onClick={() => quizAnswer(option.scores)}
-                        whileTap={{ scale: 0.95 }}
                         key={`${currentQuestionIndex}-${index}`} 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setTimeout(() => quizAnswer(option.scores), 100)
+                        }}
+                        whileTap={{ scale: 0.95 }}
                         className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg duration-300 text-center focus:outline-none ${
                           darkMode
                             ? "bg-slate-800 border-transparent hover:border-2 active:border-4 hover:border-cyan-700 active:border-cyan-700 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-700/50 text-white"
