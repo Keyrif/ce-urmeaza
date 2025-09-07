@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import universities from '/src/data/universities'; 
-import quizQuestions from '/src/data/quizQuestions'; 
+import universities from '/src/data/universities';
+import quizQuestions from '/src/data/quizQuestions';
 
 function Quiz ({
   showQuiz,
@@ -14,6 +14,14 @@ function Quiz ({
   const [quizScores, setQuizScores] = useState({});
   const [quizResult, setQuizResult] = useState(null);
   const [salaryRange, setSalaryRange] = useState(5000);
+  
+  const neumorphicShadow = darkMode
+    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
+    : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
+
+  const neumorphicPressedShadow = darkMode
+    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #202b3f"
+    : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
 
   useEffect(() => {
     if (showQuiz) {
@@ -35,13 +43,13 @@ function Quiz ({
     }
     setQuizScores(newScores);
     
-  const nextQuestionIndex = currentQuestionIndex + 1;
-  if (nextQuestionIndex < quizQuestions.length) {
-    setCurrentQuestionIndex(nextQuestionIndex);
-  } else {
-    calculateResult();
-  }
-};
+    const nextQuestionIndex = currentQuestionIndex + 1;
+    if (nextQuestionIndex < quizQuestions.length) {
+      setCurrentQuestionIndex(nextQuestionIndex);
+    } else {
+      calculateResult();
+    }
+  };
 
   const calculateResult = () => {
     let bestFit = null;
@@ -85,7 +93,7 @@ function Quiz ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 flex items-center justify-center z-50 bg-black/40"
-          onClick={(e) => e.target === e.currentTarget && closeQuiz()}
+          onClick={(e) => e.target === e.currentTarget && onClose()}
         >
           <motion.div
             initial={{ opacity: 0.8 }}
@@ -97,25 +105,21 @@ function Quiz ({
               ? "bg-slate-900 text-white" 
               : "bg-white text-gray-900"
             }`}
+            style={{ boxShadow: neumorphicShadow }}
           >
             <motion.button
               onClick={(e) => {
                 e.stopPropagation(); 
                 setTimeout(() => onClose(), 100); 
               }}
-              whileHover={{ 
-                scale: 1.1,
-                boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)"
-              }}
-              whileTap={{ 
-                scale:0.8,
-                boxShadow: "0 0 10px 1px rgba(34, 211, 238, 0.7)"
-              }}
+              whileHover={{scale: 1.1 }}
+              whileTap={{ scale:0.8 }}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none ${
                 darkMode
-                ? "bg-slate-700 text-white hover:bg-slate-600 hover:border-2 hover:border-cyan-600"
-                : "bg-gray-200 text-gray-900 hover:bg-gray-300 hover:border-2 hover:border-cyan-400"
+                ? "bg-slate-700 text-white border-transparent hover:border-transparent"
+                : "bg-gray-200 text-gray-900 border-transparent hover:border-transparent"
               }`}
+              style={{ boxShadow: neumorphicShadow }}
             >
               ✕
             </motion.button>
@@ -165,8 +169,8 @@ function Quiz ({
                         whileTap={{ scale: 0.95 }}
                         className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg duration-300 text-center focus:outline-none ${
                           darkMode
-                            ? "bg-slate-800 border-transparent hover:border-2 active:border-4 hover:border-cyan-700 active:border-cyan-700 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-700/50 text-white"
-                            : "bg-gray-100 border-transparent hover:border-2 active:border-4 hover:border-cyan-400 active:border-cyan-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-400/30 text-gray-900"
+                          ? "bg-slate-800 border-transparent hover:border-2 active:border-4 hover:border-cyan-700 active:border-cyan-700 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-700/50 text-white"
+                          : "bg-gray-100 border-transparent hover:border-2 active:border-4 hover:border-cyan-400 active:border-cyan-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-400/30 text-gray-900"
                         }`}
                       >
                         {option.text}
@@ -211,8 +215,8 @@ function Quiz ({
                       }}
                       className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 duration-300 focus:outline-none ${
                         darkMode
-                          ? "bg-cyan-700 hover:bg-cyan-600 text-white border-transparent hover:border-white"
-                          : "bg-cyan-500 hover:bg-cyan-400 text-white border-transparent hover:border-black"
+                        ? "bg-cyan-700 hover:bg-cyan-600 text-white border-transparent hover:border-white"
+                        : "bg-cyan-500 hover:bg-cyan-400 text-white border-transparent hover:border-black"
                       }`}
                     >
                       Vezi rezultatul

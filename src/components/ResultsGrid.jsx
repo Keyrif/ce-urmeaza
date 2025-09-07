@@ -8,9 +8,8 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const startIndex = (currentPage - 1) * resultsPerPage;
   const currentResults = results.slice(startIndex, startIndex + resultsPerPage);
 
-  // neumorphism test commit
   const neumorphicShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f"
+    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 5px 1px #06b6d4"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
   const neumorphicPressedShadow = darkMode
@@ -30,7 +29,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   }
 
   return (
-    <div className={`flex flex-col items-center w-full min-h-screen ${darkMode ? 'bg-slate-900' : 'bg-gray-100'} transition-colors duration-500`}>
+    <div className={`flex flex-col items-center w-full min-h-screen ${darkMode ? 'bg-slate-900' : 'bg-gray-100'} transition-colors duration-300`}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentPage}
@@ -47,7 +46,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 e.stopPropagation();
                 setTimeout(() => setSelectedUniversity(f), 150);
               }}
-              className={`p-6 rounded-3xl cursor-pointer transition-colors duration-500 ${
+              className={`p-6 rounded-3xl cursor-pointer transition-colors duration-300 ${
                 darkMode ? "bg-slate-900" : "bg-gray-100"
               }`}
               style={{ boxShadow: neumorphicShadow }}
@@ -152,7 +151,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
             disabled={currentPage === 1}
-            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-500 ${
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
               darkMode ? "bg-slate-900 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
@@ -205,7 +204,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
             disabled={currentPage === totalPages}
-            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-500 ${
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
               darkMode ? "bg-slate-900 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}

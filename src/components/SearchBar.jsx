@@ -17,7 +17,7 @@ function SearchBar({
 
   // neumorphism test commit
   const neumorphicShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f"
+    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
   const neumorphicPressedShadow = darkMode
@@ -165,8 +165,10 @@ function SearchBar({
             className="flex flex-col sm:flex-row gap-4 mt-12"
           >
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold focus:outline-none transition-colors duration-300 ${
-                darkMode ? "bg-slate-900 text-white" : "bg-gray-100 text-gray-900"
+              className={`px-6 py-3 rounded-full font-semibold transition-colors duration-300 focus:outline-none ${
+                darkMode 
+                ? "bg-slate-900 text-white border-transparent hover:border-transparent" 
+                : "bg-gray-100 text-gray-900 border-transparent hover:border-transparent"
               }`}
               style={{ boxShadow: neumorphicShadow }}
               whileHover={{ scale: 1.03 }}
@@ -176,8 +178,10 @@ function SearchBar({
               AFIȘEAZĂ TOATE FACULTĂȚILE
             </motion.button>
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold focus:outline-none transition-colors duration-300 ${
-                darkMode ? "bg-cyan-600 text-white" : "bg-cyan-500 text-white"
+              className={`px-6 py-3 rounded-full font-semibold transition-colors duration-300 focus:outline-none ${
+                darkMode 
+                ? "bg-cyan-600 text-white" 
+                : "bg-cyan-500 text-white"
               }`}
               style={{ boxShadow: neumorphicShadow }}
               whileHover={{ scale: 1.03 }}

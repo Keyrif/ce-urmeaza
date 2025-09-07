@@ -2,9 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 function InfoCard({ title, icon, children, darkMode }) {
-  // neumorphism test commit
   const neumorphicShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f"
+    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
   return (
@@ -32,9 +31,8 @@ function InfoCard({ title, icon, children, darkMode }) {
 
 function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode }) {
   if (!selectedUniversity) return null;
-
   const neumorphicShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f"
+    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
   const neumorphicPressedShadow = darkMode
@@ -72,8 +70,8 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
               whileTap={{ scale: 0.8, boxShadow: neumorphicPressedShadow }}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none ${
                 darkMode
-                  ? "bg-slate-800 text-white hover:bg-slate-700 border-2 border-transpareant hover:border-cyan-700 active:border-cyan-700"
-                  : "bg-gray-200 text-gray-900 hover:bg-gray-300 border-2 border-transpareant hover:border-cyan-400 active:border-cyan-400"
+                  ? "bg-slate-800 text-white hover:bg-slate-700 border-transpareant hover:border-transparent"
+                  : "bg-gray-200 text-gray-900 hover:bg-gray-300 border-transpareant hover:border-transparent"
               }`}
               style={{ boxShadow: neumorphicShadow }}
             >
@@ -87,6 +85,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                 }`}
                 style={{ boxShadow: neumorphicShadow }}
               >
+                {/* svg replacement */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-graduation-cap text-cyan-500">
                   <path d="M22 10v6M22 16H2M22 16h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2M12 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8h-3ZM7 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H7ZM2 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H2Z"/>
                   <path d="M12 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8h-3ZM7 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H7Z"/>
