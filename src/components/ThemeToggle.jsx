@@ -4,12 +4,17 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
 
   return (
     <motion.button
-      className={`fixed top-4 right-4 p-2 rounded-full ${
+      className={`fixed top-4 right-4 p-2 rounded-full focus:outline-none ${
         darkMode 
-        ? 'bg-cyan-700 text-white'
-        : 'bg-cyan-500 text-white'} shadow-lg z-50`}
+        ? 'bg-cyan-700 text-white border-2 hover:border-transparent active:border-white'
+        : 'bg-cyan-500 text-white border-2 hover:border-transparent active:border-black'} shadow-lg z-50`}
       onClick={toggleDarkMode}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ 
+        boxShadow: darkMode
+          ? "0 0 20px 1px rgba(34, 211, 238, 0.7)"
+          : "0 0 20px 2px rgba(34, 211, 238, 0.7)",
+        scale: 1.1
+       }}
       whileTap={{ scale: 0.8 }}
     >
       {darkMode ? (

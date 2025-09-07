@@ -40,11 +40,17 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               }}
               className={`relative p-6 rounded-2xl border cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl focus:outline-none ${
                 darkMode
-                  ? "bg-slate-800 border-slate-600 text-white hover:border-2 hover:border-cyan-600 hover:shadow-2xl hover:shadow-cyan-700/50"
-                  : "bg-white border-gray-300 text-gray-900 hover:border-2 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-400/50"
+                  ? "bg-slate-800 border-slate-600 text-white hover:border-2 hover:border-cyan-600"
+                  : "bg-white border-gray-300 text-gray-900 hover:border-2 hover:border-cyan-400"
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)",
+               }}
+              whileTap={{ 
+                scale: 0.95,
+                boxShadow: "0 0 40px 1px rgba(34, 211, 238, 0.55)",
+               }}
               transition={{
                 duration: 0.2,
                 type: "linear"
@@ -155,8 +161,14 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               e.stopPropagation();
               setTimeout(() => setCurrentPage(Math.max(currentPage - 1, 1)), 150)
             }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)",
+             }}
+            whileTap={{ 
+              scale: 0.9,
+              boxShadow: "0 0 10px 2px rgba(34, 211, 238, 0.7)",
+            }}
             disabled={currentPage === 1}
             className={`px-4 py-2 rounded-lg border transition-colors focus:outline-none ${
               darkMode
@@ -185,8 +197,14 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 e.stopPropagation();
                 setTimeout(() => setCurrentPage(i+1), 150)
               }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)",
+              }}
+              whileTap={{ 
+                scale: 0.9,
+                boxShadow: "0 0 10px 2px rgba(34, 211, 238, 0.7)",
+              }}
               className={`px-4 py-2 rounded-lg transition-colors duration-600 focus:outline-none ${
                 currentPage === i + 1
                   ? darkMode
@@ -206,8 +224,14 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               e.stopPropagation();
               setTimeout(() => setCurrentPage(Math.min(currentPage + 1, totalPages)), 150)
             }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)",
+             }}
+            whileTap={{ 
+              scale: 0.9,
+              boxShadow: "0 0 10px 2px rgba(34, 211, 238, 0.7)",
+            }}
             disabled={currentPage === totalPages}
             className={`px-4 py-2 rounded-lg border transition-colors focus:outline-none ${
               darkMode
