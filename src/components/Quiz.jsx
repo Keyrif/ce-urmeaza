@@ -130,12 +130,18 @@ function Quiz ({
                     setSelectedUniversity(quizResult);
                     onClose();
                   }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.9 }}
-                  className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg duration-300 ${
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)"
+                  }}
+                  whileTap={{ 
+                    scale:0.9,
+                    boxShadow: "0 0 10px 1px rgba(34, 211, 238, 0.7)"
+                  }}
+                  className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg duration-300 focus:outline-none ${
                     darkMode
-                    ? "bg-cyan-700 hover:bg-cyan-600 text-white"
-                    : "bg-cyan-500 hover:bg-cyan-400 text-white"
+                    ? "bg-cyan-700 hover:bg-cyan-600 text-white border-transparent hover:border-white"
+                    : "bg-cyan-500 hover:bg-cyan-400 text-white border-transparent hover:border-black"
                   }`}
                 >
                   Vezi detalii
@@ -195,12 +201,18 @@ function Quiz ({
                     </div>
                     <motion.button
                       onClick={calculateResult}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.9 }}
-                      className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 duration-300 ${
+                      whileHover={{ 
+                        scale: 1.05,
+                        boxShadow: "0 0 5px 1px rgba(34, 211, 238, 0.7)"
+                      }}
+                      whileTap={{ 
+                        scale:0.9,
+                        boxShadow: "0 0 10px 1px rgba(34, 211, 238, 0.7)"
+                      }}
+                      className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 duration-300 focus:outline-none ${
                         darkMode
-                          ? "bg-cyan-700 hover:bg-cyan-600 text-white"
-                          : "bg-cyan-500 hover:bg-cyan-400 text-white"
+                          ? "bg-cyan-700 hover:bg-cyan-600 text-white border-transparent hover:border-white"
+                          : "bg-cyan-500 hover:bg-cyan-400 text-white border-transparent hover:border-black"
                       }`}
                     >
                       Vezi rezultatul
