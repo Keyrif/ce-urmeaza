@@ -112,7 +112,7 @@ function SearchBar({
         onKeyDown={(e) => e.key === "Enter" && Search()}
         onClick={SearchBarReset}
         placeholder="Caută..."
-        className={`rounded-full border text-center mt-6 transition-all duration-600 shadow-lg focus:shadow-xl ${
+        className={`rounded-full border text-center mt-6 duration-600 shadow-lg focus:shadow-xl ${
           darkMode
             ? "bg-slate-800 text-white placeholder-slate-400 border-slate-600 outline outline-1 outline-black focus:outline-cyan-400"
             : "bg-gray-200 text-black placeholder-gray-500 border-gray-300 outline outline-1 outline-black focus:outline-cyan-400"
@@ -153,7 +153,7 @@ function SearchBar({
             className="flex flex-col sm:flex-row gap-4 mt-12"
           >
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-semibold shadow-lg duration-300 ${
                 darkMode
                   ? "bg-slate-800 hover:bg-slate-700 text-white"
                   : "bg-white hover:bg-gray-200 text-gray-900"
@@ -165,7 +165,7 @@ function SearchBar({
               AFIȘEAZĂ TOATE FACULTĂȚILE
             </motion.button>
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-semibold shadow-lg duration-300 ${
                 darkMode
                   ? "bg-cyan-700 hover:bg-cyan-600 text-white"
                   : "bg-cyan-500 hover:bg-cyan-400 text-white"

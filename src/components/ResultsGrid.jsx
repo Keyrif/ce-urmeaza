@@ -38,13 +38,17 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 e.stopPropagation();
                 setTimeout(() => setSelectedUniversity(f), 150);
               }}
-              className={`relative p-6 rounded-2xl border cursor-pointer overflow-hidden transition-all shadow-lg hover:shadow-2xl ${
+              className={`relative p-6 rounded-2xl border cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl ${
                 darkMode
                   ? "bg-slate-800 border-slate-600 text-white"
                   : "bg-white border-gray-300 text-gray-900"
               }`}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.85 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                duration: 0.2,
+                type: "linear"
+              }}
             >
               <motion.div
                 className="absolute inset-0 -m-[2px] rounded-2xl pointer-events-none"
