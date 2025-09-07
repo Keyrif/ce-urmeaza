@@ -21,6 +21,10 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
           ? "0 0 20px 1px rgba(34, 211, 238, 0.7)"
           : "0 0 20px 2px rgba(34, 211, 238, 0.7)",
       }}
+      transition={{
+        duration: 0.2,
+        type: "linear"
+      }}
     >
       {darkMode ? (
         <svg xmlns="http://www.w3.org/2000/svg"
