@@ -14,14 +14,14 @@ function SearchBar({
   darkMode,
 }) {
   const [numResults, setNumResults] = useState(0);
+  const [isFocused, setIsFocused] = useState(false);
 
-  // neumorphism test commit
-  const neumorphicShadow = darkMode
+  const neumorphicOutsetShadow = darkMode
     ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
-  const neumorphicPressedShadow = darkMode
-    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #202b3f"
+  const neumorphicInsetShadow = darkMode
+    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #3c4a6b, 0 0 5px 1px #06b5d4f7"
     : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
 
   let textToShow;
@@ -122,6 +122,8 @@ function SearchBar({
         onChange={(e) => setSearchText(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && Search()}
         onClick={SearchBarReset}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         placeholder="Caută..."
         className={`rounded-full border-none focus:outline-none focus:ring-4 focus:ring-cyan-500/50 text-center mt-6 transition-all duration-300 ${
           darkMode
@@ -132,8 +134,10 @@ function SearchBar({
             ? "w-60 py-2 text-base"
             : "w-[40vw] sm:w-[30vw] md:w-[25vw] py-3 sm:py-4 text-lg"
         }`}
-        style={{ boxShadow: neumorphicShadow }}
-        whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+        style={{
+          boxShadow: isFocused ? neumorphicInsetShadow : neumorphicOutsetShadow,
+        }}
+        whileTap={{ scale: 0.95, boxShadow: neumorphicInsetShadow }}
       />
       <AnimatePresence>
         {searched && (
@@ -170,9 +174,9 @@ function SearchBar({
                 ? "bg-slate-900 text-white border-transparent hover:border-transparent" 
                 : "bg-gray-100 text-gray-900 border-transparent hover:border-transparent"
               }`}
-              style={{ boxShadow: neumorphicShadow }}
+              style={{ boxShadow: neumorphicOutsetShadow }}
               whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+              whileTap={{ scale: 0.95, boxShadow: neumorphicInsetShadow }}
               onClick={showAllFaculties}
             >
               AFIȘEAZĂ TOATE FACULTĂȚILE
@@ -183,9 +187,9 @@ function SearchBar({
                 ? "bg-cyan-600 text-white" 
                 : "bg-cyan-500 text-white"
               }`}
-              style={{ boxShadow: neumorphicShadow }}
+              style={{ boxShadow: neumorphicOutsetShadow }}
               whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+              whileTap={{ scale: 0.95, boxShadow: neumorphicInsetShadow }}
               onClick={startQuiz}
             >
               DESCOPERĂ FACULTATEA PERFECTĂ
