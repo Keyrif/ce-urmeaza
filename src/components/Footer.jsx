@@ -11,7 +11,7 @@ function Footer({ darkMode }) {
       <a className="text-sm opacity-80" href="https://github.com/keyrif/ce-urmeaza">
         Pagina Proiect Github
       </a>
-      <p>v0.45xyz</p>
+      <p>v0.46</p>
     </footer>
   );
 }

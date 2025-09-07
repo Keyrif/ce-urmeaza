@@ -166,24 +166,24 @@ function SearchBar({
             className="flex flex-col sm:flex-row gap-4 mt-12"
           >
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold shadow-lg duration-300 ${
+              className={`px-6 py-3 rounded-full font-semibold shadow-lg duration-300 focus:outline-none ${
                 darkMode
-                  ? "bg-slate-800 hover:bg-slate-700 text-white"
-                  : "bg-white hover:bg-gray-200 text-gray-900"
+                  ? "bg-slate-800 hover:bg-slate-700 text-white border-2 border-cyan-700 hover:border-cyan-600 active:border-4 hover:shadow-xl hover:shadow-xl hover:shadow-cyan-800/30"
+                  : "bg-white hover:bg-gray-200 text-gray-900 border-2 border-cyan-500 hover:border-cyan-400 active:border-4 hover:shadow-xl hover:shadow-xl hover:shadow-cyan-400/30"
               }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               onClick={showAllFaculties}
             >
               AFIȘEAZĂ TOATE FACULTĂȚILE
             </motion.button>
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold shadow-lg duration-300 ${
+              className={`px-6 py-3 rounded-full font-semibold shadow-lg duration-300 focus:outline-none ${
                 darkMode
-                  ? "bg-cyan-700 hover:bg-cyan-600 text-white"
-                  : "bg-cyan-500 hover:bg-cyan-400 text-white"
+                  ? "bg-cyan-700 hover:bg-cyan-600 text-white border-2 border-white hover:border-white active:border-4 hover:shadow-xl hover:shadow-xl hover:shadow-cyan-800/30"
+                  : "bg-cyan-500 hover:bg-cyan-400 text-white border-black hover:border-black active:border-4 hover:shadow-xl hover:shadow-xl hover:shadow-cyan-400/50"
               }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               onClick={startQuiz}
             >

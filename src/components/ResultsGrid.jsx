@@ -38,10 +38,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 e.stopPropagation();
                 setTimeout(() => setSelectedUniversity(f), 150);
               }}
-              className={`relative p-6 rounded-2xl border cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl ${
+              className={`relative p-6 rounded-2xl border cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl focus:outline-none ${
                 darkMode
-                  ? "bg-slate-800 border-slate-600 text-white"
-                  : "bg-white border-gray-300 text-gray-900"
+                  ? "bg-slate-800 border-slate-600 text-white hover:border-2 hover:border-cyan-600 hover:shadow-2xl hover:shadow-cyan-700/50"
+                  : "bg-white border-gray-300 text-gray-900 hover:border-2 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-400/50"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -158,10 +158,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             disabled={currentPage === 1}
-            className={`px-4 py-2 rounded-lg border transition-colors ${
+            className={`px-4 py-2 rounded-lg border transition-colors focus:outline-none ${
               darkMode
-                ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600"
-                : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600 hover:border-2 hover:border-cyan-600"
+                : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 hover:border-2 hover:border-cyan-300"
             } disabled:opacity-50`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" 
@@ -187,14 +187,14 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
-              className={`px-4 py-2 rounded-lg border transition-colors duration-600 ${
+              className={`px-4 py-2 rounded-lg transition-colors duration-600 focus:outline-none ${
                 currentPage === i + 1
                   ? darkMode
-                    ? "bg-cyan-500 text-white border-cyan-400"
-                    : "bg-cyan-500 text-white border-cyan-600"
+                    ? "bg-cyan-500 text-white border-cyan-400 hover:border-2 hover:border-cyan-600"
+                    : "bg-cyan-500 text-white border-cyan-600 hover:border-2 hover:border-cyan-300"
                   : darkMode
-                  ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600"
-                  : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                  ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600 hover:border-2 hover:border-cyan-600"
+                  : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 hover:border-2 hover:border-cyan-300"
               }`}
             >
               {i + 1}
@@ -209,10 +209,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             disabled={currentPage === totalPages}
-            className={`px-4 py-2 rounded-lg border transition-colors ${
+            className={`px-4 py-2 rounded-lg border transition-colors focus:outline-none ${
               darkMode
-                ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600"
-                : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                ? "bg-slate-700 text-white border-slate-500 hover:bg-slate-600 hover:border-2 hover:border-cyan-600"
+                : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 hover:border-2 hover:border-cyan-300"
             } disabled:opacity-50`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" 
