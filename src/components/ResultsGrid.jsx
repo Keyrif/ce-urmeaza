@@ -70,66 +70,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
               <div className="flex flex-wrap gap-2 mt-4">
 
-
-                <motion.div
-                  className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
-                    darkMode
-                      ? "bg-slate-800 text-white"
-                      : "bg-gray-100 text-gray-900"
-                  }`}
-                  style={{ boxShadow: neumorphicShadow }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4 mr-1"
-                  >
-                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
-                    <path d="M22 10v6" />
-                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
-                  </svg>
-                  {f.university}
-                </motion.div>
-
-                <motion.div
-                  className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
-                    darkMode
-                      ? "bg-slate-800 text-white"
-                      : "bg-gray-100 text-gray-900"
-                  }`}
-                  style={{ boxShadow: neumorphicShadow }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4 mr-1"
-                  >
-                    <rect width="20" height="12" x="2" y="6" rx="2" />
-                    <circle cx="12" cy="12" r="2" />
-                    <path d="M6 12h.01M18 12h.01" />
-                  </svg>
-                  Salarii: {f.salary.min} - {f.salary.max} RON
-                </motion.div>
               </div>
             </motion.div>
           ))}
