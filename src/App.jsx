@@ -73,7 +73,7 @@ function App() {
   return (
     <div
       className={`min-h-screen w-screen flex flex-col transition-all duration-300 select-none ${
-        darkMode ? "bg-[#334155] text-white" : "bg-[#F1F5F9] text-gray-900"
+        darkMode ? "bg-[#334155] text-white" : "bg-[#eceff2] text-gray-900"
       }`}
     >
 

@@ -61,7 +61,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
   const neumorphicShadow = darkMode
     ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
-    : "8px 8px 16px #b6bdc9, -8px -8px 16px #ffffff";
+    : "4px 6px 14px #b2b7bfff, -8px -8px 16px #ffffff";
 
   const neumorphicPressedShadow = darkMode
     ? "inset 6px 6px 12px #272c35, inset -6px -6px 12px #455061"
@@ -129,22 +129,34 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
       {totalPages > 1 && (
         <div className="flex gap-2 mt-8 flex-wrap justify-center">
-          <button
-            onClick={() => setCurrentPage(1)}
+          <motion.button
+            onClick={(e) => {
+              e.stopPropagation();
+              setTimeout(() => setCurrentPage(1), 150);
+            }}
             disabled={currentPage === 1}
-            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
               darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
+            transition={{
+              duration: 0.2,
+              ease: "linear"
+            }}
           >
             «
-          </button>
+          </motion.button>
 
           {pagesToDisplay.map((pageNumber) => (
-            <button
+            <motion.button
               key={pageNumber}
-              onClick={() => setCurrentPage(pageNumber)}
-              className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
+              onClick={(e) => {
+                e.stopPropagation();
+                setTimeout(() => setCurrentPage(pageNumber), 150);
+              }}
+              className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
                 currentPage === pageNumber
                   ? darkMode
                     ? "bg-cyan-600 text-white"
@@ -154,21 +166,36 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                   : "bg-gray-100 text-gray-800"
               }`}
               style={{ boxShadow: currentPage === pageNumber ? "none" : neumorphicShadow, willChange: "transform" }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
+              transition={{
+                duration: 0.2,
+                ease: "linear"
+              }}
             >
               {pageNumber}
-            </button>
+            </motion.button>
           ))}
 
-          <button
-            onClick={() => setCurrentPage(totalPages)}
+          <motion.button
+            onClick={(e) => {
+              e.stopPropagation();
+              setTimeout(() => setCurrentPage(totalPages), 150);
+            }}
             disabled={currentPage === totalPages}
-            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
               darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
+            transition={{
+              duration: 0.2,
+              ease: "linear"
+            }}
           >
             »
-          </button>
+          </motion.button>
         </div>
       )}
     </div>
