@@ -26,7 +26,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
-          📍 {f.location}
+           {f.location}
         </div>
         <div
           className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
@@ -34,7 +34,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
-          🎓 {f.university}
+           {f.university}
         </div>
         <div
           className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
@@ -42,7 +42,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
-          💰 {f.salary.min} - {f.salary.max} RON
+           {f.salary.min} - {f.salary.max} RON
         </div>
       </div>
     </motion.div>
