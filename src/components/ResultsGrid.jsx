@@ -22,7 +22,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
       <div className="flex flex-wrap gap-2 mt-4">
         <div
           className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
-            darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
+            darkMode ? "bg-slate-700 text-cyan-500" : "bg-gray-100 text-cyan-600"
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
@@ -30,7 +30,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
         </div>
         <div
           className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
-            darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
+            darkMode ? "bg-slate-700 text-cyan-500" : "bg-gray-100 text-cyan-600"
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
@@ -38,7 +38,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
         </div>
         <div
           className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
-            darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
+            darkMode ? "bg-slate-700 text-cyan-500" : "bg-gray-100 text-cyan-600"
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >

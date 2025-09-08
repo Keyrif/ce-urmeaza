@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import universities from '../data/universities.js';
-import quizQuestions from '../data/quizQuestions.js';
-//newu
+import universities from '/src/data/universities.js';
+import quizQuestions from '/src/data/quizQuestions.js';
+
 function Quiz ({
   showQuiz,
   onClose,
@@ -15,7 +15,6 @@ function Quiz ({
   const [quizResult, setQuizResult] = useState(null);
   const [salaryRange, setSalaryRange] = useState(5000);
   
-  // Adjusted neumorphic shadows for a softer, more authentic look in dark mode
   const neumorphicShadow = darkMode
     ? "6px 6px 12px #2a3547, -6px -6px 12px #3c4d63"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
@@ -104,7 +103,7 @@ function Quiz ({
             className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
               darkMode 
               ? "bg-slate-700 text-white" 
-              : "bg-gray-100 text-gray-900"
+              : "bg-[#eceff2] text-gray-900"
             }`}
             style={{ boxShadow: neumorphicShadow }}
           >
@@ -115,10 +114,10 @@ function Quiz ({
               }}
               whileHover={{scale: 1.1 }}
               whileTap={{ scale:0.8, boxShadow: neumorphicPressedShadow }}
-              className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none ${
+              className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
                 darkMode
-                ? "bg-slate-700 text-white"
-                : "bg-gray-100 text-gray-900"
+                ? "bg-slate-700 text-white active:text-cyan-600"
+                : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
               }`}
               style={{ boxShadow: neumorphicShadow }}
             >
@@ -168,20 +167,16 @@ function Quiz ({
                           setTimeout(() => quizAnswer(option.scores), 100)
                         }}
                         whileHover={{
-                          boxShadow: darkMode
-                            ? "0 0 10px 1px rgba(6, 182, 212, 0.7)"
-                            : "0 0 10px 1px rgba(34, 211, 238, 0.7)"
+                          scale: 1.05
                         }}
                         whileTap={{ 
                           scale: 0.95,
-                          boxShadow: darkMode
-                            ? "inset 0 0 10px 1px rgba(6, 182, 212, 0.5)"
-                            : "inset 0 0 10px 1px rgba(34, 211, 238, 0.5)"
+                          boxShadow: neumorphicPressedShadow 
                         }}
-                        className={`px-6 py-4 rounded-xl font-medium text-lg duration-300 text-center focus:outline-none hover:-translate-y-1 ${
+                        className={`px-6 py-4 rounded-xl font-medium text-lg duration-300 text-center focus:outline-none hover:-translate-y-1 border-transparent hover:border-transparent active:border-transparent ${
                           darkMode
-                          ? "bg-slate-700 text-white"
-                          : "bg-gray-100 text-gray-900"
+                          ? "bg-slate-700 text-white active:text-cyan-600"
+                          : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
                         }`}
                         style={{ boxShadow: neumorphicShadow }}
                       >

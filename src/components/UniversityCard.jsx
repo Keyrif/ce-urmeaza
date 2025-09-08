@@ -13,14 +13,14 @@ function InfoCard({ title, icon, children, darkMode }) {
   return (
     <motion.div
       className={`p-6 rounded-2xl mt-4 w-full ${
-        darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
+        darkMode ? "bg-slate-700 text-white" : "bg-[#eceff2] text-gray-900"
       }`}
       style={{ boxShadow: neumorphicShadow }}
     >
       <div className="flex items-center mb-2">
         <motion.span
           className={`p-2 rounded-full mr-3 ${
-            darkMode ? "bg-slate-700" : "bg-gray-100"
+            darkMode ? "bg-slate-700" : "bg-[#eceff2]"
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
@@ -62,7 +62,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
             exit={{ scale: 0.8 }}
             transition={{ duration: 0.3 }}
             className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
-              darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
+              darkMode ? "bg-slate-700 text-white" : "bg-[#eceff2] text-gray-900"
             }`}
             style={{ boxShadow: neumorphicShadow }}
           >
@@ -75,8 +75,8 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
               whileTap={{ scale: 0.8, boxShadow: neumorphicPressedShadow }}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
                 darkMode
-                  ? "bg-slate-700 text-white"
-                  : "bg-gray-100 text-gray-900"
+                  ? "bg-slate-700 text-white active:text-cyan-600"
+                  : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
               }`}
               style={{ boxShadow: neumorphicShadow }}
             >
@@ -195,7 +195,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                     <div
                       key={job.name}
                       className={`mt-2 p-3 rounded-lg ${
-                        darkMode ? "bg-slate-700" : "bg-gray-100"
+                        darkMode ? "bg-slate-700" : "bg-[#eceff2]"
                       }`}
                       style={{ boxShadow: neumorphicPressedShadow }}
                     >
