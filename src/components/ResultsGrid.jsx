@@ -75,7 +75,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
-  const maxPagesToShow = 6;
+  const maxPagesToShow = 5;
   let startPage, endPage;
 
   if (totalPages <= maxPagesToShow) {
@@ -136,7 +136,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             }}
             disabled={currentPage === 1}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
-              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
+              darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
             whileHover={{ scale: 1.1 }}
@@ -159,13 +159,13 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
                 currentPage === pageNumber
                   ? darkMode
-                    ? "bg-cyan-600 text-white"
-                    : "bg-cyan-500 text-white"
+                    ? "bg-slate-700 text-cyan-400"
+                    : "bg-gray-100 text-cyan-500"
                   : darkMode
                   ? "bg-slate-700 text-white"
                   : "bg-gray-100 text-gray-800"
               }`}
-              style={{ boxShadow: currentPage === pageNumber ? "none" : neumorphicShadow, willChange: "transform" }}
+              style={{ boxShadow: currentPage === pageNumber ? neumorphicPressedShadow : neumorphicShadow, willChange: "transform" }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
               transition={{
@@ -184,7 +184,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             }}
             disabled={currentPage === totalPages}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
-              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
+              darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
             whileHover={{ scale: 1.1 }}
