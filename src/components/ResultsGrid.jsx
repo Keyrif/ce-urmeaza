@@ -57,6 +57,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               }}
               whileTap={{
                 scale: 0.95,
+                boxShadow: neumorphicPressedShadow,
               }}
               transition={{
                 duration: 0.2,
