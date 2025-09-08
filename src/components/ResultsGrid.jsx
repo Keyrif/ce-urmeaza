@@ -140,17 +140,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             «
           </button>
 
-          <button
-            onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
-            disabled={currentPage === 1}
-            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
-              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
-            } disabled:opacity-50 disabled:cursor-not-allowed`}
-            style={{ boxShadow: neumorphicShadow }}
-          >
-            ‹
-          </button>
-
           {pagesToDisplay.map((pageNumber) => (
             <button
               key={pageNumber}
@@ -169,17 +158,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               {pageNumber}
             </button>
           ))}
-
-          <button
-            onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
-            disabled={currentPage === totalPages}
-            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
-              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
-            } disabled:opacity-50 disabled:cursor-not-allowed`}
-            style={{ boxShadow: neumorphicShadow }}
-          >
-            ›
-          </button>
 
           <button
             onClick={() => setCurrentPage(totalPages)}
