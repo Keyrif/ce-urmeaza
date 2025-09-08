@@ -8,10 +8,10 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
       key={f.name}
       onClick={(e) => {
         e.stopPropagation();
-        setSelectedUniversity(f);
+        setTimeout(() => setSelectedUniversity(f), 100);
       }}
-      className={`p-6 rounded-3xl cursor-pointer overflow-hidden transition-transform ${
-        darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
+      className={`p-6 rounded-3xl cursor-pointer overflow-hidden focus:outline-none ${
+        darkMode ? "bg-slate-700 text-white" : "bg-[#ececec] text-gray-900"
       }`}
       style={{ boxShadow: neumorphicShadow, willChange: "transform" }}
       whileHover={{ scale: 1.02 }}

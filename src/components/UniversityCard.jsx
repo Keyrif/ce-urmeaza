@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-
+import logo from '/src/assets/universitycardlogo.png';
 function InfoCard({ title, icon, children, darkMode }) {
   const neumorphicShadow = darkMode
     ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
@@ -90,11 +90,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                 }`}
                 style={{ boxShadow: neumorphicShadow }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-graduation-cap text-cyan-500">
-                  <path d="M22 10v6M22 16H2M22 16h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2M12 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8h-3ZM7 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H7ZM2 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H2Z"/>
-                  <path d="M12 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8h-3ZM7 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H7Z"/>
-                  <path d="M22 10a1 1 0 0 0-1-1h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a1 1 0 0 0 1-1v-2Z"/>
-                </svg>
+              <img src={logo} width={80} height={80} />
               </motion.span>
               <h2 className="text-3xl font-bold">{selectedUniversity.name}</h2>
             </div>
