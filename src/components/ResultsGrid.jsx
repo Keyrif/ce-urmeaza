@@ -24,6 +24,29 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
+  const maxPagesToShow = 6;
+  let startPage, endPage;
+
+  if (totalPages <= maxPagesToShow) {
+    startPage = 1;
+    endPage = totalPages;
+  } else {
+    const maxPagesBeforeCurrentPage = Math.floor(maxPagesToShow / 2);
+    const maxPagesAfterCurrentPage = Math.ceil(maxPagesToShow / 2) - 1;
+    if (currentPage <= maxPagesBeforeCurrentPage) {
+      startPage = 1;
+      endPage = maxPagesToShow;
+    } else if (currentPage + maxPagesAfterCurrentPage >= totalPages) {
+      startPage = totalPages - maxPagesToShow + 1;
+      endPage = totalPages;
+    } else {
+      startPage = currentPage - maxPagesBeforeCurrentPage;
+      endPage = currentPage + maxPagesAfterCurrentPage;
+    }
+  }
+
+  const pagesToDisplay = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+
   if (!searched || !results || results.length === 0) {
     return null;
   }
@@ -193,16 +216,16 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             </svg>
           </motion.button>
 
-          {Array.from({ length: totalPages }, (_, i) => (
+          {pagesToDisplay.map((pageNumber) => (
             <motion.button
-              key={i + 1}
-              onClick={() => setCurrentPage(i + 1)}
+              key={pageNumber}
+              onClick={() => setCurrentPage(pageNumber)}
               whileHover={{ scale: 1.05 }}
               whileTap={{
                 scale: 0.9,
               }}
               className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
-                currentPage === i + 1
+                currentPage === pageNumber
                   ? darkMode
                     ? "bg-cyan-600 text-white"
                     : "bg-cyan-500 text-white"
@@ -210,9 +233,9 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                   ? "bg-slate-700 text-white"
                   : "bg-gray-100 text-gray-800"
               } `}
-              style={{ boxShadow: currentPage === i + 1 ? 'none' : neumorphicShadow }}
+              style={{ boxShadow: currentPage === pageNumber ? 'none' : neumorphicShadow }}
             >
-              {i + 1}
+              {pageNumber}
             </motion.button>
           ))}
 
