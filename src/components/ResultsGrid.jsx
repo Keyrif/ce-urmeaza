@@ -10,7 +10,8 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   
   const neumorphicShadow = darkMode
     ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
-    : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
+    : "8px 8px 16px #b6bdc9, -8px -8px 16px #ffffff";
+
 
   const neumorphicPressedShadow = darkMode
     ? "inset 6px 6px 12px #272c35, inset -6px -6px 12px #455061"
@@ -30,7 +31,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
   return (
     <div className={`flex flex-col items-center w-full min-h-screen ${darkMode ? 'bg-slate-700' : 'bg-gray-100'} transition-colors duration-300`}>
-
       <motion.div
         key={searched ? "results-grid" : "initial-grid"}
         initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             }`}
             style={{ boxShadow: neumorphicShadow }}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+            whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
             <h2 className={`font-bold text-xl relative z-10 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
