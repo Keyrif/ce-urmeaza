@@ -11,7 +11,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
         setTimeout(() => setSelectedUniversity(f), 100);
       }}
       className={`p-6 rounded-3xl cursor-pointer overflow-hidden focus:outline-none ${
-        darkMode ? "bg-slate-700 text-white" : "bg-[#f9f9f9] text-gray-900"
+        darkMode ? "bg-slate-700 text-white" : "bg-[#eceff2] text-gray-900"
       }`}
       style={{ boxShadow: neumorphicShadow, willChange: "transform" }}
       whileHover={{ scale: 1.02 }}
