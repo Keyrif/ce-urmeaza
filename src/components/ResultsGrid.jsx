@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const resultsPerPage = 9;
+  const resultsPerPage = 5;
   const totalPages = Math.ceil(results.length / resultsPerPage);
   const startIndex = (currentPage - 1) * resultsPerPage;
   const currentResults = results.slice(startIndex, startIndex + resultsPerPage);
