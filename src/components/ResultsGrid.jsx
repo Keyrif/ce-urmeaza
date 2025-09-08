@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const [currentPage, setCurrentPage] = useState(1);
   const resultsPerPage = 9;
@@ -72,12 +73,17 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               </h2>
 
               <div className="flex flex-wrap gap-2 mt-4">
-                <div
+                <motion.div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
                       ? "bg-slate-700 text-white"
-                      : "bg-cyan-500 text-white"
+                      : "bg-gray-100 text-gray-900"
                   }`}
+                  style={{ boxShadow: neumorphicShadow }}
+                  whileTap={{
+                    scale: 0.95,
+                    boxShadow: neumorphicPressedShadow,
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -95,14 +101,19 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                   {f.location}
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-cyan-600 text-white"
-                      : "bg-cyan-500 text-white"
+                      ? "bg-slate-800 text-white"
+                      : "bg-gray-100 text-gray-900"
                   }`}
+                  style={{ boxShadow: neumorphicShadow }}
+                  whileTap={{
+                    scale: 0.95,
+                    boxShadow: neumorphicPressedShadow,
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -121,14 +132,19 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
                   </svg>
                   {f.university}
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-cyan-600 text-white"
-                      : "bg-cyan-500 text-white"
+                      ? "bg-slate-800 text-white"
+                      : "bg-gray-100 text-gray-900"
                   }`}
+                  style={{ boxShadow: neumorphicShadow }}
+                  whileTap={{
+                    scale: 0.95,
+                    boxShadow: neumorphicPressedShadow,
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +163,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     <path d="M6 12h.01M18 12h.01" />
                   </svg>
                   Salarii: {f.salary.min} - {f.salary.max} RON
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
@@ -218,7 +234,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
             disabled={currentPage === totalPages}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
-              darkMode ? "bg-slate-800 text-cyan-400" : "bg-gray-100 text-gray-800"
+              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
           >
