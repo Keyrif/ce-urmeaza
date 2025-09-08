@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Componenta principala pentru afisarea rezultatelor in grid
 function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const [currentPage, setCurrentPage] = useState(1);
   const resultsPerPage = 9;
@@ -9,7 +8,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const startIndex = (currentPage - 1) * resultsPerPage;
   const currentResults = results.slice(startIndex, startIndex + resultsPerPage);
 
-  // Definirea stilurilor pentru neumorphism, adaptate pentru modul intunecat si luminos
   const neumorphicShadow = darkMode
     ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
     : "8px 8px 16px #b6bdc9, -8px -8px 16px #ffffff";
@@ -18,17 +16,14 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
     ? "inset 6px 6px 12px #272c35, inset -6px -6px 12px #455061"
     : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
 
-  // Sincronizeaza pagina cu rezultatele noi sau cautarile noi
   useEffect(() => {
     setCurrentPage(1);
   }, [results, searched]);
 
-  // Se deplaseaza la inceputul paginii la schimbarea paginii
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
-  // Nu afiseaza nimic pana cand nu se face o cautare valida
   if (!searched || !results || results.length === 0) {
     return null;
   }
@@ -77,12 +72,17 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               </h2>
 
               <div className="flex flex-wrap gap-2 mt-4">
-                <div
+                <motion.div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-cyan-600 text-white"
-                      : "bg-cyan-500 text-white"
+                      ? "bg-slate-800 text-white"
+                      : "bg-gray-100 text-gray-900"
                   }`}
+                  style={{ boxShadow: neumorphicShadow }}
+                  whileTap={{
+                    scale: 0.95,
+                    boxShadow: neumorphicPressedShadow,
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,14 +100,19 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                   {f.location}
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-cyan-600 text-white"
-                      : "bg-cyan-500 text-white"
+                      ? "bg-slate-800 text-white"
+                      : "bg-gray-100 text-gray-900"
                   }`}
+                  style={{ boxShadow: neumorphicShadow }}
+                  whileTap={{
+                    scale: 0.95,
+                    boxShadow: neumorphicPressedShadow,
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -126,14 +131,19 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
                   </svg>
                   {f.university}
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-cyan-600 text-white"
-                      : "bg-cyan-500 text-white"
+                      ? "bg-slate-800 text-white"
+                      : "bg-gray-100 text-gray-900"
                   }`}
+                  style={{ boxShadow: neumorphicShadow }}
+                  whileTap={{
+                    scale: 0.95,
+                    boxShadow: neumorphicPressedShadow,
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +162,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     <path d="M6 12h.01M18 12h.01" />
                   </svg>
                   Salarii: {f.salary.min} - {f.salary.max} RON
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
@@ -162,10 +172,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
       {totalPages > 1 && (
         <div className="flex gap-2 mt-8 flex-wrap justify-center">
           <motion.button
-            onClick={(e) => {
-              e.stopPropagation();
-              setTimeout(() => setCurrentPage(Math.max(currentPage - 1, 1)), 150);
-            }}
+            onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
             disabled={currentPage === 1}
@@ -193,10 +200,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           {Array.from({ length: totalPages }, (_, i) => (
             <motion.button
               key={i + 1}
-              onClick={(e) => {
-                e.stopPropagation();
-                setTimeout(() => setCurrentPage(i + 1), 150);
-              }}
+              onClick={() => setCurrentPage(i + 1)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
               className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
@@ -215,10 +219,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           ))}
 
           <motion.button
-            onClick={(e) => {
-              e.stopPropagation();
-              setTimeout(() => setCurrentPage(Math.min(currentPage + 1, totalPages)), 150);
-            }}
+            onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
             disabled={currentPage === totalPages}
