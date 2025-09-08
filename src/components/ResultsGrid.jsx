@@ -51,7 +51,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
 
 function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const resultsPerPage = 4;
+  const resultsPerPage = 6;
 
   const totalPages = useMemo(() => Math.ceil(results.length / resultsPerPage), [results]);
   const currentResults = useMemo(() => {
