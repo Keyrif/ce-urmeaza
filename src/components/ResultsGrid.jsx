@@ -26,7 +26,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
-          {f.location}
+          📍 {f.location}
         </div>
         <div
           className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
@@ -34,7 +34,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
-          {f.university}
+          🎓 {f.university}
         </div>
         <div
           className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
@@ -42,7 +42,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
-          {f.salary.min} - {f.salary.max} RON
+          💰 {f.salary.min} - {f.salary.max} RON
         </div>
       </div>
     </motion.div>
@@ -51,7 +51,7 @@ const ResultCard = React.memo(function ResultCard({ f, darkMode, neumorphicShado
 
 function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const resultsPerPage = 6;
+  const resultsPerPage = 4;
 
   const totalPages = useMemo(() => Math.ceil(results.length / resultsPerPage), [results]);
   const currentResults = useMemo(() => {
@@ -109,10 +109,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
     <div className="flex flex-col items-center w-full">
       <motion.div
         key={currentPage}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -15 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
         className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl p-4 z-10"
       >
         {currentResults.map((f) => (
@@ -129,6 +129,28 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
 
       {totalPages > 1 && (
         <div className="flex gap-2 mt-8 flex-wrap justify-center">
+          <button
+            onClick={() => setCurrentPage(1)}
+            disabled={currentPage === 1}
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
+              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
+            } disabled:opacity-50 disabled:cursor-not-allowed`}
+            style={{ boxShadow: neumorphicShadow }}
+          >
+            «
+          </button>
+
+          <button
+            onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
+            disabled={currentPage === 1}
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
+              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
+            } disabled:opacity-50 disabled:cursor-not-allowed`}
+            style={{ boxShadow: neumorphicShadow }}
+          >
+            ‹
+          </button>
+
           {pagesToDisplay.map((pageNumber) => (
             <button
               key={pageNumber}
@@ -147,6 +169,28 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               {pageNumber}
             </button>
           ))}
+
+          <button
+            onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
+              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
+            } disabled:opacity-50 disabled:cursor-not-allowed`}
+            style={{ boxShadow: neumorphicShadow }}
+          >
+            ›
+          </button>
+
+          <button
+            onClick={() => setCurrentPage(totalPages)}
+            disabled={currentPage === totalPages}
+            className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-transform ${
+              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
+            } disabled:opacity-50 disabled:cursor-not-allowed`}
+            style={{ boxShadow: neumorphicShadow }}
+          >
+            »
+          </button>
         </div>
       )}
     </div>
