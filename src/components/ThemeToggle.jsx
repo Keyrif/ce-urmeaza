@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
 
@@ -9,6 +10,23 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
   const neumorphicPressedShadow = darkMode
     ? "inset 6px 6px 12px #18283a, inset -6px -6px 12px #263a54"
     : "inset 6px 6px 12px #b8c0c9, inset -6px -6px 12px #ffffff";
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        return;
+      }
+      if (event.key.toLowerCase() === 't') {
+        toggleDarkMode();
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [toggleDarkMode]);
 
   return (
     <motion.button
@@ -28,7 +46,8 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
         type: "linear"
       }}
     >
-      {darkMode ? (
+      {darkMode 
+      ? (
         <svg xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -49,7 +68,8 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
           <path d="m6.34 17.66-1.41 1.41"/>
           <path d="m19.07 4.93-1.41 1.41"/>
         </svg>
-      ) : (
+      ) 
+      : (
         <svg xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"

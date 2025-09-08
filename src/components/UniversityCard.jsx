@@ -1,6 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence } from 'framer-motion';
 import logo from '/src/assets/universitycardlogo.png';
+
 function InfoCard({ title, icon, children, darkMode }) {
   const neumorphicShadow = darkMode
     ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
@@ -13,14 +13,18 @@ function InfoCard({ title, icon, children, darkMode }) {
   return (
     <motion.div
       className={`p-6 rounded-2xl mt-4 w-full ${
-        darkMode ? "bg-slate-700 text-white" : "bg-[#eceff2] text-gray-900"
+        darkMode 
+        ? "bg-slate-700 text-white" 
+        : "bg-[#eceff2] text-gray-900"
       }`}
       style={{ boxShadow: neumorphicShadow }}
     >
       <div className="flex items-center mb-2">
         <motion.span
           className={`p-2 rounded-full mr-3 ${
-            darkMode ? "bg-slate-700" : "bg-[#eceff2]"
+            darkMode 
+            ? "bg-slate-700" 
+            : "bg-[#eceff2]"
           }`}
           style={{ boxShadow: neumorphicShadow }}
         >
@@ -62,7 +66,9 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
             exit={{ scale: 0.8 }}
             transition={{ duration: 0.3 }}
             className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
-              darkMode ? "bg-slate-700 text-white" : "bg-[#eceff2] text-gray-900"
+              darkMode
+              ? "bg-slate-700 text-white" 
+              : "bg-[#eceff2] text-gray-900"
             }`}
             style={{ boxShadow: neumorphicShadow }}
           >
@@ -86,7 +92,9 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
             <div className="flex flex-col items-center mb-6 text-center">
               <motion.span
                 className={`p-4 rounded-full mb-4 ${
-                  darkMode ? "bg-slate-700" : "bg-gray-100"
+                  darkMode 
+                  ? "bg-slate-700" 
+                  : "bg-gray-100"
                 }`}
                 style={{ boxShadow: neumorphicShadow }}
               >
@@ -100,20 +108,23 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                 title="În cadrul:"
                 darkMode={darkMode}
                 icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
+                  <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
                     stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-map-pin mr-1"
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    class="lucide lucide-school-icon lucide-school"
                   >
-                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-                    <circle cx="12" cy="10" r="3" />
+                    <path d="M14 21v-3a2 2 0 0 0-4 0v3"/>
+                    <path d="M18 5v16"/>
+                    <path d="m4 6 7.106-3.79a2 2 0 0 1 1.788 0L20 6"/>
+                    <path d="m6 11-3.52 2.147a1 1 0 0 0-.48.854V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a1 1 0 0 0-.48-.853L18 11"/>
+                    <path d="M6 5v16"/>
+                    <circle cx="12" cy="9" r="2"/>
                   </svg>
                 }
               >
@@ -195,7 +206,9 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                     <div
                       key={job.name}
                       className={`mt-2 p-3 rounded-lg ${
-                        darkMode ? "bg-slate-700" : "bg-[#eceff2]"
+                        darkMode 
+                        ? "bg-slate-700" 
+                        : "bg-[#eceff2]"
                       }`}
                       style={{ boxShadow: neumorphicPressedShadow }}
                     >

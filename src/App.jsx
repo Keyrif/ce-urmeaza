@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from 'react';
 import universities from '/src/data/universities';
-import TitleLogo from "/src/components/TitleLogo";
+import TitleLogo from '/src/components/TitleLogo';
 import ThemeToggle from '/src/components/ThemeToggle';
-import UniversityCard from "/src/components/UniversityCard";
-import ResultsGrid from "/src/components/ResultsGrid";
-import Quiz from "/src/components/Quiz";
+import UniversityCard from '/src/components/UniversityCard';
+import ResultsGrid from '/src/components/ResultsGrid';
+import Quiz from '/src/components/Quiz';
 import Footer from "/src/components/Footer";
 
 function App() {

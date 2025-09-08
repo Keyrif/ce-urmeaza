@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 function SearchBar({
   searchText,
@@ -161,7 +161,9 @@ function SearchBar({
             animate="visible"
             exit="exit"
             className={`mt-4 text-lg font-semibold text-center ${
-              darkMode ? "text-white" : "text-gray-900"
+              darkMode 
+              ? "text-white" 
+              : "text-gray-900"
             }`}
           >
             {characters.map((char, index) => (
@@ -182,7 +184,7 @@ function SearchBar({
             className="flex flex-col sm:flex-row gap-4 mt-12"
           >
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold transition-colors duration-300 focus:outline-none ${
+              className={`px-6 py-3 rounded-full font-semibold focus:outline-none ${
                 darkMode
                   ? "bg-slate-700 text-white border-transparent hover:border-transparent active:text-cyan-600"
                   : "bg-gray-100 text-gray-900 border-transparent hover:border-transparent active:text-cyan-600"
@@ -195,8 +197,10 @@ function SearchBar({
               AFIȘEAZĂ TOATE FACULTĂȚILE
             </motion.button>
             <motion.button
-              className={`px-6 py-3 rounded-full font-semibold transition-colors duration-300 focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
-                darkMode ? "bg-cyan-700 text-white active:text-gray-800" : "bg-cyan-600 text-white active:text-gray-300"
+              className={`px-6 py-3 rounded-full font-semibold focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
+                darkMode 
+                ? "bg-cyan-700 text-white active:text-gray-800" 
+                : "bg-cyan-600 text-white active:text-gray-300"
               }`}
               style={{ boxShadow: cyanNeumorphicOutsetShadow }}
               whileHover={{ scale: 1.03 }}

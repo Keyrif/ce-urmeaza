@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import universities from '/src/data/universities.js';
 import quizQuestions from '/src/data/quizQuestions.js';
 

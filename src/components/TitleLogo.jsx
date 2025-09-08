@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import SearchBar from "./SearchBar";
 
 function TitleLogo({
@@ -91,7 +91,9 @@ function TitleLogo({
             ? glow
             ? "drop-shadow-[0_0_20px_white]"
             : ""
-            : "text-black " + (glow ? "drop-shadow-[0_0_20px_black]" : "")
+            : "text-black " + (glow 
+              ? "drop-shadow-[0_0_20px_black]" 
+              : "")
         }`}
       >
         CE URMEAZĂ?
@@ -100,7 +102,9 @@ function TitleLogo({
       <motion.p
         layout
         className={`font-medium transition-all duration-300 ${
-          searched ? "opacity-0" : "text-sm sm:text-lg mt-2 opacity-70"
+          searched 
+          ? "opacity-0" 
+          : "text-sm sm:text-lg mt-2 opacity-70"
         }`}
       >
         {displayedSubtitle}

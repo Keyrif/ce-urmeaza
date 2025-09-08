@@ -5,7 +5,7 @@ const universities = [
     location: "București",
     university: "Academia de Studii Economice (ASE)",
     keywords: [
-      "contabilitate", "informatica de gestiune", "finante", "audit", "impozite", "cig", "ase", "excel"
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "contabilitate", "informatica de gestiune", "finante", "audit", "impozite", "cig", "ase", "excel"
     ],
     salary: { min: 3000, max: 9000 },
     details: {
@@ -24,7 +24,7 @@ const universities = [
     location: "București",
     university: "Academia de Studii Economice (ASE)",
     keywords: [
-      "marketing", "publicitate", "cercetare de marketing", "ase", "promovare", "brand", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "marketing", "publicitate", "cercetare de marketing", "ase", "promovare", "brand", 
       "comunicare", "comportamentul consumatorului", "publicitate"
     ],
     salary: { min: 3500, max: 8000 },
@@ -43,7 +43,7 @@ const universities = [
     location: "București",
     university: "Academia de Studii Economice (ASE)",
     keywords: [
-      "business", "turism", "hotel", "management", "ase", "bt", "servicii", "biznis", "bisnis"
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "business", "turism", "hotel", "management", "ase", "bt", "servicii", "biznis", "bisnis"
     ],
     salary: { min: 3000, max: 7000 },
     details: {
@@ -61,7 +61,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "electronica", "telecomunicatii", "tehnologia informatiei", "etti", "comunicatii", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "electronica", "telecomunicatii", "tehnologia informatiei", "etti", "comunicatii", 
       "circuite", "retele", "upb", "politehnica", "electrician"
     ],
     salary: { min: 4500, max: 11000 },
@@ -80,7 +80,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "fils", "limbi straine", "inginerie", "franceza", "engleza", "germana", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "fils", "limbi straine", "inginerie", "franceza", "engleza", "germana", 
       "politehnica", "upb"
     ],
     salary: { min: 4000, max: 10000 },
@@ -99,7 +99,7 @@ const universities = [
     location: "București",
     university: "Universitatea de Medicină și Farmacie Carol Davila (UMFCD)",
     keywords: [
-      "medicina", "doctor", "chirurgie", "sanatate", "medic", "clinica", "spital",
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "medicina", "doctor", "chirurgie", "sanatate", "medic", "clinica", "spital",
       "umfcd", "umf carol davila", "farmacie", "stomatologie", "kinetoterapie",
       "anatomie", "fiziologie", "farmacologie", "pediatrie", "urgenta",
       "medicin", "chrirugie", "sanate", "farmaci", "medc", "cilnica", "sptal", 
@@ -125,7 +125,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "politehnica", "upb", "automatica", "calculatoare", "inginerie", "robotica", "sisteme",
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "politehnica", "upb", "automatica", "calculatoare", "inginerie", "robotica", "sisteme",
       "programare", "hardware", "software", "circuite", "retele", "electronica",
       "automaticaa", "calculatoere", "politenica", "polihnica", "automatca", 
       "calculatoare", "inginere", "roboticaa", "sistem", "programaare", "hrdware", 
@@ -149,7 +149,7 @@ const universities = [
     location: "București",
     university: "Academia de Studii Economice (ASE)",
     keywords: [
-      "bucuresti", "ase", "csie", "it", "programare", "informatica", "software",
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "ase", "csie", "it", "programare", "informatica", "software",
       "cybernetics", "statistics", "economic informatics", "calculatoare",
       "programator", "analist", "inginer software", "consultant IT", "specialist AI",
       "programere", "informaticaa", "calculetoare", "pogramare", "informatică", "informatic", 
@@ -176,7 +176,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "drept", "ub", "avocat", "judecator", "notar", "consilier juridic", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "drept", "ub", "avocat", "judecator", "notar", "consilier juridic", 
       "politici publice", "stiinte juridice", "legislatie", "constitutie", 
       "drept international", "drept civil", "drept penal", "avocatura", 
       "juridic", "lege", "drept", "jurist", "judecatori", "notari", "avocati",
@@ -200,7 +200,7 @@ const universities = [
     location: "București",
     university: "Universitatea de Arhitectură și Urbanism Ion Mincu (UAUIM)",
     keywords: [
-      "arhitectura", "urbanism", "ion mincu", "uauim", "constructii", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "arhitectura", "urbanism", "ion mincu", "uauim", "constructii", 
       "design interior", "peisagistica", "proiectare", "inginerie civila", 
       "urbanist", "arhitect", "constructor", "inginer", "planificare", 
       "urbanism", "arhitecti", "urbanisti",
@@ -294,7 +294,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "fizica", "ub", "cercetare", "laborator", "fenomene", "fizician", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "fizica", "ub", "cercetare", "laborator", "fenomene", "fizician", 
       "profesor", "cercetator", "inginer nuclear", "fizica teoretica", 
       "fizica aplicata", "unibuc", "universitatea bucuresti", "fzik", "fizic", "cerceare", "laborator"
     ],
@@ -335,7 +335,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "sociologie", "asistenta sociala", "ub", "psihologie", "cercetare sociala", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "sociologie", "asistenta sociala", "ub", "psihologie", "cercetare sociala", 
       "comunitate", "ong", "asistent social", "sociolog", "consilier", 
       "analist de politici", "unibuc", "universitatea bucuresti", "socilog", "asistenta sociala", "sociologi"
     ],
@@ -419,7 +419,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "matematica", "informatică", "ub", "programator", "analist", "cercetator", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "matematica", "informatică", "ub", "programator", "analist", "cercetator", 
       "profesor", "date", "unibuc", "universitatea bucuresti", "algoritmi", "ciorna", "mat", "info", "matematic", 
       "informatic"
     ],
@@ -440,7 +440,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "inginerie", "aerospațială", "upb", "aeronautica", "avioane", "rachete", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "inginerie", "aerospațială", "upb", "aeronautica", "avioane", "rachete", 
       "spatiu", "drone", "aerodinamica", "inginer", "proiectant", "pilot", 
       "cercetator", "inginer", "aerospaial", "aeronautica", "aeronave", "avioane", "spatiu", 
       "dron", "aerodinamica", "inginer"
@@ -461,7 +461,7 @@ const universities = [
     location: "București",
     university: "Universitatea de Științe Agronomice și Medicină Veterinară (USAMV)",
     keywords: [
-      "medicina veterinara", "usamv", "doctor", "veterinar", "animale", "ferma", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "medicina veterinara", "usamv", "doctor", "veterinar", "animale", "ferma", 
       "sanatate", "boli", "animale de companie", "medicina", "veterinara", 
       "veterinar", "animale", "farmacie", "sanatate"
     ],
@@ -522,7 +522,7 @@ const universities = [
     location: "București",
     university: "Universitatea Națională de Muzică București (UNMB)",
     keywords: [
-      "muzica", "unmb", "artist", "instrumentist", "cantaret", "dirijor", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "muzica", "unmb", "artist", "instrumentist", "cantaret", "dirijor", 
       "compozitor", "muzicolog", "profesor de muzica", "educatie muzicala", 
       "interpretare muzicala", "muzica", "instrumentist", "cantaret", 
       "dirijor", "compozitor", "muzicolog", "profesor"
@@ -543,7 +543,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "jurnalism", "stiintele comunicarii", "ub", "comunicare", "media", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "jurnalism", "stiintele comunicarii", "ub", "comunicare", "media", 
       "redactor", "jurnalist", "reporter", "relatii publice", "publice", 
       "jurnalism", "jurnalism", "stiintele", "comunicarii", "comunicare", 
       "media", "redactor", "unibuc", "universitatea bucuresti", "jurnalist", "reporter", "relatii publice"
@@ -648,7 +648,7 @@ const universities = [
     location: "București",
     university: "Universitatea Națională de Artă Teatrală și Cinematografică (UNATC)",
     keywords: [
-      "teatru", "film", "unatc", "actor", "regizor", "scenarist", "dramaturg", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "teatru", "film", "unatc", "actor", "regizor", "scenarist", "dramaturg", 
       "producator", "muzica", "regie", "scenografie", "actorie", "filologie",
       "theatru", "filmm", "actor", "reggizor", "scenarist", "dramaturg", 
       "producator", "muzic"
@@ -814,7 +814,7 @@ const universities = [
     location: "București",
     university: "Universitatea de Științe Agronomice și Medicină Veterinară (USAMV)",
     keywords: [
-      "horticultura", "usamv", "agronomie", "peisagistica", "gradini", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "horticultura", "usamv", "agronomie", "peisagistica", "gradini", 
       "plante", "agronom", "inginer horticol", "peisagist", "ferma", 
       "gradinarit", "agricultura",
       "horticultura", "agronom", "peisagistic", "gradini", "plant"
@@ -835,7 +835,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "inginerie", "sisteme", "biotehnice", "upb", "biotehnologie", "biologie", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "inginerie", "sisteme", "biotehnice", "upb", "biotehnologie", "biologie", 
       "inginerie genetica", "bioinginerie", "medicina", "cercetare", 
       "bioinginer", "cercetator", "specialist in biotehnologie",
       "biotehnic", "biotehnolog", "biologie", "inginerie"
@@ -856,7 +856,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "geologie", "geofizica", "ub", "petrol", "gaze", "minerale", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "geologie", "geofizica", "ub", "petrol", "gaze", "minerale", 
       "resurse naturale", "cercetare", "geolog", "geofizician", 
       "analist", "cercetator", "inginer", "geologie", "geofizica", 
       "geolog", "geofizician", "unibuc", "universitatea bucuresti", "cercetator"
@@ -918,7 +918,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "inginerie", "limbi straine", "upb", "tehnologie", "multilingv", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "inginerie", "limbi straine", "upb", "tehnologie", "multilingv", 
       "software", "inginer", "traducator tehnic", "traducator", "soft"
     ],
     salary: { min: 4000, max: 20000 },
@@ -937,7 +937,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "psihologie", "stiinte ale educatiei", "ub", "psiholog", "pedagog", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "psihologie", "stiinte ale educatiei", "ub", "psiholog", "pedagog", 
       "consilier", "terapie", "resurse umane", "psihiatrie", "profesor", 
       "educatie", "psihologic", "psiologie", "terapist", "psihologi", "educaie",
       "pishologie", "shihologie", "psiologie", "unibuc", "universitatea bucuresti", "educat", "stiinte", "educatiei"
@@ -1042,7 +1042,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "inginerie energetica", "upb", "energie", "electrica", "termica", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "inginerie energetica", "upb", "energie", "electrica", "termica", 
       "energie regenerabila", "petrol", "gaze", "inginer", "consultant",
       "inginerie", "energetic", "energie", "electrica", "termica", "regenerabila"
     ],
@@ -1204,7 +1204,7 @@ const universities = [
     location: "București",
     university: "Școala Națională de Studii Politice și Administrative (SNSPA)",
     keywords: [
-      "administratia publica", "snspa", "politica", "guvern", "management", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "administratia publica", "snspa", "politica", "guvern", "management", 
       "functii publice", "consultant", "politici", "administrare", "administratie",
       "publica", "guvern", "management", "functii", "publice"
     ],
@@ -1307,7 +1307,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "inginerie chimica", "upb", "chimist", "inginer", "cercetator", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "inginerie chimica", "upb", "chimist", "inginer", "cercetator", 
       "industria chimica", "petrol", "farmacie", "alimentara", "inginerie", 
       "chimica", "chimist", "inginer", "cercetator", "industria", "chimica"
     ],
@@ -1686,7 +1686,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "litere", "limbi straine", "ub", "profesor", "traducator", "interpret", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "litere", "limbi straine", "ub", "profesor", "traducator", "interpret", 
       "jurnalist", "redactor", "limba engleza", "limba franceza", "litere", 
       "limbi", "straine", "profesor", "traducator", "unibuc", "universitatea bucuresti", "interpret", "jurnalist"
     ],
@@ -1767,7 +1767,7 @@ const universities = [
     location: "București",
     university: "Universitatea Politehnica din București (UPB)",
     keywords: [
-      "inginerie economica", "logistica", "upb", "inginer", "economist", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "inginerie economica", "logistica", "upb", "inginer", "economist", 
       "logistician", "management", "proiect", "supply chain", "inginer", 
       "economic", "logistica", "management", "proiect", "supply"
     ],
@@ -1889,7 +1889,7 @@ const universities = [
     location: "București",
     university: "Școala Națională de Studii Politice și Administrative (SNSPA)",
     keywords: [
-      "stiinte politice", "administrative", "snspa", "politica", "guvern", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "stiinte politice", "administrative", "snspa", "politica", "guvern", 
       "management", "functii publice", "consultant", "politici", 
       "stiinte", "politice", "administrative", "politica", "guvern", 
       "management"
@@ -2171,7 +2171,7 @@ const universities = [
     location: "București",
     university: "Academia Tehnică Militară Ferdinand I",
     keywords: [
-      "tehnologia informatiei", "militara", "ferdinand I", "inginer", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "tehnologia informatiei", "militara", "ferdinand I", "inginer", 
       "programator", "cibernetica", "calculatoare", "securitate", 
       "it", "informatician", "tehnologia", "informatiei", "militara", 
       "inginer", "programator", "cibernetica"
@@ -2576,7 +2576,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "stiinte ale mediului", "ub", "ecolog", "biolog", "cercetator", 
+      "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "stiinte ale mediului", "ub", "ecolog", "biolog", "cercetator", 
       "poluare", "reciclare", "resurse", "protecția mediului", 
       "stiinte", "mediului", "ecolog", "biolog", "unibuc", "universitatea bucuresti", "cercetator", "poluare"
     ],
@@ -3340,7 +3340,7 @@ const universities = [
     location: "București",
     university: "Universitatea din București (UB)",
     keywords: [
-      "stiintele educatiei", "bucuresti", "ub", "pedagog", "profesor", 
+      "stiintele educatiei", "bucuresti", "bucuesti", "bucuresit", "bucuesi", "bucutesti",  "ub", "pedagog", "profesor", 
       "invatator", "educatie", "psihologie", "invatamant primar", 
       "prescolar", "unibuc", "universitatea bucuresti", "stiinte", "educatiei", "pedagog", "profesor", "invatator"
     ],
