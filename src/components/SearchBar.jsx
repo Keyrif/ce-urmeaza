@@ -114,6 +114,7 @@ function SearchBar({
 
   return (
     <>
+
       <motion.input
         layout
         ref={inputRef}
@@ -125,7 +126,7 @@ function SearchBar({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder="Caută..."
-        className={`rounded-full border-none focus:outline-none focus:ring-4 focus:ring-cyan-500/50 text-center mt-6 transition-all duration-300 ${
+        className={`rounded-full border-none focus:outline-none focus:ring-4 focus:ring-cyan-500/50 text-center mt-6 duration-300 hover:border-transparent active:border-transparent ${
           darkMode
             ? "bg-slate-700 text-white placeholder-slate-400"
             : "bg-gray-100 text-black placeholder-gray-500"

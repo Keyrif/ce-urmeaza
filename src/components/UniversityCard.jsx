@@ -23,7 +23,6 @@ function InfoCard({ title, icon, children, darkMode }) {
             darkMode ? "bg-slate-700" : "bg-gray-100"
           }`}
           style={{ boxShadow: neumorphicShadow }}
-          whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
         >
           {icon}
         </motion.span>
@@ -74,7 +73,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
               }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.8, boxShadow: neumorphicPressedShadow }}
-              className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none ${
+              className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
                 darkMode
                   ? "bg-slate-700 text-white"
                   : "bg-gray-100 text-gray-900"
@@ -90,7 +89,6 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                   darkMode ? "bg-slate-700" : "bg-gray-100"
                 }`}
                 style={{ boxShadow: neumorphicShadow }}
-                whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-graduation-cap text-cyan-500">
                   <path d="M22 10v6M22 16H2M22 16h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2M12 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8h-3ZM7 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H7ZM2 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H2Z"/>
