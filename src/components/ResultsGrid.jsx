@@ -12,7 +12,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
     ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
     : "8px 8px 16px #b6bdc9, -8px -8px 16px #ffffff";
 
-
   const neumorphicPressedShadow = darkMode
     ? "inset 6px 6px 12px #272c35, inset -6px -6px 12px #455061"
     : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
@@ -144,7 +143,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           <motion.button
             onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+            whileTap={{ scale: 0.95 }}
             disabled={currentPage === 1}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
               darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
@@ -172,7 +171,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               key={i + 1}
               onClick={() => setCurrentPage(i + 1)}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+              whileTap={{ scale: 0.95 }}
               className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-500 ${
                 currentPage === i + 1
                   ? darkMode
@@ -191,7 +190,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           <motion.button
             onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+            whileTap={{ scale: 0.95 }}
             disabled={currentPage === totalPages}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
               darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
