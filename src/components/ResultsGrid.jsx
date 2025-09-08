@@ -113,7 +113,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -15 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
-        className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl p-4 z-10"
+        className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl px-10 z-10" 
       >
         {currentResults.map((f) => (
           <ResultCard
