@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const resultsPerPage = 12; 
+  const resultsPerPage = 12;
   
   const totalPages = Math.ceil(results.length / resultsPerPage);
   
@@ -12,13 +12,9 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
     return results.slice(startIndex, startIndex + resultsPerPage);
   }, [results, currentPage, resultsPerPage]);
 
-  const neumorphicShadow = darkMode
-    ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
-    : "8px 8px 16px #b6bdc9, -8px -8px 16px #ffffff";
-
-  const neumorphicPressedShadow = darkMode
-    ? "inset 6px 6px 12px #272c35, inset -6px -6px 12px #455061"
-    : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
+  const shadow = darkMode
+    ? "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)"
+    : "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -71,10 +67,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             className={`p-6 rounded-3xl cursor-pointer transition-colors duration-300 ${
               darkMode ? "bg-slate-700" : "bg-gray-100"
             }`}
-            style={{ boxShadow: neumorphicShadow }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
-            transition={{ duration: 0.2 }}
+            style={{ boxShadow: shadow }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.1 }}
           >
             <h2 className={`font-bold text-xl relative z-10 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
               {f.name}
@@ -87,7 +83,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     ? "bg-slate-700 text-cyan-400"
                     : "bg-gray-100 text-cyan-600"
                 }`}
-                style={{ boxShadow: neumorphicShadow }}
+                style={{ boxShadow: shadow }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +109,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     ? "bg-slate-700 text-cyan-400"
                     : "bg-gray-100 text-cyan-600"
                 }`}
-                style={{ boxShadow: neumorphicShadow }}
+                style={{ boxShadow: shadow }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +136,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     ? "bg-slate-700 text-cyan-400"
                     : "bg-gray-100 text-cyan-600"
                 }`}
-                style={{ boxShadow: neumorphicShadow }}
+                style={{ boxShadow: shadow }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -170,12 +166,12 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           <motion.button
             onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+            whileTap={{ scale: 0.95, boxShadow: "none" }}
             disabled={currentPage === 1}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
               darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
-            style={{ boxShadow: neumorphicShadow }}
+            style={{ boxShadow: shadow }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +205,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                   key={pageNumber}
                   onClick={() => setCurrentPage(pageNumber)}
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+                  whileTap={{ scale: 0.95, boxShadow: "none" }}
                   className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-500 ${
                     currentPage === pageNumber
                       ? "bg-cyan-500 text-white"
@@ -217,7 +213,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                       ? "bg-slate-700 text-white"
                       : "bg-gray-100 text-gray-800"
                   }`}
-                  style={{ boxShadow: currentPage === pageNumber ? 'none' : neumorphicShadow }}
+                  style={{ boxShadow: currentPage === pageNumber ? 'none' : shadow }}
                 >
                   {pageNumber}
                 </motion.button>
@@ -227,12 +223,12 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           <motion.button
             onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
+            whileTap={{ scale: 0.95, boxShadow: "none" }}
             disabled={currentPage === totalPages}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
               darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
-            style={{ boxShadow: neumorphicShadow }}
+            style={{ boxShadow: shadow }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
