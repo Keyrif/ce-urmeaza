@@ -3,27 +3,22 @@ import { motion } from 'framer-motion';
 const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
 
   const neumorphicShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
-    : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
+    ? "6px 6px 12px #18283a, -6px -6px 16px #46556aff"
+    : "6px 6px 12px #b8c0c9, -6px -6px 12px #ffffff";
 
   const neumorphicPressedShadow = darkMode
-    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #202b3f"
-    : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
+    ? "inset 6px 6px 12px #18283a, inset -6px -6px 12px #263a54"
+    : "inset 6px 6px 12px #b8c0c9, inset -6px -6px 12px #ffffff";
 
   return (
     <motion.button
       className={`fixed top-4 right-4 p-2 rounded-full focus:outline-none ${
         darkMode 
-        ? 'bg-slate-700 text-white border-transparent hover:border-transparent'
-        : 'bg-gray-200 text-gray-900 border-transparent hover:border-transparent'} z-50`}
+        ? 'bg-slate-700 text-white'
+        : 'bg-gray-200 text-gray-900'} z-50`}
       onClick={toggleDarkMode}
       style={{ boxShadow: neumorphicShadow }}
-      whileHover={{ 
-        scale: 1.1,
-        boxShadow: neumorphicShadow
-       }}
       whileTap={{ 
-        scale: 0.8,
         boxShadow: neumorphicPressedShadow
       }}
       transition={{

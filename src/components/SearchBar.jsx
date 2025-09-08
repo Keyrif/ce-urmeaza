@@ -17,11 +17,11 @@ function SearchBar({
   const [isFocused, setIsFocused] = useState(false);
 
   const neumorphicOutsetShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
+    ? "6px 6px 12px #2a3547, -6px -6px 12px #3c4d63"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
   const neumorphicInsetShadow = darkMode
-    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #3c4a6b, 0 0 5px 1px #06b5d4f7"
+    ? "inset 6px 6px 12px #2a3547, inset -6px -6px 12px #3c4d63"
     : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
 
   let textToShow;
@@ -127,7 +127,7 @@ function SearchBar({
         placeholder="Caută..."
         className={`rounded-full border-none focus:outline-none focus:ring-4 focus:ring-cyan-500/50 text-center mt-6 transition-all duration-300 ${
           darkMode
-            ? "bg-slate-900 text-white placeholder-slate-400"
+            ? "bg-slate-700 text-white placeholder-slate-400"
             : "bg-gray-100 text-black placeholder-gray-500"
         } ${
           searched
@@ -171,7 +171,7 @@ function SearchBar({
             <motion.button
               className={`px-6 py-3 rounded-full font-semibold transition-colors duration-300 focus:outline-none ${
                 darkMode 
-                ? "bg-slate-900 text-white border-transparent hover:border-transparent" 
+                ? "bg-slate-700 text-white border-transparent hover:border-transparent" 
                 : "bg-gray-100 text-gray-900 border-transparent hover:border-transparent"
               }`}
               style={{ boxShadow: neumorphicOutsetShadow }}

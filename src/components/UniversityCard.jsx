@@ -3,40 +3,46 @@ import { useState } from "react";
 
 function InfoCard({ title, icon, children, darkMode }) {
   const neumorphicShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
+    ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
+  const neumorphicPressedShadow = darkMode
+    ? "inset 6px 6px 12px #272c35, inset -6px -6px 12px #455061"
+    : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
+
   return (
-    <div
-      className={`p-6 rounded-2xl shadow-lg mt-4 w-full ${
-        darkMode ? "bg-slate-900 text-white" : "bg-gray-100 text-gray-900"
+    <motion.div
+      className={`p-6 rounded-2xl mt-4 w-full ${
+        darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
       }`}
       style={{ boxShadow: neumorphicShadow }}
     >
       <div className="flex items-center mb-2">
-        <span
+        <motion.span
           className={`p-2 rounded-full mr-3 ${
-            darkMode ? "bg-slate-800" : "bg-gray-200"
+            darkMode ? "bg-slate-700" : "bg-gray-100"
           }`}
           style={{ boxShadow: neumorphicShadow }}
+          whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
         >
           {icon}
-        </span>
+        </motion.span>
         <h4 className="font-semibold text-lg">{title}</h4>
       </div>
       {children}
-    </div>
+    </motion.div>
   );
 }
 
 function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode }) {
   if (!selectedUniversity) return null;
+  
   const neumorphicShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
+    ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
   const neumorphicPressedShadow = darkMode
-    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #202b3f"
+    ? "inset 6px 6px 12px #272c35, inset -6px -6px 12px #455061"
     : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
 
   return (
@@ -57,7 +63,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
             exit={{ scale: 0.8 }}
             transition={{ duration: 0.3 }}
             className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
-              darkMode ? "bg-slate-900 text-white" : "bg-gray-100 text-gray-900"
+              darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
             }`}
             style={{ boxShadow: neumorphicShadow }}
           >
@@ -70,8 +76,8 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
               whileTap={{ scale: 0.8, boxShadow: neumorphicPressedShadow }}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none ${
                 darkMode
-                  ? "bg-slate-800 text-white hover:bg-slate-700 border-transpareant hover:border-transparent"
-                  : "bg-gray-200 text-gray-900 hover:bg-gray-300 border-transpareant hover:border-transparent"
+                  ? "bg-slate-700 text-white"
+                  : "bg-gray-100 text-gray-900"
               }`}
               style={{ boxShadow: neumorphicShadow }}
             >
@@ -79,19 +85,19 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
             </motion.button>
 
             <div className="flex flex-col items-center mb-6 text-center">
-              <span
+              <motion.span
                 className={`p-4 rounded-full mb-4 ${
-                  darkMode ? "bg-slate-800" : "bg-gray-200"
+                  darkMode ? "bg-slate-700" : "bg-gray-100"
                 }`}
                 style={{ boxShadow: neumorphicShadow }}
+                whileTap={{ scale: 0.95, boxShadow: neumorphicPressedShadow }}
               >
-                {/* svg replacement */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-graduation-cap text-cyan-500">
                   <path d="M22 10v6M22 16H2M22 16h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2M12 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8h-3ZM7 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H7ZM2 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H2Z"/>
                   <path d="M12 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8h-3ZM7 11V3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v8H7Z"/>
                   <path d="M22 10a1 1 0 0 0-1-1h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a1 1 0 0 0 1-1v-2Z"/>
                 </svg>
-              </span>
+              </motion.span>
               <h2 className="text-3xl font-bold">{selectedUniversity.name}</h2>
             </div>
 
@@ -194,9 +200,10 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                   {selectedUniversity.details.jobs.map((job) => (
                     <div
                       key={job.name}
-                      className={`mt-2 p-3 rounded-lg shadow-inner ${
-                        darkMode ? "bg-slate-700" : "bg-gray-200"
+                      className={`mt-2 p-3 rounded-lg ${
+                        darkMode ? "bg-slate-700" : "bg-gray-100"
                       }`}
+                      style={{ boxShadow: neumorphicPressedShadow }}
                     >
                       <p>
                         <b>{job.name}</b>

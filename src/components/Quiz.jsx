@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import universities from '/src/data/universities';
-import quizQuestions from '/src/data/quizQuestions';
-
+import universities from '../data/universities.js';
+import quizQuestions from '../data/quizQuestions.js';
+//newu
 function Quiz ({
   showQuiz,
   onClose,
@@ -15,12 +15,13 @@ function Quiz ({
   const [quizResult, setQuizResult] = useState(null);
   const [salaryRange, setSalaryRange] = useState(5000);
   
+  // Adjusted neumorphic shadows for a softer, more authentic look in dark mode
   const neumorphicShadow = darkMode
-    ? "6px 6px 12px #0f172a, -6px -6px 12px #202b3f, 0 0 10px 1px #06b6d4"
+    ? "6px 6px 12px #2a3547, -6px -6px 12px #3c4d63"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
   const neumorphicPressedShadow = darkMode
-    ? "inset 6px 6px 12px #0f172a, inset -6px -6px 12px #202b3f"
+    ? "inset 6px 6px 12px #2a3547, inset -6px -6px 12px #3c4d63"
     : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
 
   useEffect(() => {
@@ -102,8 +103,8 @@ function Quiz ({
             transition={{ duration: 0.3 }}
             className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
               darkMode 
-              ? "bg-slate-900 text-white" 
-              : "bg-white text-gray-900"
+              ? "bg-slate-700 text-white" 
+              : "bg-gray-100 text-gray-900"
             }`}
             style={{ boxShadow: neumorphicShadow }}
           >
@@ -113,11 +114,11 @@ function Quiz ({
                 setTimeout(() => onClose(), 100); 
               }}
               whileHover={{scale: 1.1 }}
-              whileTap={{ scale:0.8 }}
+              whileTap={{ scale:0.8, boxShadow: neumorphicPressedShadow }}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none ${
                 darkMode
-                ? "bg-slate-700 text-white border-transparent hover:border-transparent"
-                : "bg-gray-200 text-gray-900 border-transparent hover:border-transparent"
+                ? "bg-slate-700 text-white"
+                : "bg-gray-100 text-gray-900"
               }`}
               style={{ boxShadow: neumorphicShadow }}
             >
@@ -166,12 +167,23 @@ function Quiz ({
                           e.stopPropagation();
                           setTimeout(() => quizAnswer(option.scores), 100)
                         }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`px-6 py-4 rounded-xl shadow-md font-medium text-lg duration-300 text-center focus:outline-none ${
+                        whileHover={{
+                          boxShadow: darkMode
+                            ? "0 0 10px 1px rgba(6, 182, 212, 0.7)"
+                            : "0 0 10px 1px rgba(34, 211, 238, 0.7)"
+                        }}
+                        whileTap={{ 
+                          scale: 0.95,
+                          boxShadow: darkMode
+                            ? "inset 0 0 10px 1px rgba(6, 182, 212, 0.5)"
+                            : "inset 0 0 10px 1px rgba(34, 211, 238, 0.5)"
+                        }}
+                        className={`px-6 py-4 rounded-xl font-medium text-lg duration-300 text-center focus:outline-none hover:-translate-y-1 ${
                           darkMode
-                          ? "bg-slate-800 border-transparent hover:border-2 active:border-4 hover:border-cyan-700 active:border-cyan-700 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-700/50 text-white"
-                          : "bg-gray-100 border-transparent hover:border-2 active:border-4 hover:border-cyan-400 active:border-cyan-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-400/30 text-gray-900"
+                          ? "bg-slate-700 text-white"
+                          : "bg-gray-100 text-gray-900"
                         }`}
+                        style={{ boxShadow: neumorphicShadow }}
                       >
                         {option.text}
                       </motion.button>
