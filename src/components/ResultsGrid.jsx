@@ -44,7 +44,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               key={f.name}
               onClick={(e) => {
                 e.stopPropagation();
-                setTimeout(() => setSelectedUniversity(f), 150);
+                setSelectedUniversity(f);
               }}
               className={`p-6 rounded-3xl cursor-pointer overflow-hidden transition-colors ${
                 darkMode
@@ -54,13 +54,9 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               style={{ boxShadow: neumorphicShadow }}
               whileHover={{
                 scale: 1.05,
-                boxShadow: darkMode
-                  ? "10px 10px 20px #272c35, -10px -10px 20px #455061"
-                  : "12px 12px 24px #b6bdc9, -12px -12px 24px #ffffff",
               }}
               whileTap={{
                 scale: 0.95,
-                boxShadow: neumorphicPressedShadow,
               }}
               transition={{
                 duration: 0.2,
@@ -81,7 +77,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                   style={{ boxShadow: neumorphicShadow }}
                   whileTap={{
                     scale: 0.95,
-                    boxShadow: neumorphicPressedShadow,
                   }}
                 >
                   <svg
@@ -111,7 +106,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                   style={{ boxShadow: neumorphicShadow }}
                   whileTap={{
                     scale: 0.95,
-                    boxShadow: neumorphicPressedShadow,
                   }}
                 >
                   <svg
@@ -142,7 +136,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                   style={{ boxShadow: neumorphicShadow }}
                   whileTap={{
                     scale: 0.95,
-                    boxShadow: neumorphicPressedShadow,
                   }}
                 >
                   <svg
@@ -174,7 +167,9 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           <motion.button
             onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
+            whileTap={{
+              scale: 0.9,
+            }}
             disabled={currentPage === 1}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
               darkMode ? "bg-slate-800 text-cyan-400" : "bg-gray-100 text-gray-800"
@@ -202,7 +197,9 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
               key={i + 1}
               onClick={() => setCurrentPage(i + 1)}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
+              whileTap={{
+                scale: 0.9,
+              }}
               className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
                 currentPage === i + 1
                   ? darkMode
@@ -221,7 +218,9 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           <motion.button
             onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
+            whileTap={{
+              scale: 0.9,
+            }}
             disabled={currentPage === totalPages}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
               darkMode ? "bg-slate-800 text-cyan-400" : "bg-gray-100 text-gray-800"
