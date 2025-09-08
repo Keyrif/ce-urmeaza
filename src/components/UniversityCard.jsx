@@ -51,7 +51,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 px-4 py-10" 
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 p-4"
           onClick={(e) =>
             e.target === e.currentTarget && setSelectedUniversity(null)
           }
@@ -61,7 +61,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
             animate={{ scale: 1 }}
             exit={{ scale: 0.8 }}
             transition={{ duration: 0.3 }}
-            className={`p-4 rounded-3xl max-w-3xl w-full relative shadow-2xl overflow-y-auto max-h-[90vh] ${
+            className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
               darkMode ? "bg-slate-700 text-white" : "bg-gray-100 text-gray-900"
             }`}
             style={{ boxShadow: neumorphicShadow }}
