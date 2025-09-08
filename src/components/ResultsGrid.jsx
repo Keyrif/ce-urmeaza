@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const resultsPerPage = 5;
+  const resultsPerPage = 4;
   const totalPages = Math.ceil(results.length / resultsPerPage);
   const startIndex = (currentPage - 1) * resultsPerPage;
   const currentResults = results.slice(startIndex, startIndex + resultsPerPage);
@@ -72,7 +72,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 <motion.div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-slate-800 text-white"
+                      ? "bg-slate-700 text-white"
                       : "bg-gray-100 text-gray-900"
                   }`}
                   style={{ boxShadow: neumorphicShadow }}
@@ -101,7 +101,37 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                 <motion.div
                   className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
                     darkMode
-                      ? "bg-slate-800 text-white"
+                      ? "bg-slate-700 text-white"
+                      : "bg-gray-100 text-gray-900"
+                  }`}
+                  style={{ boxShadow: neumorphicShadow }}
+                  whileTap={{
+                    scale: 0.95,
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-4 h-4 mr-1"
+                  >
+                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                    <path d="M22 10v6" />
+                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                  </svg>
+                  {f.university}
+                </motion.div>
+
+                <motion.div
+                  className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
+                    darkMode
+                      ? "bg-slate-700 text-white"
                       : "bg-gray-100 text-gray-900"
                   }`}
                   style={{ boxShadow: neumorphicShadow }}
@@ -143,7 +173,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             }}
             disabled={currentPage === 1}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
-              darkMode ? "bg-slate-800 text-cyan-400" : "bg-gray-100 text-gray-800"
+              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
           >
@@ -177,7 +207,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                     ? "bg-cyan-600 text-white"
                     : "bg-cyan-500 text-white"
                   : darkMode
-                  ? "bg-slate-800 text-white"
+                  ? "bg-slate-700 text-white"
                   : "bg-gray-100 text-gray-800"
               } `}
               style={{ boxShadow: currentPage === i + 1 ? 'none' : neumorphicShadow }}
@@ -194,7 +224,7 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
             }}
             disabled={currentPage === totalPages}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl transition-colors duration-300 ${
-              darkMode ? "bg-slate-800 text-cyan-400" : "bg-gray-100 text-gray-800"
+              darkMode ? "bg-slate-700 text-cyan-400" : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
           >
