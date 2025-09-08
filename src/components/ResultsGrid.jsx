@@ -106,14 +106,14 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
   }
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-full px-4 ">
       <motion.div
         key={currentPage}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -15 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
-        className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl px-10 z-10" 
+        className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl px-6 z-10" 
       >
         {currentResults.map((f) => (
           <ResultCard
