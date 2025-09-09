@@ -85,51 +85,56 @@ function Quiz ({
   const currentQuestion = quizQuestions[currentQuestionIndex];
 
   return (
-
     <AnimatePresence>
       {showQuiz && (
         <motion.div
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40"
+          onClick={(e) => e.target === e.currentTarget && onClose()}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40"
-          onClick={(e) => e.target === e.currentTarget && onClose()}
         >
           <motion.div
-            initial={{ opacity: 0.8 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0.8 }}
-            transition={{ duration: 0.3 }}
             className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
               darkMode 
               ? "bg-slate-700 text-white" 
               : "bg-[#eceff2] text-gray-900"
             }`}
             style={{ boxShadow: neumorphicShadow }}
+            initial={{ opacity: 0.8 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0.8 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.button
-              onClick={(e) => {
-                e.stopPropagation(); 
-                setTimeout(() => onClose(), 100); 
-              }}
-              whileHover={{scale: 1.1 }}
-              whileTap={{ scale:0.8, boxShadow: neumorphicPressedShadow }}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
                 darkMode
                 ? "bg-slate-700 text-white active:text-cyan-600"
                 : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
               }`}
               style={{ boxShadow: neumorphicShadow }}
+              onClick={(e) => {
+                e.stopPropagation(); 
+                setTimeout(() => onClose(), 100); 
+              }}
+              whileHover={{scale: 1.1 }}
+              whileTap={{ scale:0.8, boxShadow: neumorphicPressedShadow }}
             >
               ✕
             </motion.button>
-
-            {quizResult ? (
+            
+            {quizResult 
+            ? (
               <>
                 <h2 className="text-3xl font-bold mb-4">Recomandare</h2>
                 <p className="text-xl font-semibold mb-4">{quizResult.name}</p>
                 <p>{quizResult.details.study}</p>
                 <motion.button
+                  className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg duration-300 focus:outline-none ${
+                    darkMode
+                    ? "bg-cyan-700 hover:bg-cyan-600 text-white border-transparent hover:border-white"
+                    : "bg-cyan-500 hover:bg-cyan-400 text-white border-transparent hover:border-black"
+                  }`}
                   onClick={() => {
                     setSelectedUniversity(quizResult);
                     onClose();
@@ -142,16 +147,12 @@ function Quiz ({
                     scale:0.9,
                     boxShadow: "0 0 10px 1px rgba(34, 211, 238, 0.7)"
                   }}
-                  className={`mt-6 px-6 py-3 rounded-full font-semibold shadow-lg duration-300 focus:outline-none ${
-                    darkMode
-                    ? "bg-cyan-700 hover:bg-cyan-600 text-white border-transparent hover:border-white"
-                    : "bg-cyan-500 hover:bg-cyan-400 text-white border-transparent hover:border-black"
-                  }`}
                 >
                   Vezi detalii
                 </motion.button>
               </>
-            ) : (
+            ) 
+            : (
               <>
                 <h3 className="text-xl font-semibold mb-6 text-center">
                   {currentQuestion.questionText}
@@ -162,6 +163,12 @@ function Quiz ({
                     {currentQuestion.options.map((option, index) => (
                       <motion.button
                         key={`${currentQuestionIndex}-${index}`} 
+                        className={`px-6 py-4 rounded-xl font-medium text-lg duration-300 text-center focus:outline-none hover:-translate-y-1 border-transparent hover:border-transparent active:border-transparent ${
+                          darkMode
+                          ? "bg-slate-700 text-white active:text-cyan-600"
+                          : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
+                        }`}
+                        style={{ boxShadow: neumorphicShadow }}
                         onClick={(e) => {
                           e.stopPropagation();
                           setTimeout(() => quizAnswer(option.scores), 100)
@@ -173,12 +180,6 @@ function Quiz ({
                           scale: 0.95,
                           boxShadow: neumorphicPressedShadow 
                         }}
-                        className={`px-6 py-4 rounded-xl font-medium text-lg duration-300 text-center focus:outline-none hover:-translate-y-1 border-transparent hover:border-transparent active:border-transparent ${
-                          darkMode
-                          ? "bg-slate-700 text-white active:text-cyan-600"
-                          : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
-                        }`}
-                        style={{ boxShadow: neumorphicShadow }}
                       >
                         {option.text}
                       </motion.button>
@@ -192,12 +193,12 @@ function Quiz ({
                       max={currentQuestion.max}
                       step={currentQuestion.step}
                       value={salaryRange}
-                      onChange={(e) => setSalaryRange(Number(e.target.value))}
                       className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-cyan-400 dark:bg-cyan-600"
                       style={{
                         "--tw-shadow":
                           "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
                       }}
+                      onChange={(e) => setSalaryRange(Number(e.target.value))}
                     />
                     <div className="flex justify-between w-full text-sm mt-2">
                       <span>2500 RON</span>
@@ -211,6 +212,11 @@ function Quiz ({
                       <span>10000 RON</span>
                     </div>
                     <motion.button
+                      className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 duration-300 focus:outline-none ${
+                        darkMode
+                        ? "bg-cyan-700 hover:bg-cyan-600 text-white border-transparent hover:border-white"
+                        : "bg-cyan-500 hover:bg-cyan-400 text-white border-transparent hover:border-black"
+                      }`}
                       onClick={calculateResult}
                       whileHover={{ 
                         scale: 1.05,
@@ -220,11 +226,6 @@ function Quiz ({
                         scale:0.9,
                         boxShadow: "0 0 10px 1px rgba(34, 211, 238, 0.7)"
                       }}
-                      className={`px-6 py-3 rounded-full font-semibold shadow-lg mt-4 duration-300 focus:outline-none ${
-                        darkMode
-                        ? "bg-cyan-700 hover:bg-cyan-600 text-white border-transparent hover:border-white"
-                        : "bg-cyan-500 hover:bg-cyan-400 text-white border-transparent hover:border-black"
-                      }`}
                     >
                       Vezi rezultatul
                     </motion.button>

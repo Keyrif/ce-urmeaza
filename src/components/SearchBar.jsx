@@ -126,14 +126,6 @@ function SearchBar({
         layout
         ref={inputRef}
         type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && Search()}
-        onClick={SearchBarReset}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.9, boxShadow: neumorphicInsetShadow }}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
         placeholder="Caută..."
         className={`rounded-full border-none focus:outline-none focus:ring-4 focus:ring-cyan-500/50 text-center mt-6 hover:border-transparent active:border-transparent ${
           darkMode
@@ -147,24 +139,33 @@ function SearchBar({
         style={{
           boxShadow: isFocused ? neumorphicInsetShadow : neumorphicOutsetShadow,
         }}
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && Search()}
+        onClick={SearchBarReset}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.9, boxShadow: neumorphicInsetShadow }}
         transition={{
           duration: 0.2,
           ease: "linear",
         }}
       />
+      
       <AnimatePresence>
         {searched && (
           <motion.div
             key={numResults}
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
             className={`mt-4 text-lg font-semibold text-center ${
               darkMode 
               ? "text-white" 
               : "text-gray-900"
             }`}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
           >
             {characters.map((char, index) => (
               <motion.span key={index} variants={characterVariants}>
@@ -174,14 +175,15 @@ function SearchBar({
           </motion.div>
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {!searched && !showQuiz && (
           <motion.div
+            className="flex flex-col sm:flex-row gap-4 mt-12"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 mt-12"
           >
             <motion.button
               className={`px-6 py-3 rounded-full font-semibold focus:outline-none ${
@@ -190,12 +192,13 @@ function SearchBar({
                   : "bg-gray-100 text-gray-900 border-transparent hover:border-transparent active:text-cyan-600"
               }`}
               style={{ boxShadow: neumorphicOutsetShadow }}
+              onClick={showAllFaculties}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95, boxShadow: neumorphicInsetShadow }}
-              onClick={showAllFaculties}
             >
               AFIȘEAZĂ TOATE FACULTĂȚILE
             </motion.button>
+
             <motion.button
               className={`px-6 py-3 rounded-full font-semibold focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
                 darkMode 
@@ -203,9 +206,9 @@ function SearchBar({
                 : "bg-cyan-600 text-white active:text-gray-300"
               }`}
               style={{ boxShadow: cyanNeumorphicOutsetShadow }}
+              onClick={startQuiz}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95, boxShadow: cyanNeumorphicInsetShadow }}
-              onClick={startQuiz}
             >
               DESCOPERĂ FACULTATEA PERFECTĂ
             </motion.button>

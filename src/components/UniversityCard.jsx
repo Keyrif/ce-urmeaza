@@ -6,10 +6,6 @@ function InfoCard({ title, icon, children, darkMode }) {
     ? "6px 6px 12px #272c35, -6px -6px 12px #455061"
     : "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff";
 
-  const neumorphicPressedShadow = darkMode
-    ? "inset 6px 6px 12px #272c35, inset -6px -6px 12px #455061"
-    : "inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff";
-
   return (
     <motion.div
       className={`p-6 rounded-2xl mt-4 w-full ${
@@ -52,39 +48,39 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
     <AnimatePresence>
       {selectedUniversity && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
           className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 p-4"
           onClick={(e) =>
             e.target === e.currentTarget && setSelectedUniversity(null)
           }
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
         >
           <motion.div
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.8 }}
-            transition={{ duration: 0.3 }}
             className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
               darkMode
               ? "bg-slate-700 text-white" 
               : "bg-[#eceff2] text-gray-900"
             }`}
             style={{ boxShadow: neumorphicShadow }}
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.8 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.button
-              onClick={(e) => {
-                e.stopPropagation();
-                setTimeout(() => setSelectedUniversity(null), 150);
-              }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.8, boxShadow: neumorphicPressedShadow }}
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
                 darkMode
                   ? "bg-slate-700 text-white active:text-cyan-600"
                   : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
               }`}
               style={{ boxShadow: neumorphicShadow }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setTimeout(() => setSelectedUniversity(null), 150);
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.8, boxShadow: neumorphicPressedShadow }}
             >
               ✕
             </motion.button>

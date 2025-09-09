@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import SearchBar from "./SearchBar";
+import SearchBar from './SearchBar';
 
 function TitleLogo({
   searched,
@@ -26,9 +26,8 @@ function TitleLogo({
   
   useEffect(() => {
     if (!searched && !showQuiz) {
-      const text1 = "INFORMAȚII DESPRE FACULTĂȚI ȘI JOBURI";
-      const text2 = "GĂSEȘTE-ȚI FACULTATEA PERFECTĂ";
-      let textToType = text1;
+      const text = "INFORMAȚII DESPRE FACULTĂȚI ȘI JOBURI";
+      let textToType = text;
       let isTyping = true;
       let i = 0;
       let interval;
@@ -39,28 +38,8 @@ function TitleLogo({
           if (isTyping) {
             setDisplayedSubtitle(textToType.slice(0, i));
             i++;
-            if (i > textToType.length) {
-              clearInterval(interval);
-              timeout = setTimeout(erase, 3000);
-            }
           }
         }, 50);
-      };
-      
-      const erase = () => {
-        isTyping = false;
-        let j = textToType.length;
-        interval = setInterval(() => {
-          setDisplayedSubtitle(textToType.slice(0, j));
-          j--;
-          if (j < 0) {
-            clearInterval(interval);
-            textToType = textToType === text1 ? text2 : text1;
-            i = 0;
-            isTyping = true;
-            timeout = setTimeout(type, 50);
-          }
-        }, 25);
       };
 
       type();

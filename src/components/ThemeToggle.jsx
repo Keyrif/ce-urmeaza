@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
 
@@ -34,8 +34,8 @@ const ThemeToggle = ({ darkMode, toggleDarkMode }) => {
         darkMode 
         ? 'bg-slate-700 text-white active:text-cyan-600'
         : 'bg-[#eceff2] text-gray-900 active:text-cyan-600'} z-50`}
-      onClick={toggleDarkMode}
       style={{ boxShadow: neumorphicShadow }}
+      onClick={toggleDarkMode}
       whileHover={{ scale: 1.1 }}
       whileTap={{ 
         scale: 0.8,

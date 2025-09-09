@@ -7,21 +7,22 @@ const ResultCard = React.memo(
     return (
       <motion.div
         key={f.name}
-        onClick={(e) => {
-          e.stopPropagation();
-          setTimeout(() => setSelectedUniversity(f), 100);
-        }}
         className={`p-6 rounded-3xl cursor-pointer overflow-hidden focus:outline-none ${
           darkMode 
           ? "bg-slate-700 text-white" 
           : "bg-[#eceff2] text-gray-900"
         }`}
         style={{ boxShadow: neumorphicShadow, willChange: "transform" }}
+        onClick={(e) => {
+          e.stopPropagation();
+          setTimeout(() => setSelectedUniversity(f), 100);
+        }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.97, boxShadow: neumorphicPressedShadow }}
         transition={{ duration: 0.15, ease: "easeOut" }}
       >
         <h2 className="font-bold text-xl relative z-10">{f.name}</h2>
+
         <div className="flex flex-wrap gap-2 mt-4">
           <div
             className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
@@ -48,6 +49,7 @@ const ResultCard = React.memo(
             </svg>
             {f.location}
           </div>
+
           <div
             className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
               darkMode 
@@ -76,6 +78,7 @@ const ResultCard = React.memo(
             </svg>
             {f.university}
           </div>
+
           <div
             className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
               darkMode 
@@ -168,11 +171,11 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
     <div className="flex flex-col items-center w-full px-4 ">
       <motion.div
         key={currentPage}
+        className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl px-6 z-10" 
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -15 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
-        className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl px-6 z-10" 
       >
         {currentResults.map((f) => (
           <ResultCard
@@ -189,23 +192,23 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
       {totalPages > 1 && (
         <div className="flex gap-2 mt-8 flex-wrap justify-center">
           <motion.button
-            onClick={(e) => {
-              e.stopPropagation();
-              setTimeout(() => setCurrentPage(1), 150);
-            }}
-            disabled={currentPage === 1}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
               darkMode 
               ? "bg-slate-700 text-white" 
               : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setTimeout(() => setCurrentPage(1), 150);
+            }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
             transition={{
               duration: 0.2,
               ease: "linear"
             }}
+            disabled={currentPage === 1}
           >
             «
           </motion.button>
@@ -213,10 +216,6 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           {pagesToDisplay.map((pageNumber) => (
             <motion.button
               key={pageNumber}
-              onClick={(e) => {
-                e.stopPropagation();
-                setTimeout(() => setCurrentPage(pageNumber), 150);
-              }}
               className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
                 currentPage === pageNumber
                   ? darkMode
@@ -227,6 +226,10 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
                   : "bg-gray-100 text-gray-800"
               }`}
               style={{ boxShadow: currentPage === pageNumber ? neumorphicPressedShadow : neumorphicShadow, willChange: "transform" }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setTimeout(() => setCurrentPage(pageNumber), 150);
+              }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
               transition={{
@@ -239,23 +242,23 @@ function ResultsGrid({ results, setSelectedUniversity, darkMode, searched }) {
           ))}
 
           <motion.button
-            onClick={(e) => {
-              e.stopPropagation();
-              setTimeout(() => setCurrentPage(totalPages), 150);
-            }}
-            disabled={currentPage === totalPages}
             className={`w-12 h-12 flex items-center justify-center rounded-3xl focus:outline-none hover:border-transparent active:border-transparent ${
               darkMode 
               ? "bg-slate-700 text-white" 
               : "bg-gray-100 text-gray-800"
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             style={{ boxShadow: neumorphicShadow }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setTimeout(() => setCurrentPage(totalPages), 150);
+            }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9, boxShadow: neumorphicPressedShadow }}
             transition={{
               duration: 0.2,
               ease: "linear"
             }}
+            disabled={currentPage === totalPages}
           >
             »
           </motion.button>
