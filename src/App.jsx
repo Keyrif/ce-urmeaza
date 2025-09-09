@@ -73,14 +73,18 @@ function App() {
   return (
     <div
       className={`min-h-screen w-screen flex flex-col transition-all duration-300 select-none ${
-        darkMode ? "bg-[#334155] text-white" : "bg-[#eceff2] text-gray-900"
+        darkMode 
+        ? "bg-[#334155] text-white" 
+        : "bg-[#eceff2] text-gray-900"
       }`}
     >
 
       <ThemeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       <div className={`flex-grow flex flex-col items-center transition-all duration-300 ${
-        !searched ? 'justify-center' : 'pt-16'}`}>
+        !searched 
+        ? 'justify-center' 
+        : 'pt-16'}`}>
 
         <TitleLogo
           searched={searched}
