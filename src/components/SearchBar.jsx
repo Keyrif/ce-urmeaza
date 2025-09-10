@@ -14,7 +14,9 @@ function SearchBar({
   darkMode,
 }) {
   const [numResults, setNumResults] = useState(0);
-  const [isFocused, setIsFocused] = useState(false);
+  const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
+  const [isButtonShowAllFocused, setIsButtonShowAllFocused] = useState(false);
+  const [isButtonQuizFocused, setIsButtonQuizFocused] = useState(false);
 
   const neumorphicOutsetShadow = darkMode
     ? "6px 6px 12px #2a3547, -6px -6px 12px #3c4d63"
@@ -137,14 +139,14 @@ function SearchBar({
             : "w-[40vw] sm:w-[30vw] md:w-[25vw] py-3 sm:py-4 text-lg"
         }`}
         style={{
-          boxShadow: isFocused ? neumorphicInsetShadow : neumorphicOutsetShadow,
+          boxShadow: isSearchBarFocused ? neumorphicInsetShadow : neumorphicOutsetShadow,
         }}
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && Search()}
         onClick={SearchBarReset}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onFocus={() => setIsSearchBarFocused(true)}
+        onBlur={() => setIsSearchBarFocused(false)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.9, boxShadow: neumorphicInsetShadow }}
         transition={{
@@ -191,8 +193,12 @@ function SearchBar({
                   ? "bg-slate-700 text-white border-transparent hover:border-transparent active:text-cyan-600"
                   : "bg-gray-100 text-gray-900 border-transparent hover:border-transparent active:text-cyan-600"
               }`}
-              style={{ boxShadow: neumorphicOutsetShadow }}
+              style={{
+                boxShadow: isButtonShowAllFocused ? neumorphicInsetShadow : neumorphicOutsetShadow,
+              }}
               onClick={showAllFaculties}
+              onFocus={() => setIsButtonShowAllFocused(true)}
+              onBlur={() => setIsButtonShowAllFocused(false)}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95, boxShadow: neumorphicInsetShadow }}
             >
@@ -206,7 +212,12 @@ function SearchBar({
                 : "bg-cyan-600 text-white active:text-gray-300"
               }`}
               style={{ boxShadow: cyanNeumorphicOutsetShadow }}
+              style={{
+                boxShadow: isButtonQuizFocused ? cyanNeumorphicInsetShadow : cyanNeumorphicOutsetShadow,
+              }}
               onClick={startQuiz}
+              onFocus={() => setIsButtonQuizFocused(true)}
+              onBlur={() => setIsButtonQuizFocused(false)}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95, boxShadow: cyanNeumorphicInsetShadow }}
             >
