@@ -122,6 +122,11 @@ function SearchBar({
     setNumResults(universities.length);
   };
 
+  const handleStartQuiz = () => {
+    setIsButtonQuizFocused(false);
+    startQuiz();
+  }
+
   return (
     <>
       <motion.input
@@ -214,7 +219,7 @@ function SearchBar({
               style={{
                 boxShadow: isButtonQuizFocused ? cyanNeumorphicInsetShadow : cyanNeumorphicOutsetShadow,
               }}
-              onClick={startQuiz}
+              onClick={handleStartQuiz}
               onFocus={() => setIsButtonQuizFocused(true)}
               onBlur={() => setIsButtonQuizFocused(false)}
               whileHover={{ scale: 1.03 }}
