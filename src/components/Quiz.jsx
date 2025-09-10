@@ -95,7 +95,7 @@ function Quiz ({
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className={`p-8 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
+            className={`p-8 pt-16 rounded-3xl max-w-3xl w-full mx-4 relative shadow-2xl overflow-y-auto max-h-[90vh] ${
               darkMode 
               ? "bg-slate-700 text-white" 
               : "bg-[#eceff2] text-gray-900"
