@@ -211,7 +211,6 @@ function SearchBar({
                 ? "bg-cyan-700 text-white active:text-gray-800" 
                 : "bg-cyan-600 text-white active:text-gray-300"
               }`}
-              style={{ boxShadow: cyanNeumorphicOutsetShadow }}
               style={{
                 boxShadow: isButtonQuizFocused ? cyanNeumorphicInsetShadow : cyanNeumorphicOutsetShadow,
               }}
