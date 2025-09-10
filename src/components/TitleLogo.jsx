@@ -60,7 +60,6 @@ function TitleLogo({
     >
       <motion.h1
         layout
-        onClick={logoClick}
         className={`cursor-pointer font-extrabold transition-all duration-300 text-center whitespace-nowrap ${
           searched 
           ? "text-3xl sm:text-4xl" 
@@ -74,6 +73,7 @@ function TitleLogo({
               ? "drop-shadow-[0_0_20px_black]" 
               : "")
         }`}
+        onClick={logoClick}
       >
         CE URMEAZĂ?
       </motion.h1>

@@ -48,7 +48,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
     <AnimatePresence>
       {selectedUniversity && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 p-4"
+          className="fixed inset-0 flex items-start justify-center z-50 bg-black/40 pt-16 pb-16 overflow-y-auto"
           onClick={(e) =>
             e.target === e.currentTarget && setSelectedUniversity(null)
           }
@@ -71,8 +71,8 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
             <motion.button
               className={`absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-colors text-xl focus:outline-none border-transparent hover:border-transparent active:border-transparent ${
                 darkMode
-                  ? "bg-slate-700 text-white active:text-cyan-600"
-                  : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
+                ? "bg-slate-700 text-white active:text-cyan-600"
+                : "bg-[#eceff2] text-gray-900 active:text-cyan-600"
               }`}
               style={{ boxShadow: neumorphicShadow }}
               onClick={(e) => {
@@ -110,10 +110,10 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor"
-                    stroke-width="2" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    class="lucide lucide-school-icon lucide-school"
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    className="lucide lucide-school-icon lucide-school"
                   >
                     <path d="M14 21v-3a2 2 0 0 0-4 0v3"/>
                     <path d="M18 5v16"/>
