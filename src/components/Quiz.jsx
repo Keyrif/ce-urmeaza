@@ -88,7 +88,7 @@ function Quiz ({
     <AnimatePresence>
       {showQuiz && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40"
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 px-3 pt-12 overflow-y-auto"
           onClick={(e) => e.target === e.currentTarget && onClose()}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
