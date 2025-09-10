@@ -48,7 +48,7 @@ function UniversityCard({ selectedUniversity, setSelectedUniversity, darkMode })
     <AnimatePresence>
       {selectedUniversity && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 p-4 pb-6 pt-6 overflow-y-auto"
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 p-4 pt-12 overflow-y-auto"
           onClick={(e) =>
             e.target === e.currentTarget && setSelectedUniversity(null)
           }
