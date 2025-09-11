@@ -75,7 +75,7 @@ function TitleLogo({
         }`}
         onClick={logoClick}
       >
-        CE URMEAZĂ?
+        CE URMEAZĂ
       </motion.h1>
 
       <motion.p
