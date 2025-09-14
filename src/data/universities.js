@@ -156,7 +156,7 @@ const universities = [
       "softwar", "cybernatic", "statistica", "statistic", "economik", "e-conomic", 
       "calcutor", "computere", "analist", "softare", "consultan", 
       "spcialist", "baze de date", "algoritmi", 
-      "matematica", "economie", "cibernetica"
+      "matematica", "economie", "cibernetica", "info eco", "cibe"
     ],
     salary: { min: 3000, max: 15000 },
     details: {
