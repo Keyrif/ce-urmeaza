@@ -165,9 +165,11 @@ const universities = [
       jobs: [
         { name: "Programator junior", salary: "3000 - 5000 RON" },
         { name: "Programator C++/Java/Python/.NET", salary: "6500 - 15000 RON" },
-        { name: "Analist date", salary: "4000 - 7000 RON" },
-        { name: "Analist baze date", salary: "5000 - 10000 RON" },
-        { name: "Inginer software", salary: "5000 - 16000 RON" }
+        { name: "Programator Javascript", salary: "5000 - 19000 RON" },
+        { name: "Inginer Software", salary: "6000 - 16000 RON" },
+        { name: "Backend Developer", salary: "6000 - 18000 RON" },
+        { name: "Frontend Developer", salary: "5000 - 13000 RON" },
+        { name: "Analist Date", salary: "4000 - 12000 RON" }
       ]
     }
   },
