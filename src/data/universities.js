@@ -113,6 +113,7 @@ const universities = [
       jobs: [
         { name: "Medic rezident", salary: "3000 - 4000 RON" },
         { name: "Medic specialist", salary: "7000 - 15000 RON" },
+        { name: "Dentist", salary: "3500 - 25000 RON" },
         { name: "Chirurg", salary: "12000 - 25000 RON" },
         { name: "Medic de familie", salary: "5000 - 8000 RON" },
         { name: "Medic de urgență", salary: "8000 - 12000 RON" },
@@ -169,7 +170,8 @@ const universities = [
         { name: "Inginer Software", salary: "6000 - 16000 RON" },
         { name: "Backend Developer", salary: "6000 - 18000 RON" },
         { name: "Frontend Developer", salary: "5000 - 13000 RON" },
-        { name: "Analist Date", salary: "4000 - 12000 RON" }
+        { name: "Analist Date", salary: "4000 - 12000 RON" },
+        { name: "Profesor", salary: "3000 - 7000 RON" }
       ]
     }
   },
@@ -193,7 +195,7 @@ const universities = [
         { name: "Consilier juridic", salary: "3500 - 8000 RON" },
         { name: "Avocat stagiar", salary: "4000 - 7000 RON" },
         { name: "Notar", salary: "9000 - 20000 RON" },
-        { name: "Procuror/Judecător", salary: "12000 - 35000 RON" }
+        { name: "Procuror/Judecător", salary: "7000 - 25000 RON" }
       ]
     }
   },
@@ -430,9 +432,13 @@ const universities = [
       duration: 3,
       study: "Analiză matematică, algebră, geometrie, programare avansată, baze de date, inteligență artificială.",
       jobs: [
-        { name: "Programator", salary: "4000 - 15000 RON" },
-        { name: "Analist de date", salary: "5000 - 12000 RON" },
-        { name: "Cercetător în matematică", salary: "4500 - 18000 RON" },
+        { name: "Programator junior", salary: "3000 - 5000 RON" },
+        { name: "Programator C++/Java/Python/.NET", salary: "6500 - 15000 RON" },
+        { name: "Programator Javascript", salary: "5000 - 19000 RON" },
+        { name: "Inginer Software", salary: "6000 - 16000 RON" },
+        { name: "Backend Developer", salary: "6000 - 18000 RON" },
+        { name: "Frontend Developer", salary: "5000 - 13000 RON" },
+        { name: "Analist Date", salary: "4000 - 12000 RON" },
         { name: "Profesor", salary: "3000 - 7000 RON" }
       ]
     }
