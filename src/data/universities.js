@@ -161,7 +161,7 @@ const universities = [
     salary: { min: 3000, max: 15000 },
     details: {
       duration: 3,
-      study: "Algoritmi, baze de date, programare, inteligență artificială, statistică, economie aplicată.",
+      study: "baze de date, programare, statistică, analiză, economie aplicată, dezvoltarea și introducerea software-ului aplicat",
       jobs: [
         { name: "Programator junior", salary: "3000 - 5000 RON" },
         { name: "Programator C++/Java/Python/.NET", salary: "6500 - 15000 RON" },
