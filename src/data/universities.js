@@ -158,13 +158,13 @@ const universities = [
       "spcialist", "baze de date", "algoritmi", 
       "matematica", "economie", "cibernetica"
     ],
-    salary: { min: 3000, max: 16000 },
+    salary: { min: 3000, max: 15000 },
     details: {
       duration: 3,
       study: "Algoritmi, baze de date, programare, inteligență artificială, statistică, economie aplicată.",
       jobs: [
         { name: "Programator junior", salary: "3000 - 5000 RON" },
-        { name: "Programator", salary: "5000 - 14000 RON" },
+        { name: "Programator C++/Java/Python/.NET", salary: "6500 - 15000 RON" },
         { name: "Analist date", salary: "4000 - 7000 RON" },
         { name: "Analist baze date", salary: "5000 - 10000 RON" },
         { name: "Inginer software", salary: "5000 - 16000 RON" }
