@@ -4,7 +4,7 @@ const quizQuestions = [
         type: "multiple-choice",
         options: [
             {
-                text: "Cod de programare, algoritmi și baze de date.",
+                text: "Programare, matematică și baze de date.",
                 scores: {
                     "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 1.5,
                     "Facultatea de Matematică și Informatică": 2,
@@ -18,7 +18,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Date financiare, grafice economice și studii de piață.",
+                text: "Excel, date financiare, grafice economice și studii de piață.",
                 scores: {
                     "Facultatea de Contabilitate și Informatică de Gestiune": 2,
                     "Facultatea de Marketing": 2,
@@ -54,7 +54,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Mașinării, motoare și unelte de precizie.",
+                text: "Mașinării, motoare și muncă fizică.",
                 scores: {
                     "Facultatea de Inginerie Mecanică": 2,
                     "Facultatea de Inginerie Aerospațială": 2,
@@ -66,7 +66,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Analize psihologice, interviuri și studii de comportament uman.",
+                text: "Analize psihologice, interviuri și cunoașterea comportamentului uman.",
                 scores: {
                     "Facultatea de Sociologie și Asistență Socială": 2,
                     "Facultatea de Științe Politice": 1.5,
@@ -88,7 +88,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Texte literare, documente istorice și jurnale.",
+                text: "Texte literare, documente istorice și citit cărți.",
                 scores: {
                     "Facultatea de Litere": 2,
                     "Facultatea de Istorie și Filosofie": 2,
@@ -106,7 +106,7 @@ const quizQuestions = [
         type: "multiple-choice",
         options: [
             {
-                text: "Într-un birou modern / corporatie.",
+                text: "Într-un birou modern / corporație.",
                 scores: {
                     "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 2,
                     "Facultatea de Matematică și Informatică": 2,
@@ -343,6 +343,7 @@ const quizQuestions = [
                 text: "Într-un grup de programatori / Într-o corporatie",
                 scores: {
                     "Facultatea de Cibernetică, Statistică și Informatică Economică (CSIE)": 2,
+                    "Facultatea de Contabilitate și Informatică de Gestiune": 2,
                     "Facultatea de Matematică și Informatică": 2,
                     "Facultatea de Automatică și Calculatoare": 2
                 }
@@ -366,7 +367,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Într-o echipă care construiește un produs fizic complex.",
+                text: "Într-o echipă care construiește un produs fizic.",
                 scores: {
                     "Facultatea de Inginerie Mecanică": 2,
                     "Facultatea de Inginerie Civilă și de Instalații": 2,
@@ -375,7 +376,7 @@ const quizQuestions = [
                 }
             },
             {
-                text: "Într-o firmă de avocatură, consultanță sau audit / corporatie",
+                text: "Într-o firmă de avocatură, consultanță sau audit / birou",
                 scores: {
                     "Facultatea de Drept": 2,
                     "Facultatea de Contabilitate și Informatică de Gestiune": 2
