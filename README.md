@@ -14,4 +14,4 @@
 - Găsește facultatea perfectă după munca si salariul dorit
 - Vizualizează câți bani poți câștigă în viitor după absolvire
 
-[LINK](ceurmeaza.keyrif.me)
+[LINK](https://ceurmeaza.keyrif.me)
