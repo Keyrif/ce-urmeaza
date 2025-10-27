@@ -13,3 +13,5 @@
 - Descoperă facultatea compatibilă răspunzând la un set de întrebări
 - Găsește facultatea perfectă după munca si salariul dorit
 - Vizualizează câți bani poți câștigă în viitor după absolvire
+
+[LINK](ceurmeaza.keyrif.me)
